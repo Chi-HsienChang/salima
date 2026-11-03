@@ -94,6 +94,17 @@
     .news .tag { flex: none; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 3px; letter-spacing: .04em; margin-top: 2px; }
     .news p { margin: 0; }
 
+    /* Featured */
+    .featured { display: flex; align-items: center; gap: 18px; margin-top: 40px; padding: 18px 22px; border: 2px solid var(--orange); border-radius: 10px; text-decoration: none; color: var(--ink); background: var(--card); transition: transform .12s ease, box-shadow .12s ease; }
+    .featured:hover { color: var(--ink); transform: translateY(-2px); box-shadow: 0 6px 0 var(--orange); }
+    .featured img { width: 64px; height: 64px; border-radius: 14px; flex: none; }
+    .featured .ft { flex: 1; min-width: 0; }
+    .featured .k { font-size: 12px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: .05em; }
+    .featured h3 { margin: 2px 0 2px; font-size: 19px; letter-spacing: -0.01em; }
+    .featured p { margin: 0; color: var(--muted); font-size: 15px; }
+    .featured .go { flex: none; font-weight: 700; background: var(--orange); color: #fff; padding: 9px 16px; border-radius: 6px; }
+    .featured + .news { margin-top: 14px; }
+
     /* Stats */
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .stat { padding: 28px 20px; border-right: 1px solid var(--line); }
@@ -189,6 +200,10 @@
       .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
       .cards, .talks, .ocards { grid-template-columns: 1fr; }
       .rstats { grid-template-columns: repeat(2, 1fr); }
+      .featured { flex-wrap: wrap; padding: 16px; gap: 14px; }
+      .featured img { width: 52px; height: 52px; }
+      .featured .ft { flex-basis: calc(100% - 70px); }
+      .featured .go { width: 100%; text-align: center; }
       .ocard { display: grid; grid-template-columns: 96px 1fr; align-items: center; }
       .ocard img { width: 96px; height: 96px; }
       .ocard .in { padding: 12px 14px; }
@@ -226,13 +241,22 @@
         <p class="lead">I build <b>model-based genetic algorithms</b> with real theory behind them, <b>interpretable models for pre-mRNA splicing</b>, and <b>memory-safe systems in Rust</b>.</p>
         <div class="cta">
           <a class="btn primary" href="#publications">Publications →</a>
-          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeyrNIn_ectYlVm-XFNVvO1BreSIRBe3EY8D4o7VuDfvuJNdw/viewform" target="_blank" rel="noopener">Get in touch</a>
         </div>
       </div>
       <div class="pic">
         <img class="avatar" src="images/salima.jpg" alt="Chi-Hsien (Salima) Chang">
       </div>
     </div>
+
+    <a class="featured" href="https://101academyforyou.github.io/YourWowAI/" target="_blank" rel="noopener">
+      <img src="images/yourwowai.png" alt="YourWowAI logo" width="64" height="64">
+      <div class="ft">
+        <div class="k">Featured project</div>
+        <h3>YourWowAI — share the tools you build with AI</h3>
+        <p>Post a screenshot or YouTube demo, link your GitHub repo, and get honest Cool / Not Cool feedback.</p>
+      </div>
+      <span class="go">Open →</span>
+    </a>
 
     <div class="news">
       <span class="tag">NEW · 2026</span>
