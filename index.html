@@ -1,91 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chi-Hsien (Salima) Chang</title>
+  <meta name="description" content="Chi-Hsien (Salima) Chang — PhD candidate at NTU working on model-based genetic algorithms, interpretable genomics, and secure systems in Rust. Reviewer for IEEE Transactions on Evolutionary Computation.">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #ff6600;
+      --orange-soft: #fff1e6;
+      --ink: #111111;
+      --muted: #5c5c5c;
+      --line: #e6e4dc;
+      --bg: #ffffff;
+      --bg-alt: #f6f6ef;
+      --card: #ffffff;
+      --max: 960px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --orange-soft: #2a1a0e;
+        --ink: #f2f2f2;
+        --muted: #a8a8a8;
+        --line: #2b2b2b;
+        --bg: #111111;
+        --bg-alt: #181818;
+        --card: #1c1c1c;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+    a:hover { color: var(--orange); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
-    <title>Chi-Hsien (Salima) Chang</title>
+    /* Nav */
+    nav.top {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .brand .logo {
+      width: 28px; height: 28px; background: var(--orange); color: #fff;
+      display: grid; place-items: center; font-weight: 800; font-size: 16px; border-radius: 2px;
+    }
+    .links { display: flex; gap: 22px; overflow-x: auto; scrollbar-width: none; }
+    .links::-webkit-scrollbar { display: none; }
+    .links a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 15px; white-space: nowrap; }
+    .links a:hover { color: var(--orange); }
 
-    <!-- Bootstrap -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    /* Hero */
+    .hero { padding: 72px 0 56px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 220px; gap: 48px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+    .eyebrow::before { content: ""; width: 8px; height: 8px; background: var(--orange); border-radius: 50%; }
+    h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 20px; font-weight: 800; }
+    h1 span { color: var(--orange); }
+    .lead { font-size: 20px; color: var(--muted); max-width: 620px; margin: 0 0 28px; }
+    .lead b { color: var(--ink); font-weight: 600; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px;
+      font-weight: 600; font-size: 15px; text-decoration: none; border-radius: 6px;
+      border: 1.5px solid var(--ink); color: var(--ink); background: transparent;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .btn:hover { transform: translateY(-1px); color: var(--ink); background: var(--bg-alt); }
+    .btn.primary { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .btn.primary:hover { background: #e65c00; color: #fff; }
+    .avatar { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid var(--orange); }
 
-    <link rel="stylesheet" href="assets/css/main.css" />
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="https://www.youtube.com/@Chi-HsienChang/featured">Chi-Hsien (Salima) Chang</a>
+    /* Announcement */
+    .news {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: var(--orange-soft); border-left: 4px solid var(--orange);
+      padding: 16px 20px; margin-top: 40px; border-radius: 4px;
+    }
+    .news .tag { flex: none; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 3px; letter-spacing: .04em; margin-top: 2px; }
+    .news p { margin: 0; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stat { padding: 28px 20px; border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: none; }
+    .stat .num { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; }
+    .stat .num em { font-style: normal; color: var(--orange); }
+    .stat .label { color: var(--muted); font-size: 14px; }
+
+    /* Sections */
+    section { padding: 64px 0; }
+    section.alt { background: var(--bg-alt); }
+    .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+    h2 { font-size: 28px; letter-spacing: -0.02em; margin: 0; font-weight: 800; }
+    h2::before { content: "/ "; color: var(--orange); }
+    .sec-head .aside { color: var(--muted); font-size: 14px; }
+    p.body { font-size: 17px; margin: 0 0 16px; max-width: 760px; }
+
+    /* Lists */
+    .list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+    .list li { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .list .year { font-weight: 700; color: var(--orange); font-variant-numeric: tabular-nums; }
+    .list .title { font-weight: 600; }
+    .list .meta { color: var(--muted); font-size: 15px; }
+    .list .meta b { color: var(--ink); }
+    .venue { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .03em; border: 1px solid var(--line); padding: 1px 7px; border-radius: 3px; margin-right: 6px; color: var(--ink); background: var(--card); }
+    .venue.hot { background: var(--orange); border-color: var(--orange); color: #fff; }
+
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 22px; }
+    .card .k { font-size: 13px; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: .05em; }
+    .card h3 { margin: 6px 0 8px; font-size: 18px; letter-spacing: -0.01em; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .card.feature { border: 2px solid var(--orange); }
+
+    /* Talks */
+    .talks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .talk { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .talk img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+    .talk .in { padding: 18px 20px; }
+    .talk h3 { font-size: 17px; margin: 0 0 4px; }
+    .talk .where { font-size: 13px; color: var(--orange); font-weight: 600; margin-bottom: 8px; }
+    .talk p { margin: 0; font-size: 15px; color: var(--muted); }
+
+    footer { padding: 48px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+    footer .soc { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    @media (max-width: 760px) {
+      .hero { padding: 40px 0 32px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .hero-grid .pic { order: -1; }
+      .avatar { width: 128px; height: 128px; }
+      .lead { font-size: 18px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .cards, .talks { grid-template-columns: 1fr; }
+      .list li { grid-template-columns: 1fr; gap: 4px; }
+      section { padding: 48px 0; }
+      .brand .full { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="logo">S</span><span class="full">Salima Chang</span></a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#service">Service</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#talks">Talks</a>
+      <a href="#honors">Honors</a>
+      <a href="doc/CV_Chi_Hsien_Chang.pdf" target="_blank" rel="noopener">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">PhD Candidate · National Taiwan University</div>
+        <h1>Chi-Hsien <span>(Salima)</span> Chang</h1>
+        <p class="lead">I build <b>model-based genetic algorithms</b> with real theory behind them, <b>interpretable models for pre-mRNA splicing</b>, and <b>memory-safe systems in Rust</b>.</p>
+        <div class="cta">
+          <a class="btn primary" href="doc/CV_Chi_Hsien_Chang.pdf" target="_blank" rel="noopener">Download CV →</a>
+          <a class="btn" href="#publications">Publications</a>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeyrNIn_ectYlVm-XFNVvO1BreSIRBe3EY8D4o7VuDfvuJNdw/viewform" target="_blank" rel="noopener">Get in touch</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <!-- <li class="active"><a class="go-home" href="/">Home</a></li>-->
-            
-            <li><a class="go-index" href="/salima/index.html">Home</a></li>
-
-            <li><a href="doc/CV_Chi_Hsien_Chang.pdf" target="_blank">CV</a></li>
-            <li><a class="go-publication" href="/salima/publication.html">Publications</a></li>
-           
-            <li><a class="go-teaching" href="/salima/teaching.html">Teaching Experience</a></li>
-            
-            <!-- <li><a class="go-project" href="/salima/project.html">Projects</a></li>-->
-
-            <li><a class="go-talk" href="/salima/awards.html">Honors & Awards</a></li>
-
-            <!-- <li><a class="go-talk" href="/salima/activities.html"></a>Activities</li> -->
-          </ul>
-        </div><!--/.nav-collapse -->
       </div>
-    </nav>
+      <div class="pic">
+        <img class="avatar" src="images/salima.jpg" alt="Chi-Hsien (Salima) Chang">
+      </div>
+    </div>
 
-    <div id="main" class="container">
+    <div class="news">
+      <span class="tag">NEW · 2026</span>
+      <p>Serving as a <b>Reviewer for <a href="https://cis.ieee.org/publications/t-evolutionary-computation" target="_blank" rel="noopener">IEEE Transactions on Evolutionary Computation (TEVC)</a></b>.</p>
+    </div>
+  </div>
+</header>
 
-    </div><!-- /.container -->
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="num">8<em>+</em></div><div class="label">Papers (ICLR, WCCI, GECCO)</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">Research countries: US · JP · TW</div></div>
+    <div class="stat"><div class="num">100<em>+</em></div><div class="label">Students mentored</div></div>
+    <div class="stat"><div class="num">4.96<em>/5</em></div><div class="label">Top teaching rating</div></div>
+  </div>
+</div>
 
-    <footer id="footer">
-      <ul class="icons">
-        <li>
-          <a href="https://www.linkedin.com/in/chi-hsien-chang-salima/" class="icon fa-linkedin">
-            <span class="label">LinkedIn</span>
-          </a>
-        </li>
-        <li><a href="https://github.com/Chi-HsienChang/" class="icon fa-github"><span class="label">Github</span></a></li>
-        <li><a href="https://www.facebook.com/profile.php?id=100000503676479" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeyrNIn_ectYlVm-XFNVvO1BreSIRBe3EY8D4o7VuDfvuJNdw/viewform" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-      </ul>
-      <ul class="copyright">
-        This template was borrowed from <a href="https://yenlingkuo.com/?fbclid=IwAR2bUYcSbCLXKjaO6TFge3p2L9U5wk1NIUCEMNTx9VINwyIiOissElmOVa8_aem_AatlVcKb2mm_oJ8g30RAarutMDUEsRuCODaRY-eZgFNeHrTFvPxo9nGQIJ7RYta932Y18gOaR2H1X4D_aVY6mRms">this website</a>.
-      </ul>
-    </footer>
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>About</h2></div>
+    <p class="body">
+      I am a PhD candidate at <a href="https://teilab.ee.ntu.edu.tw/#/home">TEILab (Taiwan Evolutionary Intelligence Laboratory)</a>, advised by Dr. <a href="https://www.ee.ntu.edu.tw/profile1.php?id=745">Tian-Li Yu</a>, in <a href="https://web.ee.ntu.edu.tw/eng/index.php">Electrical Engineering</a> at <a href="https://www.ntu.edu.tw/english/">National Taiwan University</a>. Before that, I earned my M.S. in <a href="https://www.stat.ntu.edu.tw/chinese/index.asp">Statistics</a> at NTU and my B.S. in <a href="https://math.nccu.edu.tw/">Mathematical Sciences</a> at <a href="https://www.nccu.edu.tw/index.php?Lang=en">National Chengchi University</a>.
+    </p>
+    <p class="body">
+      I currently teach programming, statistics, and data analysis as a lecturer at <a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178">NTU CSIE</a>, where I received the <b>2025 Outstanding Lecturer</b> award. I'm always happy to talk research — feedback is welcome.
+    </p>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Include lightbox gallery plugin -->
-    <script src="assets/js/jquery.poptrox.min.js"></script>
-    <!-- Include history adaptor -->
-    <script src="assets/js/history.adapter.jquery.js"></script>
-    <script src="assets/js/history.js"></script>
-    <!-- Website specific javascript -->
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    <div class="cards" style="margin-top:28px">
+      <div class="card">
+        <div class="k">Jun 2024 – May 2025 · Visiting Student</div>
+        <h3><a href="https://www.mit.edu">MIT</a></h3>
+        <p>Built fully interpretable simulators for pre-mRNA splicing.</p>
+      </div>
+      <div class="card">
+        <div class="k">Feb – Apr 2024 · Intern</div>
+        <h3><a href="https://www.nii.ac.jp">NII, Japan</a></h3>
+        <p>Generated molecular graphs with model-based genetic algorithms.</p>
+      </div>
+      <div class="card">
+        <div class="k">Feb – Aug 2023 · Intern</div>
+        <h3><a href="https://www.usda.gov">USDA</a></h3>
+        <p>Shipped a <a href="https://jbrowse.org/jb2/plugin_store">Linkout plugin for JBrowse 2</a> and an ML model predicting insect images from SNPs.</p>
+      </div>
+      <div class="card">
+        <div class="k">Jun 2025 – Now · Lecturer</div>
+        <h3><a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178">NTU CSIE</a></h3>
+        <p>Teaching Java, Python, statistics, and data analysis. 2025 Outstanding Lecturer.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Google Analytics Tracking -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<section id="service" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><h2>Professional Service</h2></div>
+    <div class="cards">
+      <div class="card feature">
+        <div class="k">2026 · Journal Reviewer</div>
+        <h3><a href="https://cis.ieee.org/publications/t-evolutionary-computation" target="_blank" rel="noopener">IEEE Transactions on Evolutionary Computation</a></h3>
+        <p>Reviewer for IEEE TEVC, a flagship journal of the IEEE Computational Intelligence Society.</p>
+      </div>
+      <div class="card">
+        <div class="k">2024 · Conference Reviewer</div>
+        <h3><a href="https://www.acml-conf.org/2024/" target="_blank" rel="noopener">ACML</a></h3>
+        <p>Reviewer for the Asian Conference on Machine Learning.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      ga('create', 'UA-65631666-1', 'auto');
-      ga('send', 'pageview');
-   </script>
-  </body>
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head"><h2>Publications</h2><span class="aside"><b>Bold</b> = me</span></div>
+    <ul class="list">
+      <li>
+        <div class="year">2024</div>
+        <div>
+          <div class="title"><a href="https://openreview.net/forum?id=PR6RMsxuW7">Integrating Planning and Deep Reinforcement Learning via Automatic Induction of Task Substructures</a></div>
+          <div class="meta">Jung-Chun Liu, <b>Chi-Hsien Chang</b>, Shao-Hua Sun, Tian-Li Yu</div>
+          <div class="meta"><span class="venue hot">ICLR</span>International Conference on Learning Representations</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2024</div>
+        <div>
+          <div class="title"><a href="doc/2024 IEEE World Congress on Computational Intelligence PS.pdf">Program Synthesis on Single-Layer Loop Behavior in Pure Functional Programming</a></div>
+          <div class="meta">Tzu-Hao Hsu, <b>Chi-Hsien Chang</b>, Tian-Li Yu</div>
+          <div class="meta"><span class="venue">WCCI</span>IEEE World Congress on Computational Intelligence</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2024</div>
+        <div>
+          <div class="title"><a href="doc/2024 IEEE World Congress on Computational Intelligence SR.pdf">A Novel Symbolic Regressor Enhancer Using Genetic Programming</a></div>
+          <div class="meta">Tu-Chin Chiang, <b>Chi-Hsien Chang</b>, Tian-Li Yu</div>
+          <div class="meta"><span class="venue">WCCI</span>IEEE World Congress on Computational Intelligence</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2024</div>
+        <div>
+          <div class="title">From Genetic Variation to Visual Representation: Image Predictions in Insect Databases Using SNP</div>
+          <div class="meta"><b>Chi-Hsien Chang</b>, Szu-Ping Chen, Christopher Childers, Monica Poelchau</div>
+          <div class="meta"><span class="venue">IASTAM × ASHM</span>Joint Conference of IASTAM and ASHM</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2023</div>
+        <div>
+          <div class="title"><a href="https://www.micropublication.org/journals/biology/micropub-biology-000906">Exploring Genetic Information with Ease: The Linkout Plugin for JBrowse 2</a></div>
+          <div class="meta"><b>Chi-Hsien Chang</b>, Szu-Ping Chen, Monica Poelchau, Christopher Childers</div>
+          <div class="meta"><span class="venue">Journal</span>microPublication Biology</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2023</div>
+        <div>
+          <div class="title"><a href="https://dl.acm.org/doi/abs/10.1145/3583133.3590591">Taylor Polynomial Enhancer using Genetic Programming for Symbolic Regression</a></div>
+          <div class="meta"><b>Chi-Hsien Chang</b>, Tu-Chin Chiang, Tzu-Hao Hsu, Ting-Shuo Chuang, Wen-Zhong Fang, Tian-Li Yu</div>
+          <div class="meta"><span class="venue">GECCO</span>Genetic and Evolutionary Computation Conference Companion</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2023</div>
+        <div>
+          <div class="title"><a href="https://ieeexplore.ieee.org/abstract/document/10349130">Secure Medical Data Management Based on Homomorphic Encryption and Secret Sharing</a></div>
+          <div class="meta">Po Ying Law, Chia-Cheng Tsai, Tsz Wun Fok, Ching-Ting Wang, <b>Chi-Hsien Chang</b>, Tsung-Yu Chin, Yi-Chen Liao, Jen-Kuang Lee, Chung-Wei Lin</div>
+          <div class="meta"><span class="venue">SmartCloud</span>IEEE International Conference on Smart Cloud</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2023</div>
+        <div>
+          <div class="title"><a href="https://dl.acm.org/doi/abs/10.1145/3583133.3590605">GP with Ranging-Binding Technique for Symbolic Regression</a></div>
+          <div class="meta">Wen-Zhong Fang, <b>Chi-Hsien Chang</b>, Jung-Chun Liu, Tian-Li Yu</div>
+          <div class="meta"><span class="venue">GECCO</span>Genetic and Evolutionary Computation Conference Companion</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="teaching" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><h2>Teaching</h2></div>
+    <ul class="list">
+      <li>
+        <div class="year">2025–</div>
+        <div>
+          <div class="title">Java, Python, Statistics &amp; Data Analysis — Lecturer</div>
+          <div class="meta">NTU, Computer Science and Information Engineering · 2025 Outstanding Lecturer</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2022–</div>
+        <div>
+          <div class="title">Python — Teaching Assistant</div>
+          <div class="meta">NTU, Data Science Degree Program · Mentored 100+ students on team projects · <b>4.35/5</b></div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2022</div>
+        <div>
+          <div class="title">C# — Teaching Assistant</div>
+          <div class="meta">NTU Summer College · Excellent TA Award · <b>4.89/5</b> · “The best TA I have ever had in my 30 years of teaching career.” — Prof. Shyh-Kang Jeng</div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2021</div>
+        <div>
+          <div class="title">Genetic Algorithms — Teaching Assistant</div>
+          <div class="meta">NTU, Electrical Engineering · <b>4.96/5</b></div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2018</div>
+        <div>
+          <div class="title">Artificial Intelligence and Machine Learning — Teaching Assistant</div>
+          <div class="meta">NTU, Electrical Engineering · Taught in English · <b>4.0/5</b></div>
+        </div>
+      </li>
+      <li>
+        <div class="year">2015</div>
+        <div>
+          <div class="title">Calculus — Teaching Assistant</div>
+          <div class="meta">NCCU, Mathematical Sciences</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="talks">
+  <div class="wrap">
+    <div class="sec-head"><h2>Talks</h2></div>
+    <div class="talks">
+      <div class="talk">
+        <img src="images/mit2.jpeg" alt="Talk at NSTC exchange, Cambridge" loading="lazy">
+        <div class="in">
+          <h3>國科會千里馬學員交流分享會</h3>
+          <div class="where">NSTC · Cambridge, MA · May 2025</div>
+          <p>Interpretable splicing prediction: probabilistic parsing and credibility scoring, from my computational genomics work at MIT.</p>
+        </div>
+      </div>
+      <div class="talk">
+        <img src="images/mit1.jpeg" alt="MIT x Harvard talk" loading="lazy">
+        <div class="in">
+          <h3>MIT × Harvard 學術六乘六</h3>
+          <div class="where">MIT · Nov 2024</div>
+          <p>Model Building Genetic Algorithms (MBGA) and their applications in evolutionary computation.</p>
+        </div>
+      </div>
+      <div class="talk">
+        <img src="images/LATEX2.jpg" alt="LaTeX workshop" loading="lazy">
+        <div class="in">
+          <h3>LaTeX Paper Workshop</h3>
+          <div class="where">NTU Mechanical Engineering · May 2024</div>
+          <p>Tables, figures, citations, and Beamer slides for graduate students.</p>
+        </div>
+      </div>
+      <div class="talk">
+        <img src="images/Japan.jpg" alt="JST CREST meeting at Kyoto University" loading="lazy">
+        <div class="in">
+          <h3>Research on Genetic Algorithms and Genetic Programming</h3>
+          <div class="where">JST Sugiyama CREST · Kyoto University · Mar 2024</div>
+          <p>Presented to the CREST project “Machine Learning that connects to Symbolic Reasoning.”</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="honors" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><h2>Honors &amp; Funding</h2></div>
+    <ul class="list">
+      <li><div class="year">2026</div><div><div class="title">Reviewer, IEEE Transactions on Evolutionary Computation (TEVC)</div></div></li>
+      <li><div class="year">2025</div><div><div class="title">Outstanding Lecturer</div><div class="meta">NTU CSIE</div></div></li>
+      <li><div class="year">2024</div><div><div class="title"><a href="doc/My name is in the first row.pdf">Graduate Students Study Abroad Program</a> — 30,000 USD</div><div class="meta">National Science and Technology Council</div></div></li>
+      <li><div class="year">2024</div><div><div class="title"><a href="https://research.google/programs-and-events/phd-fellowship/">Google PhD Fellowship</a> nominee</div><div class="meta">Nominated by NTU</div></div></li>
+      <li><div class="year">2024</div><div><div class="title">Reviewer, ACML</div><div class="meta">Asian Conference on Machine Learning</div></div></li>
+      <li><div class="year">2024</div><div><div class="title"><a href="https://www.facebook.com/groups/mitrocsa/">Vice President, MIT ROCSA</a></div><div class="meta">Republic of China Student Association at MIT</div></div></li>
+      <li><div class="year">2023</div><div><div class="title"><a href="doc/Outstanding University Youth Award.pdf">Outstanding University Youth Award</a></div><div class="meta">NTU</div></div></li>
+      <li><div class="year">2023</div><div><div class="title"><a href="doc/111 Student Altruism Award.pdf">Student Altruism Award</a></div><div class="meta">NTU EECS</div></div></li>
+      <li><div class="year">2022–23</div><div><div class="title">Rotary Scholarships — 6,000 USD ×2</div><div class="meta">Rotary Clubs of Taipei Chengai &amp; Taipei Midtown</div></div></li>
+      <li><div class="year">2023</div><div><div class="title">Student Travel Grants</div><div class="meta">NTUEE (1,300 USD) · GECCO (200 USD)</div></div></li>
+      <li><div class="year">2022</div><div><div class="title"><a href="https://drive.google.com/file/d/1rTyeDsN-xbZwIuCVXJbvt-FnM5hej_aZ/view?usp=sharing">National Summer College Excellent TA Award</a></div><div class="meta">NTU</div></div></li>
+      <li><div class="year">2018</div><div><div class="title"><a href="doc/Commencement Speaker.jpg">Commencement Speaker</a></div><div class="meta">M.S. in Statistics, NTU</div></div></li>
+      <li><div class="year">2018</div><div><div class="title">U-start Program Award</div><div class="meta">NTUST</div></div></li>
+      <li><div class="year">2017</div><div><div class="title"><a href="doc/Team Project Awarded 1st Place in the 2nd Yunus Prize.jpg">1st Place, 2nd Yunus Prize</a></div><div class="meta">Social Innovation and Entrepreneurship Competition</div></div></li>
+      <li><div class="year">2016</div><div><div class="title"><a href="doc/Club Evaluation Excellence Award.jpg">Club Evaluation Excellence Award</a></div><div class="meta">As President of the Islamic Cultural Studies Club</div></div></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Chi-Hsien (Salima) Chang</div>
+    <div class="soc">
+      <a href="https://www.linkedin.com/in/chi-hsien-chang-salima/">LinkedIn</a>
+      <a href="https://github.com/Chi-HsienChang/">GitHub</a>
+      <a href="https://www.youtube.com/@Chi-HsienChang/featured">YouTube</a>
+      <a href="https://www.facebook.com/profile.php?id=100000503676479">Facebook</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyrNIn_ectYlVm-XFNVvO1BreSIRBe3EY8D4o7VuDfvuJNdw/viewform">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
