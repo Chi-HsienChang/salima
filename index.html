@@ -53,6 +53,17 @@
     .copy-email:hover { color: var(--orange); }
     .copy-email.copied::after { content: " ✓ Copied"; color: var(--orange); font-size: 14px; font-weight: 600; text-decoration: none; }
 
+    /* Language toggle */
+    .lang-toggle { flex: none; font: inherit; font-size: 14px; font-weight: 700; color: var(--orange); background: transparent; border: 1.5px solid var(--orange); border-radius: 6px; padding: 5px 10px; cursor: pointer; }
+    .lang-toggle:hover { background: var(--orange); color: #fff; }
+    html[lang="zh-Hant"] .review blockquote.tr { display: none; }
+    html[lang="zh-Hant"] .review p.zh { margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink); }
+    html[lang="zh-Hant"] .review figcaption i.en { display: none; }
+    html[lang="zh-Hant"] .review figcaption .zh { display: inline; margin: 0; }
+    html[lang="zh-Hant"] .quote-hero blockquote:not(.en) { display: none; }
+    html[lang="zh-Hant"] .quote-hero blockquote.en { font-size: 21px; font-weight: 600; color: var(--ink); margin: 0 0 8px; }
+    .review figcaption i.en { font-style: normal; }
+
     /* Nav */
     nav.top {
       position: sticky; top: 0; z-index: 10;
@@ -238,15 +249,16 @@
   <div class="wrap">
     <a class="brand" href="#top"><span class="logo">S</span><span class="full">Salima Chang</span></a>
     <div class="links">
-      <a href="#about">About</a>
-      <a href="#service">Service</a>
-      <a href="#publications">Publications</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#online">Courses</a>
-      <a href="#talks">Talks</a>
-      <a href="#honors">Honors</a>
+      <a href="#about" data-zh="關於">About</a>
+      <a href="#service" data-zh="學術服務">Service</a>
+      <a href="#publications" data-zh="論文">Publications</a>
+      <a href="#teaching" data-zh="教學">Teaching</a>
+      <a href="#reviews" data-zh="學生評價">Reviews</a>
+      <a href="#online" data-zh="線上課程">Courses</a>
+      <a href="#talks" data-zh="演講">Talks</a>
+      <a href="#honors" data-zh="榮譽">Honors</a>
     </div>
+    <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language">中文</button>
   </div>
 </nav>
 
@@ -254,16 +266,16 @@
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">YourWowAI · One person builds, others learn, and more people create</div>
-        <h1>Chi-Hsien <span>(Salima)</span> Chang</h1>
-        <p class="lead">I build <b>AI products</b> and teach <b>1,000+ learners</b> programming, statistics, and how to work with AI. Now I'm building <b><a href="https://101academyforyou.github.io/YourWowAI/" target="_blank" rel="noopener">YourWowAI</a></b>, where anyone can share the tools they build with AI and others can learn exactly how they did it.</p>
-        <div class="orgs-label">Experience</div>
+        <div class="eyebrow" data-zh="YourWowAI · 一個人打造，其他人學習，更多人開始創作">YourWowAI · One person builds, others learn, and more people create</div>
+        <h1 data-zh="張麒仙 &lt;span&gt;(Salima)&lt;/span&gt;">Chi-Hsien <span>(Salima)</span> Chang</h1>
+        <p class="lead" data-zh="我打造 &lt;b&gt;AI 產品&lt;/b&gt;，也教 &lt;b&gt;1,000+ 位學員&lt;/b&gt;程式設計、統計，以及如何與 AI 協作。現在我正在打造 &lt;b&gt;&lt;a href=&quot;https://101academyforyou.github.io/YourWowAI/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;YourWowAI&lt;/a&gt;&lt;/b&gt;：讓任何人都能分享自己用 AI 做出的工具，其他人也能學到他們是怎麼做到的。">I build <b>AI products</b> and teach <b>1,000+ learners</b> programming, statistics, and how to work with AI. Now I'm building <b><a href="https://101academyforyou.github.io/YourWowAI/" target="_blank" rel="noopener">YourWowAI</a></b>, where anyone can share the tools they build with AI and others can learn exactly how they did it.</p>
+        <div class="orgs-label" data-zh="經歷">Experience</div>
         <div class="orgs">
-          <a class="org" href="https://www.mit.edu" target="_blank" rel="noopener" title="Massachusetts Institute of Technology — Visiting Student"><b>MIT</b><span>Visiting Student</span></a>
-          <a class="org" href="https://www.nii.ac.jp" target="_blank" rel="noopener" title="National Institute of Informatics, Japan — Intern"><b>NII</b><span>Intern</span></a>
-          <a class="org" href="https://www.usda.gov" target="_blank" rel="noopener" title="United States Department of Agriculture — Intern"><b>USDA</b><span>Intern</span></a>
-          <a class="org" href="https://www.ntu.edu.tw/english/" target="_blank" rel="noopener" title="National Taiwan University — Lecturer"><b>NTU</b><span>Lecturer</span></a>
-          <a class="org" href="https://101academyforyou.github.io/YourWowAI/" target="_blank" rel="noopener" title="YourWowAI — Founder"><b>YourWowAI</b><span>Founder</span></a>
+          <a class="org" href="https://www.mit.edu" target="_blank" rel="noopener" title="Massachusetts Institute of Technology — Visiting Student"><b>MIT</b><span data-zh="訪問學生">Visiting Student</span></a>
+          <a class="org" href="https://www.nii.ac.jp" target="_blank" rel="noopener" title="National Institute of Informatics, Japan — Intern"><b>NII</b><span data-zh="實習研究員">Intern</span></a>
+          <a class="org" href="https://www.usda.gov" target="_blank" rel="noopener" title="United States Department of Agriculture — Intern"><b>USDA</b><span data-zh="實習研究員">Intern</span></a>
+          <a class="org" href="https://www.ntu.edu.tw/english/" target="_blank" rel="noopener" title="National Taiwan University — Lecturer"><b>NTU</b><span data-zh="講師">Lecturer</span></a>
+          <a class="org" href="https://101academyforyou.github.io/YourWowAI/" target="_blank" rel="noopener" title="YourWowAI — Founder"><b>YourWowAI</b><span data-zh="創辦人">Founder</span></a>
         </div>
       </div>
       <div class="pic">
@@ -274,70 +286,70 @@
     <a class="featured" href="https://101academyforyou.github.io/YourWowAI/" target="_blank" rel="noopener">
       <img src="images/yourwowai.png" alt="YourWowAI logo" width="64" height="64">
       <div class="ft">
-        <h3>YourWowAI — share the tools you build with AI</h3>
-        <p>Post a screenshot or YouTube demo, link your GitHub repo, and get Cool / Not Cool feedback.</p>
+        <h3 data-zh="YourWowAI — 分享你用 AI 打造的工具">YourWowAI — share the tools you build with AI</h3>
+        <p data-zh="上傳截圖或 YouTube 示範、連結 GitHub repo，獲得 Cool / Not Cool 的回饋。">Post a screenshot or YouTube demo, link your GitHub repo, and get Cool / Not Cool feedback.</p>
       </div>
-      <span class="go">Open →</span>
+      <span class="go" data-zh="前往 →">Open →</span>
     </a>
     <a class="featured" href="https://101academyforyou.github.io/WatchLaterHub/en/" target="_blank" rel="noopener">
       <img src="images/watchlaterhub.png" alt="WatchLaterHub logo" width="64" height="64">
       <div class="ft">
-        <h3>WatchLaterHub — saved it? Now watch it.</h3>
-        <p>A free, open-source Chrome new-tab extension that surfaces a random video from your YouTube saved lists, plus bookmarks and a to-do list.</p>
+        <h3 data-zh="WatchLaterHub — 存了？現在就看。">WatchLaterHub — saved it? Now watch it.</h3>
+        <p data-zh="免費、開源的 Chrome 新分頁擴充功能：每次開新分頁都從你的 YouTube 稍後觀看清單隨機挑一部影片，還有書籤和待辦清單。">A free, open-source Chrome new-tab extension that surfaces a random video from your YouTube saved lists, plus bookmarks and a to-do list.</p>
       </div>
-      <span class="go">Open →</span>
+      <span class="go" data-zh="前往 →">Open →</span>
     </a>
 
     <div class="news">
       <span class="tag">NEW · 2026</span>
-      <p>Serving as a <b>Reviewer for <a href="https://cis.ieee.org/publications/t-evolutionary-computation" target="_blank" rel="noopener">IEEE Transactions on Evolutionary Computation (TEVC)</a></b>.</p>
+      <p data-zh="擔任 &lt;b&gt;&lt;a href=&quot;https://cis.ieee.org/publications/t-evolutionary-computation&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;IEEE Transactions on Evolutionary Computation (TEVC)&lt;/a&gt; 期刊審稿人&lt;/b&gt;。">Serving as a <b>Reviewer for <a href="https://cis.ieee.org/publications/t-evolutionary-computation" target="_blank" rel="noopener">IEEE Transactions on Evolutionary Computation (TEVC)</a></b>.</p>
     </div>
     <div class="news">
       <span class="tag">NEW · 2025</span>
-      <p>Lecturer of <b>Java, Python, Statistics &amp; Data Analysis</b> at <a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178" target="_blank" rel="noopener">NTU CSIE</a> · <b>2025 Outstanding Lecturer</b> · Statistics &amp; OOP courses rated <b>5.0/5</b> · <a href="#reviews">student reviews</a></p>
+      <p data-zh="&lt;a href=&quot;https://train.csie.ntu.edu.tw/train/teacher.php?id=178&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;臺大資訊系統訓練班&lt;/a&gt;講師，教授 &lt;b&gt;Java、Python、統計與資料分析&lt;/b&gt; · &lt;b&gt;2025 優良講師&lt;/b&gt; · 統計與物件導向課程評分 &lt;b&gt;5.0/5&lt;/b&gt; · &lt;a href=&quot;#reviews&quot;&gt;學生評價&lt;/a&gt;">Lecturer of <b>Java, Python, Statistics &amp; Data Analysis</b> at <a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178" target="_blank" rel="noopener">NTU CSIE</a> · <b>2025 Outstanding Lecturer</b> · Statistics &amp; OOP courses rated <b>5.0/5</b> · <a href="#reviews">student reviews</a></p>
     </div>
   </div>
 </header>
 
 <div class="wrap">
   <div class="stats">
-    <div class="stat"><div class="num">7</div><div class="label">Papers (ICLR, WCCI, GECCO)</div></div>
-    <div class="stat"><div class="num">1,000<em>+</em></div><div class="label">Online course learners (Python, Java, Rust, Statistics, AI)</div></div>
-    <div class="stat"><div class="num">5.0<em>/5</em></div><div class="label">NTU CSIE training course ratings</div></div>
-    <div class="stat"><div class="num">54</div><div class="label">Written student reviews</div></div>
+    <div class="stat"><div class="num">7</div><div class="label" data-zh="篇論文（ICLR、WCCI、GECCO）">Papers (ICLR, WCCI, GECCO)</div></div>
+    <div class="stat"><div class="num">1,000<em>+</em></div><div class="label" data-zh="位線上課程學員（Python、Java、Rust、統計、AI）">Online course learners (Python, Java, Rust, Statistics, AI)</div></div>
+    <div class="stat"><div class="num">5.0<em>/5</em></div><div class="label" data-zh="臺大資訊系統訓練班課程評分">NTU CSIE training course ratings</div></div>
+    <div class="stat"><div class="num">54</div><div class="label" data-zh="則學生文字回饋">Written student reviews</div></div>
   </div>
 </div>
 
 <section id="about">
   <div class="wrap">
-    <div class="sec-head"><h2>About</h2></div>
-    <p class="body">
+    <div class="sec-head"><h2 data-zh="關於我">About</h2></div>
+    <p class="body" data-zh="我是&lt;a href=&quot;https://www.ntu.edu.tw/&quot;&gt;臺灣大學&lt;/a&gt;電機工程學系博士候選人，在 &lt;a href=&quot;https://teilab.ee.ntu.edu.tw/#/home&quot;&gt;TEILab（臺灣演化智慧實驗室）&lt;/a&gt;由&lt;a href=&quot;https://www.ee.ntu.edu.tw/profile1.php?id=745&quot;&gt;于天立&lt;/a&gt;教授指導。在此之前，我取得臺大統計碩士，以及&lt;a href=&quot;https://www.nccu.edu.tw/&quot;&gt;政治大學&lt;/a&gt;應用數學系學士。">
       I am a PhD candidate at <a href="https://teilab.ee.ntu.edu.tw/#/home">TEILab (Taiwan Evolutionary Intelligence Laboratory)</a>, advised by Dr. <a href="https://www.ee.ntu.edu.tw/profile1.php?id=745">Tian-Li Yu</a>, in Electrical Engineering at <a href="https://www.ntu.edu.tw/english/">National Taiwan University</a>. Before that, I earned my M.S. in Statistics at NTU and my B.S. in Mathematical Sciences at <a href="https://www.nccu.edu.tw/index.php?Lang=en">National Chengchi University</a>.
     </p>
-    <p class="body">
+    <p class="body" data-zh="目前我在&lt;a href=&quot;https://train.csie.ntu.edu.tw/train/teacher.php?id=178&quot;&gt;臺大資訊系統訓練班&lt;/a&gt;擔任講師，教授程式設計、統計與資料分析，並獲得 &lt;b&gt;2025 優良講師&lt;/b&gt;。很樂意聊研究、教學，或如何用 AI 打造產品。歡迎來信：&lt;button type=&quot;button&quot; class=&quot;copy-email&quot; data-email=&quot;salimachchang@gmail.com&quot; title=&quot;點擊複製&quot;&gt;salimachchang@gmail.com&lt;/button&gt;。">
       I currently teach programming, statistics, and data analysis as a lecturer at <a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178">NTU CSIE</a>, where I received the <b>2025 Outstanding Lecturer</b> award. I'm always happy to chat about research, teaching, or building with AI. Reach me at <button type="button" class="copy-email" data-email="salimachchang@gmail.com" title="Click to copy">salimachchang@gmail.com</button>.
     </p>
 
     <div class="cards" style="margin-top:28px">
       <div class="card">
-        <div class="k">Jun 2024 – May 2025 · Visiting Student</div>
-        <h3><a href="https://www.mit.edu">MIT, USA</a></h3>
-        <p>Built fully interpretable simulators for pre-mRNA splicing.</p>
+        <div class="k" data-zh="2024 年 6 月 – 2025 年 5 月 · 訪問學生">Jun 2024 – May 2025 · Visiting Student</div>
+        <h3 data-zh="&lt;a href=&quot;https://www.mit.edu&quot;&gt;美國麻省理工學院 (MIT)&lt;/a&gt;"><a href="https://www.mit.edu">MIT, USA</a></h3>
+        <p data-zh="打造完全可解釋的 pre-mRNA 剪接模擬器。">Built fully interpretable simulators for pre-mRNA splicing.</p>
       </div>
       <div class="card">
-        <div class="k">Feb – Apr 2024 · Intern</div>
-        <h3><a href="https://www.nii.ac.jp">NII, Japan</a></h3>
-        <p>Generated molecular graphs with model-based genetic algorithms.</p>
+        <div class="k" data-zh="2024 年 2 月 – 4 月 · 實習研究員">Feb – Apr 2024 · Intern</div>
+        <h3 data-zh="&lt;a href=&quot;https://www.nii.ac.jp&quot;&gt;日本國立情報學研究所 (NII)&lt;/a&gt;"><a href="https://www.nii.ac.jp">NII, Japan</a></h3>
+        <p data-zh="用模型建構基因演算法生成分子圖。">Generated molecular graphs with model-based genetic algorithms.</p>
       </div>
       <div class="card">
-        <div class="k">Feb – Aug 2023 · Intern</div>
-        <h3><a href="https://www.usda.gov">USDA, USA</a></h3>
-        <p>Shipped a <a href="https://jbrowse.org/jb2/plugin_store">Linkout plugin for JBrowse 2</a> and an ML model predicting insect images from SNPs.</p>
+        <div class="k" data-zh="2023 年 2 月 – 8 月 · 實習研究員">Feb – Aug 2023 · Intern</div>
+        <h3 data-zh="&lt;a href=&quot;https://www.usda.gov&quot;&gt;美國農業部 (USDA)&lt;/a&gt;"><a href="https://www.usda.gov">USDA, USA</a></h3>
+        <p data-zh="開發 &lt;a href=&quot;https://jbrowse.org/jb2/plugin_store&quot;&gt;JBrowse 2 的 Linkout 外掛&lt;/a&gt;，以及用 SNP 預測昆蟲影像的機器學習模型。">Shipped a <a href="https://jbrowse.org/jb2/plugin_store">Linkout plugin for JBrowse 2</a> and an ML model predicting insect images from SNPs.</p>
       </div>
       <div class="card">
-        <div class="k">Jun 2025 – Now · Lecturer</div>
-        <h3><a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178">NTU CSIE, Taiwan</a></h3>
-        <p>Teaching Java, Python, statistics, and data analysis. 2025 Outstanding Lecturer.</p>
+        <div class="k" data-zh="2025 年 6 月 – 迄今 · 講師">Jun 2025 – Now · Lecturer</div>
+        <h3 data-zh="&lt;a href=&quot;https://train.csie.ntu.edu.tw/train/teacher.php?id=178&quot;&gt;臺大資訊系統訓練班&lt;/a&gt;"><a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178">NTU CSIE, Taiwan</a></h3>
+        <p data-zh="教授 Java、Python、統計與資料分析。2025 優良講師。">Teaching Java, Python, statistics, and data analysis. 2025 Outstanding Lecturer.</p>
       </div>
     </div>
   </div>
@@ -345,17 +357,17 @@
 
 <section id="service" class="alt">
   <div class="wrap">
-    <div class="sec-head"><h2>Academic Service</h2></div>
+    <div class="sec-head"><h2 data-zh="學術服務">Academic Service</h2></div>
     <div class="cards">
       <div class="card">
-        <div class="k">2026 · Journal Reviewer</div>
+        <div class="k" data-zh="2026 · 期刊審稿人">2026 · Journal Reviewer</div>
         <h3><a href="https://cis.ieee.org/publications/t-evolutionary-computation" target="_blank" rel="noopener">IEEE TEVC</a></h3>
-        <p>Reviewer for the IEEE Transactions on Evolutionary Computation.</p>
+        <p data-zh="IEEE Transactions on Evolutionary Computation 期刊審稿人。">Reviewer for the IEEE Transactions on Evolutionary Computation.</p>
       </div>
       <div class="card">
-        <div class="k">2024 · Conference Reviewer</div>
+        <div class="k" data-zh="2024 · 會議審稿人">2024 · Conference Reviewer</div>
         <h3><a href="https://www.acml-conf.org/2024/" target="_blank" rel="noopener">ACML</a></h3>
-        <p>Reviewer for the Asian Conference on Machine Learning.</p>
+        <p data-zh="亞洲機器學習會議 (ACML) 審稿人。">Reviewer for the Asian Conference on Machine Learning.</p>
       </div>
     </div>
   </div>
@@ -363,7 +375,7 @@
 
 <section id="publications">
   <div class="wrap">
-    <div class="sec-head"><h2>Publications</h2><span class="aside"><b>Bold</b> = me</span></div>
+    <div class="sec-head"><h2 data-zh="論文">Publications</h2><span class="aside" data-zh="&lt;b&gt;粗體&lt;/b&gt; = 本人"><b>Bold</b> = me</span></div>
     <ul class="list">
       <li>
         <div class="year">2024</div>
@@ -427,48 +439,48 @@
 
 <section id="teaching" class="alt">
   <div class="wrap">
-    <div class="sec-head"><h2>Teaching</h2></div>
+    <div class="sec-head"><h2 data-zh="教學經歷">Teaching</h2></div>
     <ul class="list">
       <li>
         <div class="year">2025–</div>
         <div>
-          <div class="title">Java, Python, Statistics &amp; Data Analysis — Lecturer</div>
-          <div class="meta">NTU, Computer Science and Information Engineering · 2025 Outstanding Lecturer · Statistics &amp; OOP courses rated <b>5.0/5</b> · <a href="#reviews">student reviews</a></div>
+          <div class="title" data-zh="Java、Python、統計與資料分析 — 講師">Java, Python, Statistics &amp; Data Analysis — Lecturer</div>
+          <div class="meta" data-zh="臺大資訊系統訓練班 · 2025 優良講師 · 統計與物件導向課程評分 &lt;b&gt;5.0/5&lt;/b&gt; · &lt;a href=&quot;#reviews&quot;&gt;學生評價&lt;/a&gt;">NTU, Computer Science and Information Engineering · 2025 Outstanding Lecturer · Statistics &amp; OOP courses rated <b>5.0/5</b> · <a href="#reviews">student reviews</a></div>
         </div>
       </li>
       <li>
         <div class="year">2022–</div>
         <div>
-          <div class="title">Python — Teaching Assistant</div>
-          <div class="meta">NTU, Data Science Degree Program · Mentored 100+ students on team projects · <b>4.35/5</b></div>
+          <div class="title" data-zh="Python — 助教">Python — Teaching Assistant</div>
+          <div class="meta" data-zh="臺大資料科學學位學程 · 指導 100+ 位學生完成團隊專題 · &lt;b&gt;4.35/5&lt;/b&gt;">NTU, Data Science Degree Program · Mentored 100+ students on team projects · <b>4.35/5</b></div>
         </div>
       </li>
       <li>
         <div class="year">2022</div>
         <div>
-          <div class="title">C# — Teaching Assistant</div>
-          <div class="meta">Summer College, National Taiwan University · Excellent TA Award · <b>4.89/5</b> · “The best TA I have ever had in my 30 years of teaching career.” — Prof. Shyh-Kang Jeng</div>
+          <div class="title" data-zh="C# — 助教">C# — Teaching Assistant</div>
+          <div class="meta" data-zh="臺大全國夏季學院 · 傑出教學助理獎 · &lt;b&gt;4.89/5&lt;/b&gt; · 「三十餘年來最優秀的助教。」— 鄭士康教授">Summer College, National Taiwan University · Excellent TA Award · <b>4.89/5</b> · “The best TA I have ever had in my 30 years of teaching career.” — Prof. Shyh-Kang Jeng</div>
         </div>
       </li>
       <li>
         <div class="year">2021</div>
         <div>
-          <div class="title">Genetic Algorithms — Teaching Assistant</div>
-          <div class="meta">NTU, Electrical Engineering · <b>4.96/5</b></div>
+          <div class="title" data-zh="基因演算法 — 助教">Genetic Algorithms — Teaching Assistant</div>
+          <div class="meta" data-zh="臺大電機系 · &lt;b&gt;4.96/5&lt;/b&gt;">NTU, Electrical Engineering · <b>4.96/5</b></div>
         </div>
       </li>
       <li>
         <div class="year">2018</div>
         <div>
-          <div class="title">Artificial Intelligence and Machine Learning — Teaching Assistant</div>
-          <div class="meta">NTU, Electrical Engineering · Taught in English · <b>4.0/5</b></div>
+          <div class="title" data-zh="人工智慧與機器學習 — 助教">Artificial Intelligence and Machine Learning — Teaching Assistant</div>
+          <div class="meta" data-zh="臺大電機系 · 全英語授課 · &lt;b&gt;4.0/5&lt;/b&gt;">NTU, Electrical Engineering · Taught in English · <b>4.0/5</b></div>
         </div>
       </li>
       <li>
         <div class="year">2015</div>
         <div>
-          <div class="title">Calculus — Teaching Assistant</div>
-          <div class="meta">NCCU, Mathematical Sciences</div>
+          <div class="title" data-zh="微積分 — 助教">Calculus — Teaching Assistant</div>
+          <div class="meta" data-zh="政大應用數學系">NCCU, Mathematical Sciences</div>
         </div>
       </li>
     </ul>
@@ -477,110 +489,110 @@
 
 <section id="reviews">
   <div class="wrap">
-    <div class="sec-head"><h2>What Students Say</h2><span class="aside">English translation first, original below</span></div>
+    <div class="sec-head"><h2 data-zh="學生怎麼說">What Students Say</h2><span class="aside" data-zh="顯示學生原文">English translation first, original below</span></div>
 
     <div class="rstats">
-      <div class="rstat"><div class="num">5.0<em>/5</em></div><div class="label">NTU CSIE Training · Statistics · Python</div></div>
-      <div class="rstat"><div class="num">5.0<em>/5</em></div><div class="label">NTU CSIE Training · OOP · Java</div></div>
-      <div class="rstat"><div class="num">4.89<em>/5</em></div><div class="label">Summer College, NTU · C# TA</div></div>
-      <div class="rstat"><div class="num">1,000<em>+</em></div><div class="label">Online learners · Python · Java · Rust · Statistics · AI</div></div>
+      <div class="rstat"><div class="num">5.0<em>/5</em></div><div class="label" data-zh="臺大資訊系統訓練班 · 統計 · Python">NTU CSIE Training · Statistics · Python</div></div>
+      <div class="rstat"><div class="num">5.0<em>/5</em></div><div class="label" data-zh="臺大資訊系統訓練班 · 物件導向 · Java">NTU CSIE Training · OOP · Java</div></div>
+      <div class="rstat"><div class="num">4.89<em>/5</em></div><div class="label" data-zh="臺大全國夏季學院 · C# 助教">Summer College, NTU · C# TA</div></div>
+      <div class="rstat"><div class="num">1,000<em>+</em></div><div class="label" data-zh="線上學員 · Python · Java · Rust · 統計 · AI">Online learners · Python · Java · Rust · Statistics · AI</div></div>
     </div>
 
     <figure class="quote-hero">
       <blockquote>“She is the best TA I have ever had in my 30 years of teaching career (Computer Programming, Summer College, National Taiwan University, 2022).”</blockquote>
       <blockquote class="en">「麒仙是我教授台大通識及全國夏季學院《計算機程式設計》約三十餘年來，最優秀的助教。」</blockquote>
-      <figcaption>— <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=901071" target="_blank" rel="noopener">Prof. Shyh-Kang Jeng (鄭士康)</a>, Professor Emeritus, NTU</figcaption>
+      <figcaption data-zh="— &lt;a href=&quot;https://www.ee.ntu.edu.tw/profile1.php?teacher_id=901071&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;鄭士康&lt;/a&gt;，臺大名譽教授">— <a href="https://www.ee.ntu.edu.tw/profile1.php?teacher_id=901071" target="_blank" rel="noopener">Prof. Shyh-Kang Jeng (鄭士康)</a>, Professor Emeritus, NTU</figcaption>
     </figure>
 
     <div class="rgroup">
       <div class="rgroup-head">
-        <h3>NTU CSIE Training Program · Statistics Fundamentals &amp; Data Analysis</h3>
-        <div class="score">★★★★★ 5.0 <span>· 16 reviews</span></div>
+        <h3 data-zh="臺大資訊系統訓練班 · 統計基礎與數據分析（專題班）">NTU CSIE Training Program · Statistics Fundamentals &amp; Data Analysis</h3>
+        <div class="score" data-zh="★★★★★ 5.0 &lt;span&gt;· 16 則回饋&lt;/span&gt;">★★★★★ 5.0 <span>· 16 reviews</span></div>
       </div>
       <div class="reviews">
-        <figure class="review"><blockquote>The teacher unblocked everything about statistics for me, and patiently, carefully answered my many questions. After the course I truly felt my mind had been opened: concepts that used to be fuzzy became clear. She explained and clarified many statistical concepts, so I now understand how to apply them at work. She is the best teacher I have ever had. I believe that if every school had a teacher like her, every student would learn statistics solidly and well.</blockquote><p class="zh">老師把我統計學的任督二脈都打通了，而且非常有耐心、細心地回答了我許多問題。上完課後，我真的覺得腦袋被打開了，很多以前模糊的概念都變得清楚明白！老師在課堂中講解並釐清了許多統計學的概念，讓我更清楚如何將這些知識應用在工作上。這是我從小到大遇過最棒的一位老師。我相信，如果在學校能遇到這樣的老師，每位同學的統計學一定都能學得紮實、學得很好。</p><figcaption><span>Why I joined</span> To understand data better and use it more appropriately at work, so that analysis and decisions are better grounded.<em class="zh">希望能更好地理解數據，並能在工作上更適切地運用，讓分析與決策更有依據。</em></figcaption></figure>
-        <figure class="review"><blockquote>Chi-Hsien teaches solidly, is very professional and kind, and is very patient with students from non-technical backgrounds. She keeps track of each student&#x27;s progress to make sure everyone keeps up. An excellent teacher; I hope she offers more statistics and data analysis courses.</blockquote><p class="zh">麒仙老師教學扎實，非常專業溫柔，且對於非本科背景的同學也都非常有耐心，會仔細照顧每位同學的學習進度，確認大家都能跟上進度，是一位很優良的老師，期待未來能開更多統計和資料分析相關的課程。</p><figcaption><span>Why I joined</span> To find out whether data analysis and statistics suit me, and to learn the skills to combine them with my own field and broaden my career options.<em class="zh">瞭解自我對於資料分析與統計的性向，且希望學習相關技術來結合自身專業，增加未來工作的範圍和技能。</em></figcaption></figure>
-        <figure class="review"><blockquote>The teacher is dedicated and highly capable. More importantly, she discusses things with students in real time, respects students, and gives us room, so class never feels stiff or dull.</blockquote><p class="zh">老師非常認真且有實力，更重要的是，會和學生做即時性的交流討論，非常尊重學生，也很給學生空間，上起課來不會有嚴肅沉悶的感覺。</p><figcaption><span>Why I joined</span> I want to switch careers and become a data analyst.<em class="zh">因為有想要轉職成為數據分析師。</em></figcaption></figure>
-        <figure class="review"><blockquote>She teaches statistics by pairing theory with real examples. While learning something new, familiar experiments like rolling dice and flipping coins deepen understanding. In the Python part she explains not only basic operations and how the language works, but also ties them back to the statistical theory. As a game-balance designer, many detours I&#x27;ve taken at work were explained by the theory in this course, and I now know what to look for when I get a new dataset. On day two, the Python session showed how convenient programming is as a statistical tool and sparked ideas for applications. My follow-up questions outside class were answered well too. It was worth traveling up from Kaohsiung.</blockquote><p class="zh">老師在統計的講解採用以理論搭配實際案例的方式來進行，在認識新知識的同時可以以常見的骰子、擲硬幣實驗等例子來加深理解並且在 Python 實作上，除了有說明基礎操作與程式語言的運作原理，也有與學到的統計理論互相呼應，作為遊戲數值設計師，日前常有一些在工作多繞的彎路在這堂課的理論中都有得到驗證，也更知道拿到一筆新數據應該要注意的事情、並抓到重點。在第二日的 Python 課程可以完整地感受到「以程式語言作為統計工具」的方便性及應用發想，課堂外的延伸問題也有很好的得到解答，特地從高雄北上不虛此行。</p><figcaption><span>Why I joined</span> Self-improvement as a game probability engineer; to build a stronger statistics foundation, with the concrete goal of passing Japan&#x27;s Statistics Certificate Level 3 within a year.<em class="zh">作為遊戲機率工程師自我進修用；希望以此為基礎加強統計能力、中長期 (一年內) 的明確目標為考取日本統計檢定3級。</em></figcaption></figure>
-        <figure class="review"><blockquote>She focuses on core concepts: only by understanding random variables, the central limit theorem, and how Python packages and programs actually run can you use any statistical tool with confidence. Even for things you haven&#x27;t learned, a quick search is enough to get started. Her expertise and passion are equally impressive.</blockquote><p class="zh">老師相當重視核心觀念，只有懂得隨機變數、中央極限定理，以及 Python 套件結構和程式執行的原理，才能從容不迫地運用所有的統計工具，就算沒有學過，當有需要的時候只要稍加查詢即可快速上手。老師的專業和熱情同樣令人印象深刻。</p><figcaption><span>Why I joined</span> Needed for work.<em class="zh">工作需要。</em></figcaption></figure>
-        <figure class="review"><blockquote>In a short time she explained the most essential principles of statistical analysis and the code in an easy-to-follow way. Now that I understand the underlying logic, the statistical code I write actually has substance.</blockquote><p class="zh">老師在短時間內以淺顯易懂的方式說明統計分析的「最核心」原理與程式，讓我在了解統計學的底層邏輯後，寫統計分析的程式可以「言之有物」。</p><figcaption><span>Why I joined</span> To write statistical analysis code in Python.<em class="zh">想用 Python 寫統計分析的程式。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">The teacher unblocked everything about statistics for me, and patiently, carefully answered my many questions. After the course I truly felt my mind had been opened: concepts that used to be fuzzy became clear. She explained and clarified many statistical concepts, so I now understand how to apply them at work. She is the best teacher I have ever had. I believe that if every school had a teacher like her, every student would learn statistics solidly and well.</blockquote><p class="zh">老師把我統計學的任督二脈都打通了，而且非常有耐心、細心地回答了我許多問題。上完課後，我真的覺得腦袋被打開了，很多以前模糊的概念都變得清楚明白！老師在課堂中講解並釐清了許多統計學的概念，讓我更清楚如何將這些知識應用在工作上。這是我從小到大遇過最棒的一位老師。我相信，如果在學校能遇到這樣的老師，每位同學的統計學一定都能學得紮實、學得很好。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To understand data better and use it more appropriately at work, so that analysis and decisions are better grounded.</i><em class="zh">希望能更好地理解數據，並能在工作上更適切地運用，讓分析與決策更有依據。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Chi-Hsien teaches solidly, is very professional and kind, and is very patient with students from non-technical backgrounds. She keeps track of each student&#x27;s progress to make sure everyone keeps up. An excellent teacher; I hope she offers more statistics and data analysis courses.</blockquote><p class="zh">麒仙老師教學扎實，非常專業溫柔，且對於非本科背景的同學也都非常有耐心，會仔細照顧每位同學的學習進度，確認大家都能跟上進度，是一位很優良的老師，期待未來能開更多統計和資料分析相關的課程。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To find out whether data analysis and statistics suit me, and to learn the skills to combine them with my own field and broaden my career options.</i><em class="zh">瞭解自我對於資料分析與統計的性向，且希望學習相關技術來結合自身專業，增加未來工作的範圍和技能。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">The teacher is dedicated and highly capable. More importantly, she discusses things with students in real time, respects students, and gives us room, so class never feels stiff or dull.</blockquote><p class="zh">老師非常認真且有實力，更重要的是，會和學生做即時性的交流討論，非常尊重學生，也很給學生空間，上起課來不會有嚴肅沉悶的感覺。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I want to switch careers and become a data analyst.</i><em class="zh">因為有想要轉職成為數據分析師。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">She teaches statistics by pairing theory with real examples. While learning something new, familiar experiments like rolling dice and flipping coins deepen understanding. In the Python part she explains not only basic operations and how the language works, but also ties them back to the statistical theory. As a game-balance designer, many detours I&#x27;ve taken at work were explained by the theory in this course, and I now know what to look for when I get a new dataset. On day two, the Python session showed how convenient programming is as a statistical tool and sparked ideas for applications. My follow-up questions outside class were answered well too. It was worth traveling up from Kaohsiung.</blockquote><p class="zh">老師在統計的講解採用以理論搭配實際案例的方式來進行，在認識新知識的同時可以以常見的骰子、擲硬幣實驗等例子來加深理解並且在 Python 實作上，除了有說明基礎操作與程式語言的運作原理，也有與學到的統計理論互相呼應，作為遊戲數值設計師，日前常有一些在工作多繞的彎路在這堂課的理論中都有得到驗證，也更知道拿到一筆新數據應該要注意的事情、並抓到重點。在第二日的 Python 課程可以完整地感受到「以程式語言作為統計工具」的方便性及應用發想，課堂外的延伸問題也有很好的得到解答，特地從高雄北上不虛此行。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">Self-improvement as a game probability engineer; to build a stronger statistics foundation, with the concrete goal of passing Japan&#x27;s Statistics Certificate Level 3 within a year.</i><em class="zh">作為遊戲機率工程師自我進修用；希望以此為基礎加強統計能力、中長期 (一年內) 的明確目標為考取日本統計檢定3級。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">She focuses on core concepts: only by understanding random variables, the central limit theorem, and how Python packages and programs actually run can you use any statistical tool with confidence. Even for things you haven&#x27;t learned, a quick search is enough to get started. Her expertise and passion are equally impressive.</blockquote><p class="zh">老師相當重視核心觀念，只有懂得隨機變數、中央極限定理，以及 Python 套件結構和程式執行的原理，才能從容不迫地運用所有的統計工具，就算沒有學過，當有需要的時候只要稍加查詢即可快速上手。老師的專業和熱情同樣令人印象深刻。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">Needed for work.</i><em class="zh">工作需要。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">In a short time she explained the most essential principles of statistical analysis and the code in an easy-to-follow way. Now that I understand the underlying logic, the statistical code I write actually has substance.</blockquote><p class="zh">老師在短時間內以淺顯易懂的方式說明統計分析的「最核心」原理與程式，讓我在了解統計學的底層邏輯後，寫統計分析的程式可以「言之有物」。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To write statistical analysis code in Python.</i><em class="zh">想用 Python 寫統計分析的程式。</em></figcaption></figure>
       </div>
-      <details class="more-reviews"><summary>Show all 16 reviews</summary>
+      <details class="more-reviews"><summary data-zh="顯示全部 16 則">Show all 16 reviews</summary>
       <div class="reviews">
-        <figure class="review"><blockquote>The teacher is very dedicated and enthusiastically explains anything we don&#x27;t understand until we do.</blockquote><p class="zh">老師很認真，對學員不懂的地方會很有熱忱的說明到學員懂為止。</p><figcaption><span>Why I joined</span> To strengthen my statistical analysis concepts.<em class="zh">想對統計分析概念再加強。</em></figcaption></figure>
-        <figure class="review"><blockquote>Clear, well-organized teaching. I learned a lot.</blockquote><p class="zh">講授清晰，條理分明，受益良多。</p><figcaption><span>Why I joined</span> To review basic statistics and learn the matching Python syntax.<em class="zh">複習統計基礎觀念，並習得對應 python 語法。</em></figcaption></figure>
-        <figure class="review"><blockquote>The teacher is very patient.</blockquote><p class="zh">老師非常有耐心。</p><figcaption><span>Why I joined</span> I&#x27;m interested in AI but was missing the statistics piece.<em class="zh">對 AI 有興趣，但缺了統計這塊拼圖。</em></figcaption></figure>
-        <figure class="review"><blockquote>I feel I have solidly learned the fundamentals of statistics. I&#x27;d often heard these concepts, but only after this course do I feel I truly understand them.</blockquote><p class="zh">覺得很扎實的學會統計學基礎，相關概念常常聽到但經過這堂課才真的有學會的感覺。</p><figcaption><span>Why I joined</span> To really understand the key fundamentals of statistics.<em class="zh">想確實搞懂統計學重要的基礎觀念。</em></figcaption></figure>
-        <figure class="review"><blockquote>I really appreciate that the teacher is very passionate about teaching. I also love that the teacher is willing to explain the same concept two to three times. I find this extremely helpful because it can be difficult to fully understand something after hearing it only once. When the teacher explains it again, I&#x27;m able to understand it much better. I also like that the teacher starts from very simple concepts, which is especially helpful for people who don&#x27;t have much prior experience and need a clearer foundation to learn effectively.</blockquote><p class="zh">I really appreciate that the teacher is very passionate about teaching. I also love that the teacher is willing to explain the same concept two to three times. I find this extremely helpful because it can be difficult to fully understand something after hearing it only once. When the teacher explains it again, I’m able to understand it much better. I also like that the teacher starts from very simple concepts, which is especially helpful for people who don’t have much prior experience and need a clearer foundation to learn effectively.</p><figcaption><span>Why I joined</span> I tried to learn statistics by myself, but I find it difficult to know whether I fully understand the concepts through self-study. I also often struggle to connect everything together and organize the ideas in a clear structure the way the teacher does. That is one of the main reasons I wanted to attend this class in the first place. I have learned a lot from this course, and I really appreciate it. I would love it if Teacher Salima offered more in-depth classes in the future. I also noticed that there are many ML and algorithm courses available at the NTU 資訊訓練班, and I would be very interested in attending them if Teacher Salima is teaching.</figcaption></figure>
-        <figure class="review"><blockquote>A course even beginners can handle easily. At first all the unfamiliar terms made me want to give up, but she kept explaining in different ways with lots of examples, and I gradually caught up. After class it all suddenly clicked and I remembered a lot. A great experience overall. Thank you for your care!</blockquote><p class="zh">新手也能輕鬆上手的課程。一開始遇到很多陌生的專有名詞，其實有點想放棄，但老師在課堂上一直用不同方式講解、還搭配很多例子，慢慢就跟上了。下課後更有種突然打通任督二脈的感覺，很多東西都記住了～整體體驗很棒，真的很謝謝老師的用心！</p><figcaption><span>Why I joined</span> I work with data analysis more and more and have long been interested in it. I wanted to fill in my fragmented knowledge and build a solid statistics foundation, so I can analyze data with more direction and confidence.<em class="zh">因為工作上越來越常接觸數據分析，也一直對這塊很有興趣，希望可以把原本零碎的概念補齊，打好統計基礎，讓自己在分析數據時更有方向也更有信心。</em></figcaption></figure>
-        <figure class="review"><blockquote>Highly recommended for anyone who deals with statistics in research or at work. Chi-Hsien starts from the most basic ideas and builds up to statistical theory, pairing every concept with an example. By the end everything finally comes together. Where I used to just memorize and plug in formulas, I now understand the reasoning behind the theory. Well worth two days of working through it with her. I gained a lot, and I liked the whole course structure.</blockquote><p class="zh">超級推薦所有不論是研究、工作上會接觸到統計的人都來上這門課。麒仙老師會從最基礎的觀念講解到統計理論，每一個觀念都會搭配一個例子來幫助大家理解，上完會有種終於融會貫通的感覺。過去可能只會背公式帶公式，經過這門課之後，會了解這些統計理論背後的脈絡，非常值得花兩天的時間跟著老師好好拆解這些統計理論，真的獲益良多！整體課程安排都很喜歡，內容也很有收穫。</p><figcaption><span>Why I joined</span> 1. To truly understand what the statistical results in papers mean, rather than just reading the numbers, and to judge whether the methods are sound and the results credible. 2. To learn statistical analysis in Python, turning theory into practice and making data processing and analysis more efficient.<em class="zh">1. 想真正理解論文 (paper) 中統計結果背後的意義，而不只是停留在表面解讀數字，希望能進一步判斷其方法合理性與結果可信度。2. 希望學會如何運用 Python 進行統計分析，將理論轉化為實際操作能力，提升資料處理與分析的效率。</em></figcaption></figure>
-        <figure class="review"><blockquote>I expected mostly programming with some statistics, but it was the opposite, and that makes complete sense! AI-assisted programming really is the future; I fully agree. She cares a lot about definitions, which is right: we sometimes get so used to formulas that we forget what they fundamentally mean. She is also very friendly and patient!</blockquote><p class="zh">原先以為程式為主統計為輔，沒想到完全相反！但也完全合理！程式以 AI 輔助真的是未來，非常認同。老師在定義部分非常在意，但想想也是有道理，有時候好像已經太習慣用數學式卻忘了最根本意義是什麼。老師又非常親切有耐心！</p><figcaption><span>Why I joined</span> Switching careers; I&#x27;ll need Python, statistics, and analysis skills.<em class="zh">轉職，未來需要用到 Python、統計、分析等技能。</em></figcaption></figure>
-        <figure class="review"><blockquote>Detailed and dedicated teaching.</blockquote><p class="zh">教學詳細且認真。</p></figure>
-        <figure class="review"><blockquote>The teacher puts her heart into teaching.</blockquote><p class="zh">老師很盡心盡力教導。</p><figcaption><span>Why I joined</span> I love statistics.<em class="zh">很喜歡統計。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">The teacher is very dedicated and enthusiastically explains anything we don&#x27;t understand until we do.</blockquote><p class="zh">老師很認真，對學員不懂的地方會很有熱忱的說明到學員懂為止。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To strengthen my statistical analysis concepts.</i><em class="zh">想對統計分析概念再加強。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Clear, well-organized teaching. I learned a lot.</blockquote><p class="zh">講授清晰，條理分明，受益良多。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To review basic statistics and learn the matching Python syntax.</i><em class="zh">複習統計基礎觀念，並習得對應 python 語法。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">The teacher is very patient.</blockquote><p class="zh">老師非常有耐心。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I&#x27;m interested in AI but was missing the statistics piece.</i><em class="zh">對 AI 有興趣，但缺了統計這塊拼圖。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">I feel I have solidly learned the fundamentals of statistics. I&#x27;d often heard these concepts, but only after this course do I feel I truly understand them.</blockquote><p class="zh">覺得很扎實的學會統計學基礎，相關概念常常聽到但經過這堂課才真的有學會的感覺。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To really understand the key fundamentals of statistics.</i><em class="zh">想確實搞懂統計學重要的基礎觀念。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">I really appreciate that the teacher is very passionate about teaching. I also love that the teacher is willing to explain the same concept two to three times. I find this extremely helpful because it can be difficult to fully understand something after hearing it only once. When the teacher explains it again, I&#x27;m able to understand it much better. I also like that the teacher starts from very simple concepts, which is especially helpful for people who don&#x27;t have much prior experience and need a clearer foundation to learn effectively.</blockquote><p class="zh">I really appreciate that the teacher is very passionate about teaching. I also love that the teacher is willing to explain the same concept two to three times. I find this extremely helpful because it can be difficult to fully understand something after hearing it only once. When the teacher explains it again, I’m able to understand it much better. I also like that the teacher starts from very simple concepts, which is especially helpful for people who don’t have much prior experience and need a clearer foundation to learn effectively.</p><figcaption><span data-zh="學習動機">Why I joined</span> I tried to learn statistics by myself, but I find it difficult to know whether I fully understand the concepts through self-study. I also often struggle to connect everything together and organize the ideas in a clear structure the way the teacher does. That is one of the main reasons I wanted to attend this class in the first place. I have learned a lot from this course, and I really appreciate it. I would love it if Teacher Salima offered more in-depth classes in the future. I also noticed that there are many ML and algorithm courses available at the NTU 資訊訓練班, and I would be very interested in attending them if Teacher Salima is teaching.</figcaption></figure>
+        <figure class="review"><blockquote class="tr">A course even beginners can handle easily. At first all the unfamiliar terms made me want to give up, but she kept explaining in different ways with lots of examples, and I gradually caught up. After class it all suddenly clicked and I remembered a lot. A great experience overall. Thank you for your care!</blockquote><p class="zh">新手也能輕鬆上手的課程。一開始遇到很多陌生的專有名詞，其實有點想放棄，但老師在課堂上一直用不同方式講解、還搭配很多例子，慢慢就跟上了。下課後更有種突然打通任督二脈的感覺，很多東西都記住了～整體體驗很棒，真的很謝謝老師的用心！</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I work with data analysis more and more and have long been interested in it. I wanted to fill in my fragmented knowledge and build a solid statistics foundation, so I can analyze data with more direction and confidence.</i><em class="zh">因為工作上越來越常接觸數據分析，也一直對這塊很有興趣，希望可以把原本零碎的概念補齊，打好統計基礎，讓自己在分析數據時更有方向也更有信心。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Highly recommended for anyone who deals with statistics in research or at work. Chi-Hsien starts from the most basic ideas and builds up to statistical theory, pairing every concept with an example. By the end everything finally comes together. Where I used to just memorize and plug in formulas, I now understand the reasoning behind the theory. Well worth two days of working through it with her. I gained a lot, and I liked the whole course structure.</blockquote><p class="zh">超級推薦所有不論是研究、工作上會接觸到統計的人都來上這門課。麒仙老師會從最基礎的觀念講解到統計理論，每一個觀念都會搭配一個例子來幫助大家理解，上完會有種終於融會貫通的感覺。過去可能只會背公式帶公式，經過這門課之後，會了解這些統計理論背後的脈絡，非常值得花兩天的時間跟著老師好好拆解這些統計理論，真的獲益良多！整體課程安排都很喜歡，內容也很有收穫。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">1. To truly understand what the statistical results in papers mean, rather than just reading the numbers, and to judge whether the methods are sound and the results credible. 2. To learn statistical analysis in Python, turning theory into practice and making data processing and analysis more efficient.</i><em class="zh">1. 想真正理解論文 (paper) 中統計結果背後的意義，而不只是停留在表面解讀數字，希望能進一步判斷其方法合理性與結果可信度。2. 希望學會如何運用 Python 進行統計分析，將理論轉化為實際操作能力，提升資料處理與分析的效率。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">I expected mostly programming with some statistics, but it was the opposite, and that makes complete sense! AI-assisted programming really is the future; I fully agree. She cares a lot about definitions, which is right: we sometimes get so used to formulas that we forget what they fundamentally mean. She is also very friendly and patient!</blockquote><p class="zh">原先以為程式為主統計為輔，沒想到完全相反！但也完全合理！程式以 AI 輔助真的是未來，非常認同。老師在定義部分非常在意，但想想也是有道理，有時候好像已經太習慣用數學式卻忘了最根本意義是什麼。老師又非常親切有耐心！</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">Switching careers; I&#x27;ll need Python, statistics, and analysis skills.</i><em class="zh">轉職，未來需要用到 Python、統計、分析等技能。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Detailed and dedicated teaching.</blockquote><p class="zh">教學詳細且認真。</p></figure>
+        <figure class="review"><blockquote class="tr">The teacher puts her heart into teaching.</blockquote><p class="zh">老師很盡心盡力教導。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I love statistics.</i><em class="zh">很喜歡統計。</em></figcaption></figure>
       </div>
       </details>
     </div>
 
     <div class="rgroup">
       <div class="rgroup-head">
-        <h3>NTU CSIE Training Program · Object-Oriented Programming from Scratch · Java</h3>
-        <div class="score">★★★★★ 5.0 <span>· 15 reviews</span></div>
+        <h3 data-zh="臺大資訊系統訓練班 · 從零開始學會物件導向程式設計（專題班）">NTU CSIE Training Program · Object-Oriented Programming from Scratch · Java</h3>
+        <div class="score" data-zh="★★★★★ 5.0 &lt;span&gt;· 15 則回饋&lt;/span&gt;">★★★★★ 5.0 <span>· 15 reviews</span></div>
       </div>
       <div class="reviews">
-        <figure class="review"><blockquote>This course really can teach students starting from zero. I&#x27;d taken coding classes before, but those teachers&#x27; methods didn&#x27;t suit me, so I forgot everything and couldn&#x27;t apply it. Chi-Hsien&#x27;s way of teaching actually taught me. I love her teaching style. She is very patient and attentive.</blockquote><p class="zh">這個課真的可以教會從 0 基礎開始的學生。我之前上過 coding 但是那些老師教的方式好像不適合我，導致我之後就忘記然後也不會應用。但是麒仙老師的教法真的教會了我。也很喜歡老師的教學方式！老師很有耐心，也很細心。</p><figcaption><span>Why I joined</span> I think I&#x27;ll need it when I study engineering.<em class="zh">覺得以後讀 engineering 會用到。</em></figcaption></figure>
-        <figure class="review"><blockquote>The content matched the syllabus. Syntax was explained in plain language and hit the core of learning to program: not just writing syntax, but drawing memory diagrams to understand what each line means, which builds deeper understanding of abstract concepts. Assignments required explaining and teaching orally; strict, but necessary. Explaining to classmates deepened my understanding, and it will help me greatly at work, especially the mini project.</blockquote><p class="zh">課程內容符合教學綱要，語法概念以淺白的方式解釋清楚，內容點中程式學習的核心，不單只是寫出文字語法，以畫記憶體的方式去理解每一段語法的意義，能更深入了解其原理，有助於理解抽象的概念。作業評量方式需要口頭講解與教學，雖然要求嚴格，但有其必要性，與同學間互相講解的過程，能加以深化概念，對我未來的工作幫助極大，特別是小專題實作。</p><figcaption><span>Why I joined</span> To grasp the essentials of object-oriented programming and practice building small projects.<em class="zh">理解物件導向程式設計的要領，以及練習寫小專案。</em></figcaption></figure>
-        <figure class="review"><blockquote>You can feel her passion for teaching and that she really wants you to understand. Every &#x27;magic card&#x27; is a distilled concept with no filler. You learn the underlying principles of programming here. Highly recommended for anyone who wants a solid foundation.</blockquote><p class="zh">感受到老師教學的熱忱，以及真的想讓你懂這個東西。每一張魔法小卡的觀念都是精煉過後，沒有冗餘說明的精華。在這堂課可以學到程式底層原理與觀念，對想打好基礎的人非常推薦。</p><figcaption><span>Why I joined</span> I&#x27;d taken an intro JavaScript course and wanted to understand how programmers think, so I can communicate better with engineers at work.<em class="zh">有上過 javascript 程式入門，想更了解程式思考的方式而來。希望能運用到工作上與工程師的溝通。</em></figcaption></figure>
-        <figure class="review"><blockquote>Chi-Hsien teaches with great care and detail, patiently guiding us step by step, and uses magic cards to help us remember key points. I love her classes and learn a lot every time. When I searched online for concepts I didn&#x27;t understand, the information was scattered and hard to follow, but she introduces everything systematically so students learn efficiently. I&#x27;m so glad I took her class.</blockquote><p class="zh">麒仙老師上課很用心，教的很仔細，而且會非常有耐心的一步步指導，並且用魔法小卡片來加深同學對上課重點的記憶，很喜歡上老師的課，每次上完都覺得收獲很多，以前自己遇到不會的觀念都上網查詢，但查詢到的資訊都很單一很難理解，上麒仙老師的課，老師都可以很有系統的介紹，讓學生能很有效率地了解課程概念，非常開心能上到麒仙老師的課。</p><figcaption><span>Why I joined</span> To learn the basics of object-oriented programming.<em class="zh">想了解基礎物件導向的觀念。</em></figcaption></figure>
-        <figure class="review"><blockquote>Her method lets beginners build a solid foundation, and she is attentive and patient in answering questions.</blockquote><p class="zh">老師教導的方法讓初學者可以鞏固基礎，而且老師很細心，耐心解答問題。</p><figcaption><span>Why I joined</span> I&#x27;m interested in programming.<em class="zh">對程式有興趣。</em></figcaption></figure>
-        <figure class="review"><blockquote>Great teaching; the fundamentals are rock solid.</blockquote><p class="zh">老師教得好，基礎打得很札實。</p><figcaption><span>Why I joined</span> To learn more programming languages.<em class="zh">學習更多程式語言。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">This course really can teach students starting from zero. I&#x27;d taken coding classes before, but those teachers&#x27; methods didn&#x27;t suit me, so I forgot everything and couldn&#x27;t apply it. Chi-Hsien&#x27;s way of teaching actually taught me. I love her teaching style. She is very patient and attentive.</blockquote><p class="zh">這個課真的可以教會從 0 基礎開始的學生。我之前上過 coding 但是那些老師教的方式好像不適合我，導致我之後就忘記然後也不會應用。但是麒仙老師的教法真的教會了我。也很喜歡老師的教學方式！老師很有耐心，也很細心。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I think I&#x27;ll need it when I study engineering.</i><em class="zh">覺得以後讀 engineering 會用到。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">The content matched the syllabus. Syntax was explained in plain language and hit the core of learning to program: not just writing syntax, but drawing memory diagrams to understand what each line means, which builds deeper understanding of abstract concepts. Assignments required explaining and teaching orally; strict, but necessary. Explaining to classmates deepened my understanding, and it will help me greatly at work, especially the mini project.</blockquote><p class="zh">課程內容符合教學綱要，語法概念以淺白的方式解釋清楚，內容點中程式學習的核心，不單只是寫出文字語法，以畫記憶體的方式去理解每一段語法的意義，能更深入了解其原理，有助於理解抽象的概念。作業評量方式需要口頭講解與教學，雖然要求嚴格，但有其必要性，與同學間互相講解的過程，能加以深化概念，對我未來的工作幫助極大，特別是小專題實作。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To grasp the essentials of object-oriented programming and practice building small projects.</i><em class="zh">理解物件導向程式設計的要領，以及練習寫小專案。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">You can feel her passion for teaching and that she really wants you to understand. Every &#x27;magic card&#x27; is a distilled concept with no filler. You learn the underlying principles of programming here. Highly recommended for anyone who wants a solid foundation.</blockquote><p class="zh">感受到老師教學的熱忱，以及真的想讓你懂這個東西。每一張魔法小卡的觀念都是精煉過後，沒有冗餘說明的精華。在這堂課可以學到程式底層原理與觀念，對想打好基礎的人非常推薦。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I&#x27;d taken an intro JavaScript course and wanted to understand how programmers think, so I can communicate better with engineers at work.</i><em class="zh">有上過 javascript 程式入門，想更了解程式思考的方式而來。希望能運用到工作上與工程師的溝通。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Chi-Hsien teaches with great care and detail, patiently guiding us step by step, and uses magic cards to help us remember key points. I love her classes and learn a lot every time. When I searched online for concepts I didn&#x27;t understand, the information was scattered and hard to follow, but she introduces everything systematically so students learn efficiently. I&#x27;m so glad I took her class.</blockquote><p class="zh">麒仙老師上課很用心，教的很仔細，而且會非常有耐心的一步步指導，並且用魔法小卡片來加深同學對上課重點的記憶，很喜歡上老師的課，每次上完都覺得收獲很多，以前自己遇到不會的觀念都上網查詢，但查詢到的資訊都很單一很難理解，上麒仙老師的課，老師都可以很有系統的介紹，讓學生能很有效率地了解課程概念，非常開心能上到麒仙老師的課。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To learn the basics of object-oriented programming.</i><em class="zh">想了解基礎物件導向的觀念。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Her method lets beginners build a solid foundation, and she is attentive and patient in answering questions.</blockquote><p class="zh">老師教導的方法讓初學者可以鞏固基礎，而且老師很細心，耐心解答問題。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I&#x27;m interested in programming.</i><em class="zh">對程式有興趣。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Great teaching; the fundamentals are rock solid.</blockquote><p class="zh">老師教得好，基礎打得很札實。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To learn more programming languages.</i><em class="zh">學習更多程式語言。</em></figcaption></figure>
       </div>
-      <details class="more-reviews"><summary>Show all 15 reviews</summary>
+      <details class="more-reviews"><summary data-zh="顯示全部 15 則">Show all 15 reviews</summary>
       <div class="reviews">
-        <figure class="review"><blockquote>Her teaching is very systematic and helps beginners build from the ground up. She encourages us to ask questions any time so they get solved on the spot, and she&#x27;s happy to help after class too. I learned a lot. Thank you so much!</blockquote><p class="zh">老師的教學很有系統，可以幫助初學者從基礎奠定起。另外，老師在課堂中也很鼓勵大家有問題隨時提出、馬上解決，課後也很願意協助回答問題。從這堂課學習到很多，非常感謝老師的教學！</p><figcaption><span>Why I joined</span> To learn Java before the semester starts so I&#x27;m not caught off guard.<em class="zh">想要在學期開始前先學習 JAVA，才不至於開學後措手不及。</em></figcaption></figure>
-        <figure class="review"><blockquote>She teaches in detail and with patience, often checks that everyone is following and understands each concept, and if we don&#x27;t, she keeps explaining until we do. She also gives us time to redraw diagrams and review. It&#x27;s exactly the teaching style I like. She&#x27;s very friendly, and the class is small, so you can ask anything and she will patiently explain it again from start to finish. She also walks around to check on each of us, so there&#x27;s no fear of falling behind or having questions go unanswered. Highly recommended.</blockquote><p class="zh">老師教的很仔細，也很有耐心，還會時常確認大家都有在線，並且有理解每一個觀念，即使沒有理解，老師也會講到我們都有懂為止，還會給時間自己畫圖重新複習一次，是我喜歡的教學方式所以一切都很好。以及老師人很親切，還是小班制的，所以有任何不懂的地方都可以直接提問，老師會不厭其煩的從頭到尾再解釋一次。課堂中間老師也會時常下來一一確認大家都有理解每個觀念，所以完全不用害怕跟不上或是有問題得不到解答的情況，因此非常推薦。</p><figcaption><span>Why I joined</span> I&#x27;m transferring to Computer Science after the summer, so I want to get ahead and avoid too much pressure during the semester.<em class="zh">暑假過後會轉到資工系，因此想要先修，避免學期間壓力太大。</em></figcaption></figure>
-        <figure class="review"><blockquote>The teacher prepares carefully and uses mnemonics and magic cards to aid memory, making learning Java fun and easy.</blockquote><p class="zh">教師用心準備課程，利用口訣和魔法小卡幫助記憶，使得 Java 的學習變得有趣簡單。</p><figcaption><span>Why I joined</span> I wanted to learn.<em class="zh">想學。</em></figcaption></figure>
-        <figure class="review"><blockquote>She explains fundamental concepts clearly; working through them helps you understand how programs run. Great for beginners with no programming background.</blockquote><p class="zh">任課教師基礎觀念講解清晰，代入後能夠更加理解程式的運作，課程很適合無程式基礎的初學者。</p><figcaption><span>Why I joined</span> Needed for work.<em class="zh">工作需求。</em></figcaption></figure>
-        <figure class="review"><blockquote>Dedicated, easy-to-understand teaching, with lots of interaction, so you learn Java quickly.</blockquote><p class="zh">老師教學用心容易理解。以及老師與同學很有互動、能快速學會 Java。</p><figcaption><span>Why I joined</span> To add to my programming skills.<em class="zh">想增加自己的程式技能。</em></figcaption></figure>
-        <figure class="review"><blockquote>The teacher is dedicated and interactive, and the assignments are substantial.</blockquote><p class="zh">老師很認真、有互動、作業很充實。</p><figcaption><span>Why I joined</span> It will be useful in university or at work.<em class="zh">以後大學或者工作可以用到。</em></figcaption></figure>
-        <figure class="review"><blockquote>The teacher puts her heart into it.</blockquote><p class="zh">老師很用心。</p><figcaption><span>Why I joined</span> I&#x27;m interested in programming.<em class="zh">因為對程式感興趣。</em></figcaption></figure>
-        <figure class="review"><blockquote>She teaches very earnestly and in detail, using simple explanations. The memory diagrams helped me understand object-oriented Java better. She even keeps teaching after class; a conscientious, responsible teacher. If you&#x27;ve self-studied, this course will strengthen your fundamentals.</blockquote><p class="zh">老師教學的十分認真，講解的很仔細，也會用很簡單的方式教學，用的記憶體圖讓我更了解 Java 的物件導向，老師下課也會教學，是個認真負責的好老師。如果有自學過可以來上更加深基本功。</p><figcaption><span>Why I joined</span> I had taught myself programming, but mostly by memorizing. Today I understand the fundamentals much better.<em class="zh">當初有自學程式語言，但大多是背誦，今天有更了解程式的基礎。</em></figcaption></figure>
-        <figure class="review"><blockquote>She teaches in detail, systematically pulls the basic concepts together, and shows us the logic of writing programs and how to apply it in daily life.</blockquote><p class="zh">老師教的很仔細，以系統化的方式幫各位學生整合基本觀念，並教我們寫程式的邏輯及如何生活方面應用。</p><figcaption><span>Why I joined</span> I wanted to learn a foundational programming language, found this course online a few months ago, and it looked great, so I chose it.<em class="zh">正好想要學一個基礎的程式語言，前幾個月在網站上搜尋到這門課程，看起來很不錯，就選擇它。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Her teaching is very systematic and helps beginners build from the ground up. She encourages us to ask questions any time so they get solved on the spot, and she&#x27;s happy to help after class too. I learned a lot. Thank you so much!</blockquote><p class="zh">老師的教學很有系統，可以幫助初學者從基礎奠定起。另外，老師在課堂中也很鼓勵大家有問題隨時提出、馬上解決，課後也很願意協助回答問題。從這堂課學習到很多，非常感謝老師的教學！</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To learn Java before the semester starts so I&#x27;m not caught off guard.</i><em class="zh">想要在學期開始前先學習 JAVA，才不至於開學後措手不及。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">She teaches in detail and with patience, often checks that everyone is following and understands each concept, and if we don&#x27;t, she keeps explaining until we do. She also gives us time to redraw diagrams and review. It&#x27;s exactly the teaching style I like. She&#x27;s very friendly, and the class is small, so you can ask anything and she will patiently explain it again from start to finish. She also walks around to check on each of us, so there&#x27;s no fear of falling behind or having questions go unanswered. Highly recommended.</blockquote><p class="zh">老師教的很仔細，也很有耐心，還會時常確認大家都有在線，並且有理解每一個觀念，即使沒有理解，老師也會講到我們都有懂為止，還會給時間自己畫圖重新複習一次，是我喜歡的教學方式所以一切都很好。以及老師人很親切，還是小班制的，所以有任何不懂的地方都可以直接提問，老師會不厭其煩的從頭到尾再解釋一次。課堂中間老師也會時常下來一一確認大家都有理解每個觀念，所以完全不用害怕跟不上或是有問題得不到解答的情況，因此非常推薦。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I&#x27;m transferring to Computer Science after the summer, so I want to get ahead and avoid too much pressure during the semester.</i><em class="zh">暑假過後會轉到資工系，因此想要先修，避免學期間壓力太大。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">The teacher prepares carefully and uses mnemonics and magic cards to aid memory, making learning Java fun and easy.</blockquote><p class="zh">教師用心準備課程，利用口訣和魔法小卡幫助記憶，使得 Java 的學習變得有趣簡單。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I wanted to learn.</i><em class="zh">想學。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">She explains fundamental concepts clearly; working through them helps you understand how programs run. Great for beginners with no programming background.</blockquote><p class="zh">任課教師基礎觀念講解清晰，代入後能夠更加理解程式的運作，課程很適合無程式基礎的初學者。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">Needed for work.</i><em class="zh">工作需求。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">Dedicated, easy-to-understand teaching, with lots of interaction, so you learn Java quickly.</blockquote><p class="zh">老師教學用心容易理解。以及老師與同學很有互動、能快速學會 Java。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">To add to my programming skills.</i><em class="zh">想增加自己的程式技能。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">The teacher is dedicated and interactive, and the assignments are substantial.</blockquote><p class="zh">老師很認真、有互動、作業很充實。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">It will be useful in university or at work.</i><em class="zh">以後大學或者工作可以用到。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">The teacher puts her heart into it.</blockquote><p class="zh">老師很用心。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I&#x27;m interested in programming.</i><em class="zh">因為對程式感興趣。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">She teaches very earnestly and in detail, using simple explanations. The memory diagrams helped me understand object-oriented Java better. She even keeps teaching after class; a conscientious, responsible teacher. If you&#x27;ve self-studied, this course will strengthen your fundamentals.</blockquote><p class="zh">老師教學的十分認真，講解的很仔細，也會用很簡單的方式教學，用的記憶體圖讓我更了解 Java 的物件導向，老師下課也會教學，是個認真負責的好老師。如果有自學過可以來上更加深基本功。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I had taught myself programming, but mostly by memorizing. Today I understand the fundamentals much better.</i><em class="zh">當初有自學程式語言，但大多是背誦，今天有更了解程式的基礎。</em></figcaption></figure>
+        <figure class="review"><blockquote class="tr">She teaches in detail, systematically pulls the basic concepts together, and shows us the logic of writing programs and how to apply it in daily life.</blockquote><p class="zh">老師教的很仔細，以系統化的方式幫各位學生整合基本觀念，並教我們寫程式的邏輯及如何生活方面應用。</p><figcaption><span data-zh="學習動機">Why I joined</span> <i class="en">I wanted to learn a foundational programming language, found this course online a few months ago, and it looked great, so I chose it.</i><em class="zh">正好想要學一個基礎的程式語言，前幾個月在網站上搜尋到這門課程，看起來很不錯，就選擇它。</em></figcaption></figure>
       </div>
       </details>
     </div>
 
     <div class="rgroup">
       <div class="rgroup-head">
-        <h3>Summer College, National Taiwan University · Computer Programming (C#) — Teaching Assistant</h3>
-        <div class="score">4.89 / 5 <span>· 23 reviews · Excellent TA Award 2022</span></div>
+        <h3 data-zh="臺大全國夏季學院 · 計算機程式設計 (C#) — 助教">Summer College, National Taiwan University · Computer Programming (C#) — Teaching Assistant</h3>
+        <div class="score" data-zh="4.89 / 5 &lt;span&gt;· 23 則回饋 · 2022 傑出教學助理獎&lt;/span&gt;">4.89 / 5 <span>· 23 reviews · Excellent TA Award 2022</span></div>
       </div>
       <div class="reviews">
-        <figure class="review"><blockquote>Part of my motivation for taking this course came from the TA. It was the first time I&#x27;d met a TA so passionate about teaching and so responsible; she often seemed more dedicated than any of us students, and I could see how hard she worked to find ways to make online teaching better. I find that rare and precious, and I feel lucky to have had her. In this course, which ranked high on my stress index, her presence greatly eased my anxiety. I heard she wants to pursue teaching; I wish her all the best.</blockquote><p class="zh">我上這門課有一部分的動力來源是來自課程 TA，第一次遇到這麼具有教學熱忱，又認真負責的助教，常常覺得助教比我們任何一個學生都還要認真，也看見了她常常為了要讓線上教學的效果更好，很努力的想各種方法。我覺得這件事很難能可貴，也覺得自己很幸運可以遇到這樣的助教，在這門課我覺得壓力指數報表的課程，助教的存在大大地緩解了我的焦慮。而我聽說助教以後想要走教學的路線，希望她以後的路都順利。</p><figcaption><span>Submitted</span> 2022-08-21</figcaption></figure>
-        <figure class="review"><blockquote>The TA is super dedicated. Thank you!</blockquote><p class="zh">助教超認真，感謝尼</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>The TA held Google Meet sessions several times every week outside class so we could ask questions. I&#x27;ve never had a TA provide so many learning resources.</blockquote><p class="zh">TA 每個禮拜都有開 Google Meets 好幾次，在非上課時間讓同學提問問題，我從來都沒有遇過提供的學習資源這麼多的助教。</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>A TA who teaches and helps students with real dedication! Thank you for doing so much for us. I learned a lot. Thank you!</blockquote><p class="zh">非常認真教學與協助同學的助教！謝謝妳為同學協助這麼多事，受益良多，感謝！</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>The TA is so nice and always happy to help us solve problems, including setting up office hours outside class. Thank you for your help in this course.</blockquote><p class="zh">助教人超好的，很樂意幫助我們解決問題，也很樂意在課外時間約 office hour。謝謝助教在這堂課上的幫助。</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>The TA taught us very earnestly, organized her notes and key points very clearly, answered students&#x27; questions carefully, and was willing to invest time in them. Her explanations were clear. The first time through it felt a bit fast, and since my logic isn&#x27;t great I might not get it right away, but I recorded and rewatched, and everything she explained was easy to understand. She also explained the same concept through many different scenarios. She&#x27;s amazing! I regret not setting aside more time for this course, or I could have learned even more from her!</blockquote><p class="zh">助教很認真的教導我們，對於教學的筆記、重點都整理得非常有條理，對於學生的問題都很細心地回覆，也很願意投入時間在解答學生問題。講題很清楚，雖然第一次聽會覺得有點快，身為邏輯能力沒有很好的我可能不會馬上就聽懂，但是因為我會錄影下來重複觀看，所以我覺得助教講解的都非常淺顯易懂，也會用許多不同情境講同一個觀念。助教真的超棒的，有點後悔沒有空出完整的時間學習這堂課的東西，要不然就可以跟助教學更多東西了！</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">Part of my motivation for taking this course came from the TA. It was the first time I&#x27;d met a TA so passionate about teaching and so responsible; she often seemed more dedicated than any of us students, and I could see how hard she worked to find ways to make online teaching better. I find that rare and precious, and I feel lucky to have had her. In this course, which ranked high on my stress index, her presence greatly eased my anxiety. I heard she wants to pursue teaching; I wish her all the best.</blockquote><p class="zh">我上這門課有一部分的動力來源是來自課程 TA，第一次遇到這麼具有教學熱忱，又認真負責的助教，常常覺得助教比我們任何一個學生都還要認真，也看見了她常常為了要讓線上教學的效果更好，很努力的想各種方法。我覺得這件事很難能可貴，也覺得自己很幸運可以遇到這樣的助教，在這門課我覺得壓力指數報表的課程，助教的存在大大地緩解了我的焦慮。而我聽說助教以後想要走教學的路線，希望她以後的路都順利。</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-21</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA is super dedicated. Thank you!</blockquote><p class="zh">助教超認真，感謝尼</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA held Google Meet sessions several times every week outside class so we could ask questions. I&#x27;ve never had a TA provide so many learning resources.</blockquote><p class="zh">TA 每個禮拜都有開 Google Meets 好幾次，在非上課時間讓同學提問問題，我從來都沒有遇過提供的學習資源這麼多的助教。</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">A TA who teaches and helps students with real dedication! Thank you for doing so much for us. I learned a lot. Thank you!</blockquote><p class="zh">非常認真教學與協助同學的助教！謝謝妳為同學協助這麼多事，受益良多，感謝！</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA is so nice and always happy to help us solve problems, including setting up office hours outside class. Thank you for your help in this course.</blockquote><p class="zh">助教人超好的，很樂意幫助我們解決問題，也很樂意在課外時間約 office hour。謝謝助教在這堂課上的幫助。</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA taught us very earnestly, organized her notes and key points very clearly, answered students&#x27; questions carefully, and was willing to invest time in them. Her explanations were clear. The first time through it felt a bit fast, and since my logic isn&#x27;t great I might not get it right away, but I recorded and rewatched, and everything she explained was easy to understand. She also explained the same concept through many different scenarios. She&#x27;s amazing! I regret not setting aside more time for this course, or I could have learned even more from her!</blockquote><p class="zh">助教很認真的教導我們，對於教學的筆記、重點都整理得非常有條理，對於學生的問題都很細心地回覆，也很願意投入時間在解答學生問題。講題很清楚，雖然第一次聽會覺得有點快，身為邏輯能力沒有很好的我可能不會馬上就聽懂，但是因為我會錄影下來重複觀看，所以我覺得助教講解的都非常淺顯易懂，也會用許多不同情境講同一個觀念。助教真的超棒的，有點後悔沒有空出完整的時間學習這堂課的東西，要不然就可以跟助教學更多東西了！</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
       </div>
-      <details class="more-reviews"><summary>Show all 23 reviews</summary>
+      <details class="more-reviews"><summary data-zh="顯示全部 23 則">Show all 23 reviews</summary>
       <div class="reviews">
-        <figure class="review"><blockquote>Besides giving us plenty of practice in class with clear, careful explanations of concepts and problems, the TA held office hours after class so we could solve every question right away. Email questions were answered quickly and clearly too. Thank you so much for your help and care during this course!</blockquote><p class="zh">助教除了在上課時的習題讓我們有非常充分的練習與清楚仔細地講解觀念及題目內容，也在課後與其餘沒有上課的時間給予 office hour 讓我們可以將所有問題馬上解決，此外若是傳 email 詢問問題，助教也非常快速的清楚回答我們的問題，非常感謝助教這段時間的幫助以及用心，辛苦了！</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>The TA was very dedicated and would keep explaining until we understood. If we had questions outside class, we could book time with her to discuss them.</blockquote><p class="zh">TA 非常的用心，上課聽不懂的會一直講到聽懂為止，若是課餘時間有問題也可以和 TA 約上課外的時間一起討論問題。</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>An awesome TA.</blockquote><p class="zh">很讚的助教</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>The TA is so nice and never tired of answering our questions, which made learning much easier!</blockquote><p class="zh">助教人超好，不厭其煩的回答我們的問題，讓我學習上減少了許多困難！</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>Thank you, Chi-Hsien, for being such a dedicated TA! You not only helped us when we were stuck but also offered help proactively. Suggestion: the first one or two TA sessions moved far ahead of the course, which was a bit hard for students with no programming background; it could be a little simpler.</blockquote><p class="zh">謝謝超用心的麒仙助教！不僅在學生有困難的時候為我們解惑，還會主動提供協助～<br>建議：前 1、2 堂助教課進度超前太多，對沒學過程式的同學會有點吃力，可以簡單一點～</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>It was my first time learning programming, and unlike some students I had no background. But the TA always encouraged us to ask questions, booked lots of extra time to tutor us on what we didn&#x27;t understand until we got it, and praised us generously when we did well. That gave me great confidence in this course. I&#x27;m so happy my first programming course came with such a great TA! I hope to carry her spirit into learning other fields. Thank you so much!</blockquote><p class="zh">第一次接觸程式設計，很多觀念不像有些學生有基礎，但助教總是鼓勵我們問問題，也跟我們約很多課餘時間輔導不理解的部分，問到會為止，對於表現好的部分也會大力讚賞，讓我對於這門課有了很大的信心，很開心我第一次學程式設計遇到那麼好的助教！希望未來也能夠帶著麒仙助教的精神學習不同領域的知識！非常謝謝！</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>The TA is incredibly dedicated and spent a huge amount of time on us. Her help made an enormous difference to my learning. Thank you, and please take care of your health and remember to rest; don&#x27;t push too hard.</blockquote><p class="zh">助教真的超級認真，花在我們身上的時間非常多，對我學習帶來的幫助更是非常非常大，謝謝助教、也希望助教要注意身體健康，適時放鬆不要拚過頭了。</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>Excellent.</blockquote><p class="zh">超好</p><figcaption><span>Submitted</span> 2022-08-13</figcaption></figure>
-        <figure class="review"><blockquote>I&#x27;ve rarely met a TA with so much patience and enthusiasm. I hope I can keep asking her questions in the future.</blockquote><p class="zh">真的很少碰到那麼有耐心和熱忱的助教，希望之後有問題也可以繼續詢問助教</p><figcaption><span>Submitted</span> 2022-08-14</figcaption></figure>
-        <figure class="review"><blockquote>The TA is full of enthusiasm, responsible, and dedicated!</blockquote><p class="zh">助教充滿熱誠，態度負責認真！</p><figcaption><span>Submitted</span> 2022-08-15</figcaption></figure>
-        <figure class="review"><blockquote>The TA was very patient in helping me solve problems. More than 100 out of 100.</blockquote><p class="zh">TA 非常有耐心幫助我解決問題，超過 100 分</p><figcaption><span>Submitted</span> 2022-08-16</figcaption></figure>
-        <figure class="review"><blockquote>The TA was truly dedicated and explained things very clearly. She did more than half of the explaining in class; sometimes I didn&#x27;t quite follow the professor, but after she explained it everything clicked. She was happy to answer questions in office hours and very friendly. She makes you want to keep taking her classes.</blockquote><p class="zh">助教真的很用心，講解非常清楚，課堂上超過一半的時間都是他在講解，有時候教授講我聽不太懂，助教講完就豁然開朗，而且助教還很樂意在 office hour 回答問題，態度也非常親切，讓人想一直上他的課</p><figcaption><span>Submitted</span> 2022-08-17</figcaption></figure>
-        <figure class="review"><blockquote>The TA is very responsible and teaches earnestly.</blockquote><p class="zh">助教很負責任很認真教學～～</p><figcaption><span>Submitted</span> 2022-08-18</figcaption></figure>
-        <figure class="review"><blockquote>She is really dedicated to teaching and puts real care into answering students&#x27; questions.</blockquote><p class="zh">真的很認真在教學，也很用心在回答學生的問題</p><figcaption><span>Submitted</span> 2022-08-19</figcaption></figure>
-        <figure class="review"><blockquote>The TA puts her heart into teaching and is willing to spend time outside class discussing with students. The kind of teacher education can&#x27;t do without.</blockquote><p class="zh">助教很用心在上課，也願意花課餘的時間與學生討論，是個教育界缺一不可的老師。</p><figcaption><span>Submitted</span> 2022-08-19</figcaption></figure>
-        <figure class="review"><blockquote>The TA is very dedicated.</blockquote><p class="zh">助教很認真</p><figcaption><span>Submitted</span> 2022-08-26</figcaption></figure>
-        <figure class="review"><blockquote>The TA is caring and dedicated.</blockquote><p class="zh">助教很用心且認真～</p><figcaption><span>Submitted</span> 2022-09-06</figcaption></figure>
+        <figure class="review"><blockquote class="tr">Besides giving us plenty of practice in class with clear, careful explanations of concepts and problems, the TA held office hours after class so we could solve every question right away. Email questions were answered quickly and clearly too. Thank you so much for your help and care during this course!</blockquote><p class="zh">助教除了在上課時的習題讓我們有非常充分的練習與清楚仔細地講解觀念及題目內容，也在課後與其餘沒有上課的時間給予 office hour 讓我們可以將所有問題馬上解決，此外若是傳 email 詢問問題，助教也非常快速的清楚回答我們的問題，非常感謝助教這段時間的幫助以及用心，辛苦了！</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA was very dedicated and would keep explaining until we understood. If we had questions outside class, we could book time with her to discuss them.</blockquote><p class="zh">TA 非常的用心，上課聽不懂的會一直講到聽懂為止，若是課餘時間有問題也可以和 TA 約上課外的時間一起討論問題。</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">An awesome TA.</blockquote><p class="zh">很讚的助教</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA is so nice and never tired of answering our questions, which made learning much easier!</blockquote><p class="zh">助教人超好，不厭其煩的回答我們的問題，讓我學習上減少了許多困難！</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">Thank you, Chi-Hsien, for being such a dedicated TA! You not only helped us when we were stuck but also offered help proactively. Suggestion: the first one or two TA sessions moved far ahead of the course, which was a bit hard for students with no programming background; it could be a little simpler.</blockquote><p class="zh">謝謝超用心的麒仙助教！不僅在學生有困難的時候為我們解惑，還會主動提供協助～<br>建議：前 1、2 堂助教課進度超前太多，對沒學過程式的同學會有點吃力，可以簡單一點～</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">It was my first time learning programming, and unlike some students I had no background. But the TA always encouraged us to ask questions, booked lots of extra time to tutor us on what we didn&#x27;t understand until we got it, and praised us generously when we did well. That gave me great confidence in this course. I&#x27;m so happy my first programming course came with such a great TA! I hope to carry her spirit into learning other fields. Thank you so much!</blockquote><p class="zh">第一次接觸程式設計，很多觀念不像有些學生有基礎，但助教總是鼓勵我們問問題，也跟我們約很多課餘時間輔導不理解的部分，問到會為止，對於表現好的部分也會大力讚賞，讓我對於這門課有了很大的信心，很開心我第一次學程式設計遇到那麼好的助教！希望未來也能夠帶著麒仙助教的精神學習不同領域的知識！非常謝謝！</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA is incredibly dedicated and spent a huge amount of time on us. Her help made an enormous difference to my learning. Thank you, and please take care of your health and remember to rest; don&#x27;t push too hard.</blockquote><p class="zh">助教真的超級認真，花在我們身上的時間非常多，對我學習帶來的幫助更是非常非常大，謝謝助教、也希望助教要注意身體健康，適時放鬆不要拚過頭了。</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">Excellent.</blockquote><p class="zh">超好</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote class="tr">I&#x27;ve rarely met a TA with so much patience and enthusiasm. I hope I can keep asking her questions in the future.</blockquote><p class="zh">真的很少碰到那麼有耐心和熱忱的助教，希望之後有問題也可以繼續詢問助教</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-14</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA is full of enthusiasm, responsible, and dedicated!</blockquote><p class="zh">助教充滿熱誠，態度負責認真！</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-15</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA was very patient in helping me solve problems. More than 100 out of 100.</blockquote><p class="zh">TA 非常有耐心幫助我解決問題，超過 100 分</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-16</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA was truly dedicated and explained things very clearly. She did more than half of the explaining in class; sometimes I didn&#x27;t quite follow the professor, but after she explained it everything clicked. She was happy to answer questions in office hours and very friendly. She makes you want to keep taking her classes.</blockquote><p class="zh">助教真的很用心，講解非常清楚，課堂上超過一半的時間都是他在講解，有時候教授講我聽不太懂，助教講完就豁然開朗，而且助教還很樂意在 office hour 回答問題，態度也非常親切，讓人想一直上他的課</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-17</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA is very responsible and teaches earnestly.</blockquote><p class="zh">助教很負責任很認真教學～～</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-18</figcaption></figure>
+        <figure class="review"><blockquote class="tr">She is really dedicated to teaching and puts real care into answering students&#x27; questions.</blockquote><p class="zh">真的很認真在教學，也很用心在回答學生的問題</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-19</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA puts her heart into teaching and is willing to spend time outside class discussing with students. The kind of teacher education can&#x27;t do without.</blockquote><p class="zh">助教很用心在上課，也願意花課餘的時間與學生討論，是個教育界缺一不可的老師。</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-19</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA is very dedicated.</blockquote><p class="zh">助教很認真</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-08-26</figcaption></figure>
+        <figure class="review"><blockquote class="tr">The TA is caring and dedicated.</blockquote><p class="zh">助教很用心且認真～</p><figcaption><span data-zh="填寫日期">Submitted</span> 2022-09-06</figcaption></figure>
       </div>
       </details>
     </div>
@@ -589,20 +601,20 @@
 
 <section id="online" class="alt">
   <div class="wrap">
-    <div class="sec-head"><h2>Online Courses</h2><span class="aside">On Hahow</span></div>
-    <div class="learners"><b>1,000+</b><span>learners have enrolled in my online courses on programming, statistics, and AI-assisted development.</span></div>
+    <div class="sec-head"><h2 data-zh="線上課程">Online Courses</h2><span class="aside" data-zh="Hahow 好學校">On Hahow</span></div>
+    <div class="learners"><b>1,000+</b><span data-zh="位學員報名我的線上課程，主題涵蓋程式設計、統計與 AI 輔助開發。">learners have enrolled in my online courses on programming, statistics, and AI-assisted development.</span></div>
     <div class="ocards">
       <a class="ocard" href="https://hahow.in/cr/ai-java-python" target="_blank" rel="noopener">
         <img src="images/courses/ai-java-python.jpg" alt="修改 AI 程式碼 course cover" loading="lazy" width="800" height="800">
-        <div class="in"><div class="k">Python × Java</div><h3>Fixing AI-Generated Code</h3><p>Hands-on generation, understanding, debugging, and verification</p><span class="go">View course →</span></div>
+        <div class="in"><div class="k">Python × Java</div><h3 data-zh="修改 AI 程式碼">Fixing AI-Generated Code</h3><p data-zh="生成、理解、除錯到驗證的開發實戰">Hands-on generation, understanding, debugging, and verification</p><span class="go" data-zh="前往課程 →">View course →</span></div>
       </a>
       <a class="ocard" href="https://hahow.in/cr/python-statistics" target="_blank" rel="noopener">
         <img src="images/courses/python-statistics.jpg" alt="Python × 統計 完整攻略 course cover" loading="lazy" width="800" height="800">
-        <div class="in"><div class="k">Python × Statistics</div><h3>The Complete Guide to Python × Statistics</h3><p>From probability basics to real-world data analysis</p><span class="go">View course →</span></div>
+        <div class="in"><div class="k" data-zh="Python × 統計">Python × Statistics</div><h3 data-zh="Python × 統計 完整攻略">The Complete Guide to Python × Statistics</h3><p data-zh="從機率基礎到真實資料分析的全面掌握">From probability basics to real-world data analysis</p><span class="go" data-zh="前往課程 →">View course →</span></div>
       </a>
       <a class="ocard" href="https://hahow.in/cr/rust-python" target="_blank" rel="noopener">
         <img src="images/courses/rust-python.jpg" alt="Python × Rust 高效實戰開發 course cover" loading="lazy" width="800" height="800">
-        <div class="in"><div class="k">Python × Rust</div><h3>High-Performance Development with Python × Rust</h3><p>Performance and safety, all in one</p><span class="go">View course →</span></div>
+        <div class="in"><div class="k">Python × Rust</div><h3 data-zh="Python × Rust 高效實戰開發">High-Performance Development with Python × Rust</h3><p data-zh="效能 × 安全 一次到位！">Performance and safety, all in one</p><span class="go" data-zh="前往課程 →">View course →</span></div>
       </a>
     </div>
   </div>
@@ -610,38 +622,38 @@
 
 <section id="talks">
   <div class="wrap">
-    <div class="sec-head"><h2>Talks</h2></div>
+    <div class="sec-head"><h2 data-zh="演講">Talks</h2></div>
     <div class="talks">
       <div class="talk">
         <img src="images/mit2.jpeg" alt="Talk at NSTC exchange, Cambridge" loading="lazy">
         <div class="in">
-          <h3>NSTC Graduate Students Study Abroad Program Fellows Exchange</h3>
-          <div class="where">NSTC · Cambridge, MA · May 2025</div>
-          <p>Interpretable splicing prediction: probabilistic parsing and credibility scoring, from my computational genomics work at MIT.</p>
+          <h3 data-zh="國科會千里馬學員交流分享會">NSTC Graduate Students Study Abroad Program Fellows Exchange</h3>
+          <div class="where" data-zh="國科會 · 美國劍橋 · 2025 年 5 月">NSTC · Cambridge, MA · May 2025</div>
+          <p data-zh="可解釋的剪接預測：介紹我在 MIT 計算基因體學研究中的機率剖析與可信度評分方法。">Interpretable splicing prediction: probabilistic parsing and credibility scoring, from my computational genomics work at MIT.</p>
         </div>
       </div>
       <div class="talk">
         <img src="images/mit1.jpeg" alt="MIT x Harvard talk" loading="lazy">
         <div class="in">
-          <h3>MIT × Harvard Academic 6×6 Talks</h3>
-          <div class="where">MIT · Nov 2024</div>
-          <p>Model Building Genetic Algorithms (MBGA) and their applications in evolutionary computation.</p>
+          <h3 data-zh="MIT × Harvard 學術六乘六">MIT × Harvard Academic 6×6 Talks</h3>
+          <div class="where" data-zh="MIT · 2024 年 11 月">MIT · Nov 2024</div>
+          <p data-zh="模型建構基因演算法 (MBGA) 及其在演化計算中的應用。">Model Building Genetic Algorithms (MBGA) and their applications in evolutionary computation.</p>
         </div>
       </div>
       <div class="talk">
         <img src="images/LATEX2.jpg" alt="LaTeX workshop" loading="lazy">
         <div class="in">
-          <h3>LaTeX Paper Workshop</h3>
-          <div class="where">NTU Mechanical Engineering · May 2024</div>
-          <p>Tables, figures, citations, and Beamer slides for graduate students.</p>
+          <h3 data-zh="LaTeX 論文寫作工作坊">LaTeX Paper Workshop</h3>
+          <div class="where" data-zh="臺大機械系 · 2024 年 5 月">NTU Mechanical Engineering · May 2024</div>
+          <p data-zh="帶研究生學會表格、圖片、引用文獻，以及用 Beamer 製作投影片。">Tables, figures, citations, and Beamer slides for graduate students.</p>
         </div>
       </div>
       <div class="talk">
         <img src="images/Japan.jpg" alt="JST CREST meeting at Kyoto University" loading="lazy">
         <div class="in">
-          <h3>Research on Genetic Algorithms and Genetic Programming</h3>
-          <div class="where">JST Sugiyama CREST · Kyoto University · Mar 2024</div>
-          <p>Presented to the CREST project “Machine Learning that connects to Symbolic Reasoning.”</p>
+          <h3 data-zh="基因演算法與基因規劃研究">Research on Genetic Algorithms and Genetic Programming</h3>
+          <div class="where" data-zh="JST 杉山 CREST · 京都大學 · 2024 年 3 月">JST Sugiyama CREST · Kyoto University · Mar 2024</div>
+          <p data-zh="於 CREST 計畫「連結符號推理的機器學習」中發表研究。">Presented to the CREST project “Machine Learning that connects to Symbolic Reasoning.”</p>
         </div>
       </div>
     </div>
@@ -650,23 +662,23 @@
 
 <section id="honors" class="alt">
   <div class="wrap">
-    <div class="sec-head"><h2>Honors &amp; Funding</h2></div>
+    <div class="sec-head"><h2 data-zh="榮譽與獎學金">Honors &amp; Funding</h2></div>
     <ul class="list">
-      <li><div class="year">2026</div><div><div class="title">Reviewer, IEEE Transactions on Evolutionary Computation (TEVC)</div></div></li>
-      <li><div class="year">2025</div><div><div class="title"><a href="https://drive.google.com/file/d/1NgsBm5RzcSz-tjTsuiwRkEFTk9P_RlsR/view?usp=sharing">Outstanding Lecturer</a></div><div class="meta">NTU CSIE</div></div></li>
-      <li><div class="year">2024</div><div><div class="title"><a href="doc/My name is in the first row.pdf">Graduate Students Study Abroad Program</a> — 30,000 USD</div><div class="meta">National Science and Technology Council</div></div></li>
-      <li><div class="year">2024</div><div><div class="title"><a href="https://research.google/programs-and-events/phd-fellowship/">Google PhD Fellowship</a> nominee</div><div class="meta">Nominated by NTU</div></div></li>
-      <li><div class="year">2024</div><div><div class="title">Reviewer, ACML</div><div class="meta">Asian Conference on Machine Learning</div></div></li>
-      <li><div class="year">2024</div><div><div class="title"><a href="https://www.facebook.com/groups/mitrocsa/">Vice President, MIT ROCSA</a></div><div class="meta">Republic of China Student Association at MIT</div></div></li>
-      <li><div class="year">2023</div><div><div class="title"><a href="doc/Outstanding University Youth Award.pdf">Outstanding University Youth Award</a></div><div class="meta">NTU</div></div></li>
-      <li><div class="year">2023</div><div><div class="title"><a href="doc/111 Student Altruism Award.pdf">Student Altruism Award</a></div><div class="meta">NTU EECS</div></div></li>
-      <li><div class="year">2022–23</div><div><div class="title">Rotary Scholarships — 6,000 USD ×2</div><div class="meta">Rotary Clubs of Taipei Chengai &amp; Taipei Midtown</div></div></li>
-      <li><div class="year">2023</div><div><div class="title">Student Travel Grants</div><div class="meta">NTUEE (1,300 USD) · GECCO (200 USD)</div></div></li>
-      <li><div class="year">2022</div><div><div class="title"><a href="https://drive.google.com/file/d/1rTyeDsN-xbZwIuCVXJbvt-FnM5hej_aZ/view?usp=sharing">Summer College Excellent TA Award</a></div><div class="meta">Summer College, National Taiwan University</div></div></li>
-      <li><div class="year">2018</div><div><div class="title"><a href="doc/Commencement Speaker.jpg">Commencement Speaker</a></div><div class="meta">M.S. in Statistics, NTU</div></div></li>
-      <li><div class="year">2018</div><div><div class="title">Selected for the U-start Innovation &amp; Entrepreneurship Program</div><div class="meta">NTUST</div></div></li>
-      <li><div class="year">2017</div><div><div class="title"><a href="doc/Team Project Awarded 1st Place in the 2nd Yunus Prize.jpg">1st Place, 2nd Yunus Prize</a></div><div class="meta">Social Innovation and Entrepreneurship Competition</div></div></li>
-      <li><div class="year">2016</div><div><div class="title"><a href="doc/Club Evaluation Excellence Award.jpg">Club Evaluation Excellence Award</a></div><div class="meta">As President of the Islamic Cultural Studies Club</div></div></li>
+      <li><div class="year">2026</div><div><div class="title" data-zh="IEEE Transactions on Evolutionary Computation (TEVC) 期刊審稿人">Reviewer, IEEE Transactions on Evolutionary Computation (TEVC)</div></div></li>
+      <li><div class="year">2025</div><div><div class="title" data-zh="&lt;a href=&quot;https://drive.google.com/file/d/1NgsBm5RzcSz-tjTsuiwRkEFTk9P_RlsR/view?usp=sharing&quot;&gt;優良講師&lt;/a&gt;"><a href="https://drive.google.com/file/d/1NgsBm5RzcSz-tjTsuiwRkEFTk9P_RlsR/view?usp=sharing">Outstanding Lecturer</a></div><div class="meta" data-zh="臺大資訊系統訓練班">NTU CSIE</div></div></li>
+      <li><div class="year">2024</div><div><div class="title" data-zh="&lt;a href=&quot;doc/My name is in the first row.pdf&quot;&gt;國科會千里馬計畫&lt;/a&gt; — 30,000 美元"><a href="doc/My name is in the first row.pdf">Graduate Students Study Abroad Program</a> — 30,000 USD</div><div class="meta" data-zh="國家科學及技術委員會">National Science and Technology Council</div></div></li>
+      <li><div class="year">2024</div><div><div class="title" data-zh="獲臺大推薦角逐 &lt;a href=&quot;https://research.google/programs-and-events/phd-fellowship/&quot;&gt;Google PhD Fellowship&lt;/a&gt;"><a href="https://research.google/programs-and-events/phd-fellowship/">Google PhD Fellowship</a> nominee</div><div class="meta" data-zh="臺大推薦">Nominated by NTU</div></div></li>
+      <li><div class="year">2024</div><div><div class="title" data-zh="ACML 會議審稿人">Reviewer, ACML</div><div class="meta" data-zh="亞洲機器學習會議">Asian Conference on Machine Learning</div></div></li>
+      <li><div class="year">2024</div><div><div class="title" data-zh="&lt;a href=&quot;https://www.facebook.com/groups/mitrocsa/&quot;&gt;MIT 台灣學生會 副會長&lt;/a&gt;"><a href="https://www.facebook.com/groups/mitrocsa/">Vice President, MIT ROCSA</a></div><div class="meta" data-zh="MIT-ROCSA">Republic of China Student Association at MIT</div></div></li>
+      <li><div class="year">2023</div><div><div class="title" data-zh="&lt;a href=&quot;doc/Outstanding University Youth Award.pdf&quot;&gt;優秀青年獎&lt;/a&gt;"><a href="doc/Outstanding University Youth Award.pdf">Outstanding University Youth Award</a></div><div class="meta" data-zh="臺灣大學">NTU</div></div></li>
+      <li><div class="year">2023</div><div><div class="title" data-zh="&lt;a href=&quot;doc/111 Student Altruism Award.pdf&quot;&gt;學生利他獎&lt;/a&gt;"><a href="doc/111 Student Altruism Award.pdf">Student Altruism Award</a></div><div class="meta" data-zh="臺大電機資訊學院">NTU EECS</div></div></li>
+      <li><div class="year">2022–23</div><div><div class="title" data-zh="扶輪社獎學金 — 6,000 美元 ×2">Rotary Scholarships — 6,000 USD ×2</div><div class="meta" data-zh="台北城愛扶輪社、台北中城扶輪社">Rotary Clubs of Taipei Chengai &amp; Taipei Midtown</div></div></li>
+      <li><div class="year">2023</div><div><div class="title" data-zh="學生出國差旅補助">Student Travel Grants</div><div class="meta" data-zh="臺大電機系（1,300 美元）· GECCO（200 美元）">NTUEE (1,300 USD) · GECCO (200 USD)</div></div></li>
+      <li><div class="year">2022</div><div><div class="title" data-zh="&lt;a href=&quot;https://drive.google.com/file/d/1rTyeDsN-xbZwIuCVXJbvt-FnM5hej_aZ/view?usp=sharing&quot;&gt;全國夏季學院傑出教學助理獎&lt;/a&gt;"><a href="https://drive.google.com/file/d/1rTyeDsN-xbZwIuCVXJbvt-FnM5hej_aZ/view?usp=sharing">Summer College Excellent TA Award</a></div><div class="meta" data-zh="臺大全國夏季學院">Summer College, National Taiwan University</div></div></li>
+      <li><div class="year">2018</div><div><div class="title" data-zh="&lt;a href=&quot;doc/Commencement Speaker.jpg&quot;&gt;畢業典禮致詞代表&lt;/a&gt;"><a href="doc/Commencement Speaker.jpg">Commencement Speaker</a></div><div class="meta" data-zh="臺大統計碩士">M.S. in Statistics, NTU</div></div></li>
+      <li><div class="year">2018</div><div><div class="title" data-zh="獲選 U-start 創新創業計畫">Selected for the U-start Innovation &amp; Entrepreneurship Program</div><div class="meta" data-zh="臺灣科技大學">NTUST</div></div></li>
+      <li><div class="year">2017</div><div><div class="title" data-zh="&lt;a href=&quot;doc/Team Project Awarded 1st Place in the 2nd Yunus Prize.jpg&quot;&gt;第二屆尤努斯獎 第一名&lt;/a&gt;"><a href="doc/Team Project Awarded 1st Place in the 2nd Yunus Prize.jpg">1st Place, 2nd Yunus Prize</a></div><div class="meta" data-zh="社會創新與創業競賽">Social Innovation and Entrepreneurship Competition</div></div></li>
+      <li><div class="year">2016</div><div><div class="title" data-zh="&lt;a href=&quot;doc/Club Evaluation Excellence Award.jpg&quot;&gt;社團評鑑優等獎&lt;/a&gt;"><a href="doc/Club Evaluation Excellence Award.jpg">Club Evaluation Excellence Award</a></div><div class="meta" data-zh="擔任伊斯蘭文化研究社社長期間">As President of the Islamic Cultural Studies Club</div></div></li>
     </ul>
   </div>
 </section>
@@ -685,6 +697,7 @@
 </footer>
 
 <script>
+function bindCopy() {
 document.querySelectorAll('.copy-email').forEach(function (b) {
   b.addEventListener('click', function () {
     var email = b.dataset.email;
@@ -694,6 +707,33 @@ document.querySelectorAll('.copy-email').forEach(function (b) {
     } else { window.prompt('Copy email:', email); }
   });
 });
+}
+bindCopy();
+</script>
+<script>
+(function () {
+  var nodes = document.querySelectorAll('[data-zh]');
+  nodes.forEach(function (n) { n.dataset.en = n.innerHTML; });
+  var btn = document.getElementById('langToggle');
+  var titles = { en: document.title, zh: '張麒仙 (Salima) Chang' };
+  function apply(lang) {
+    var zh = lang === 'zh';
+    document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+    nodes.forEach(function (n) { n.innerHTML = zh ? n.dataset.zh : n.dataset.en; });
+    document.title = zh ? titles.zh : titles.en;
+    btn.textContent = zh ? 'EN' : '中文';
+    btn.setAttribute('aria-label', zh ? 'Switch to English' : '切換為中文');
+    bindCopy();
+  }
+  var lang = 'en';
+  try { if (localStorage.getItem('lang') === 'zh') lang = 'zh'; } catch (e) {}
+  if (lang === 'zh') apply('zh');
+  btn.addEventListener('click', function () {
+    lang = lang === 'zh' ? 'en' : 'zh';
+    apply(lang);
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  });
+})();
 </script>
 </body>
 </html>
