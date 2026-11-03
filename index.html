@@ -49,6 +49,10 @@
     a:hover { color: var(--orange); }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
+    .copy-email { font: inherit; color: var(--ink); background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-color: var(--orange); text-underline-offset: 3px; text-decoration-thickness: 2px; }
+    .copy-email:hover { color: var(--orange); }
+    .copy-email.copied::after { content: " ✓ Copied"; color: var(--orange); font-size: 14px; font-weight: 600; text-decoration: none; }
+
     /* Nav */
     nav.top {
       position: sticky; top: 0; z-index: 10;
@@ -311,7 +315,7 @@
       I am a PhD candidate at <a href="https://teilab.ee.ntu.edu.tw/#/home">TEILab (Taiwan Evolutionary Intelligence Laboratory)</a>, advised by Dr. <a href="https://www.ee.ntu.edu.tw/profile1.php?id=745">Tian-Li Yu</a>, in Electrical Engineering at <a href="https://www.ntu.edu.tw/english/">National Taiwan University</a>. Before that, I earned my M.S. in Statistics at NTU and my B.S. in Mathematical Sciences at <a href="https://www.nccu.edu.tw/index.php?Lang=en">National Chengchi University</a>.
     </p>
     <p class="body">
-      I currently teach programming, statistics, and data analysis as a lecturer at <a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178">NTU CSIE</a>, where I received the <b>2025 Outstanding Lecturer</b> award. I'm always happy to talk research — feedback is welcome.
+      I currently teach programming, statistics, and data analysis as a lecturer at <a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178">NTU CSIE</a>, where I received the <b>2025 Outstanding Lecturer</b> award. I'm always happy to chat about research, teaching, or building with AI. Reach me at <button type="button" class="copy-email" data-email="salimachchang@gmail.com" title="Click to copy">salimachchang@gmail.com</button>.
     </p>
 
     <div class="cards" style="margin-top:28px">
@@ -680,5 +684,16 @@
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.copy-email').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var email = b.dataset.email;
+    var done = function () { b.classList.add('copied'); setTimeout(function () { b.classList.remove('copied'); }, 1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(done, function () { window.prompt('Copy email:', email); });
+    } else { window.prompt('Copy email:', email); }
+  });
+});
+</script>
 </body>
 </html>
