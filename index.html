@@ -118,8 +118,7 @@
     .list .title { font-weight: 600; }
     .list .meta { color: var(--muted); font-size: 15px; }
     .list .meta b { color: var(--ink); }
-    .venue { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .03em; border: 1px solid var(--line); padding: 1px 7px; border-radius: 3px; margin-right: 6px; color: var(--ink); background: var(--card); }
-    .venue.hot { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .venue { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .03em; padding: 2px 8px; border-radius: 3px; margin-right: 6px; color: #fff; background: var(--orange); }
 
     /* Cards */
     .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -138,6 +137,43 @@
     .talk .where { font-size: 13px; color: var(--orange); font-weight: 600; margin-bottom: 8px; }
     .talk p { margin: 0; font-size: 15px; color: var(--muted); }
 
+    /* Reviews */
+    .rstats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 28px; }
+    .rstat { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 18px; }
+    .rstat .num { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+    .rstat .num em { font-style: normal; color: var(--orange); font-size: 18px; }
+    .rstat .label { color: var(--muted); font-size: 14px; }
+    .quote-hero { border-left: 4px solid var(--orange); padding: 6px 0 6px 20px; margin: 0 0 36px; }
+    .quote-hero blockquote { margin: 0 0 8px; font-size: 21px; font-weight: 600; line-height: 1.5; }
+    .quote-hero figcaption { color: var(--muted); font-size: 14px; }
+    .rgroup { margin-top: 36px; }
+    .rgroup-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 14px; }
+    .rgroup-head h3 { margin: 0; font-size: 19px; letter-spacing: -0.01em; }
+    .rgroup-head .score { font-weight: 700; color: var(--orange); white-space: nowrap; }
+    .rgroup-head .score span { color: var(--muted); font-weight: 500; }
+    .reviews { columns: 3 260px; column-gap: 14px; }
+    .review { break-inside: avoid; margin: 0 0 14px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; }
+    .review blockquote { margin: 0; font-size: 15px; line-height: 1.7; }
+    .review figcaption { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--line); font-size: 13px; color: var(--muted); }
+    .review figcaption span { color: var(--orange); font-weight: 600; margin-right: 4px; }
+    .more-reviews summary { cursor: pointer; display: inline-block; font-weight: 600; font-size: 15px; padding: 8px 16px; border: 1.5px solid var(--ink); border-radius: 6px; margin-bottom: 14px; list-style: none; }
+    .more-reviews summary::-webkit-details-marker { display: none; }
+    .more-reviews summary:hover { color: var(--orange); border-color: var(--orange); }
+    .more-reviews[open] summary { display: none; }
+
+    /* Online courses */
+    .ocards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .ocard { display: block; text-decoration: none; color: var(--ink); background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; transition: transform .12s ease, border-color .12s ease; }
+    .ocard:hover { transform: translateY(-2px); border-color: var(--orange); color: var(--ink); }
+    .ocard img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+    .ocard .in { padding: 16px 18px; }
+    .ocard .k { font-size: 12px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: .05em; }
+    .ocard h3 { margin: 4px 0 4px; font-size: 17px; }
+    .ocard p { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+    .ocard .go { font-weight: 600; font-size: 14px; }
+    .learners { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; background: var(--orange-soft); border-left: 4px solid var(--orange); border-radius: 4px; padding: 16px 20px; margin-bottom: 24px; }
+    .learners b { font-size: 28px; font-weight: 800; color: var(--orange); letter-spacing: -0.02em; }
+
     footer { padding: 48px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
     footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
     footer .soc { display: flex; gap: 18px; flex-wrap: wrap; }
@@ -151,7 +187,12 @@
       .stats { grid-template-columns: repeat(2, 1fr); }
       .stat:nth-child(2) { border-right: none; }
       .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-      .cards, .talks { grid-template-columns: 1fr; }
+      .cards, .talks, .ocards { grid-template-columns: 1fr; }
+      .rstats { grid-template-columns: repeat(2, 1fr); }
+      .ocard { display: grid; grid-template-columns: 96px 1fr; align-items: center; }
+      .ocard img { width: 96px; height: 96px; }
+      .ocard .in { padding: 12px 14px; }
+      .quote-hero blockquote { font-size: 18px; }
       .list li { grid-template-columns: 1fr; gap: 4px; }
       section { padding: 48px 0; }
       .brand .full { display: none; }
@@ -168,6 +209,8 @@
       <a href="#service">Service</a>
       <a href="#publications">Publications</a>
       <a href="#teaching">Teaching</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#online">Courses</a>
       <a href="#talks">Talks</a>
       <a href="#honors">Honors</a>
       <a href="doc/CV_Chi_Hsien_Chang.pdf" target="_blank" rel="noopener">CV</a>
@@ -202,10 +245,10 @@
 
 <div class="wrap">
   <div class="stats">
-    <div class="stat"><div class="num">8<em>+</em></div><div class="label">Papers (ICLR, WCCI, GECCO)</div></div>
-    <div class="stat"><div class="num">3</div><div class="label">Research countries: US · JP · TW</div></div>
-    <div class="stat"><div class="num">100<em>+</em></div><div class="label">Students mentored</div></div>
-    <div class="stat"><div class="num">4.96<em>/5</em></div><div class="label">Top teaching rating</div></div>
+    <div class="stat"><div class="num">7</div><div class="label">Papers (ICLR, WCCI, GECCO)</div></div>
+    <div class="stat"><div class="num">1,000<em>+</em></div><div class="label">Online course learners</div></div>
+    <div class="stat"><div class="num">5.0<em>/5</em></div><div class="label">NTU CSIE training course ratings</div></div>
+    <div class="stat"><div class="num">54</div><div class="label">Written student reviews</div></div>
   </div>
 </div>
 
@@ -271,7 +314,7 @@
         <div>
           <div class="title"><a href="https://openreview.net/forum?id=PR6RMsxuW7">Integrating Planning and Deep Reinforcement Learning via Automatic Induction of Task Substructures</a></div>
           <div class="meta">Jung-Chun Liu, <b>Chi-Hsien Chang</b>, Shao-Hua Sun, Tian-Li Yu</div>
-          <div class="meta"><span class="venue hot">ICLR</span>International Conference on Learning Representations</div>
+          <div class="meta"><span class="venue">ICLR</span>International Conference on Learning Representations</div>
         </div>
       </li>
       <li>
@@ -288,14 +331,6 @@
           <div class="title"><a href="doc/2024 IEEE World Congress on Computational Intelligence SR.pdf">A Novel Symbolic Regressor Enhancer Using Genetic Programming</a></div>
           <div class="meta">Tu-Chin Chiang, <b>Chi-Hsien Chang</b>, Tian-Li Yu</div>
           <div class="meta"><span class="venue">WCCI</span>IEEE World Congress on Computational Intelligence</div>
-        </div>
-      </li>
-      <li>
-        <div class="year">2024</div>
-        <div>
-          <div class="title">From Genetic Variation to Visual Representation: Image Predictions in Insect Databases Using SNP</div>
-          <div class="meta"><b>Chi-Hsien Chang</b>, Szu-Ping Chen, Christopher Childers, Monica Poelchau</div>
-          <div class="meta"><span class="venue">IASTAM × ASHM</span>Joint Conference of IASTAM and ASHM</div>
         </div>
       </li>
       <li>
@@ -342,7 +377,7 @@
         <div class="year">2025–</div>
         <div>
           <div class="title">Java, Python, Statistics &amp; Data Analysis — Lecturer</div>
-          <div class="meta">NTU, Computer Science and Information Engineering · 2025 Outstanding Lecturer</div>
+          <div class="meta">NTU, Computer Science and Information Engineering · 2025 Outstanding Lecturer · Statistics &amp; OOP courses rated <b>5.0/5</b> · <a href="#reviews">student reviews</a></div>
         </div>
       </li>
       <li>
@@ -381,6 +416,138 @@
         </div>
       </li>
     </ul>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head"><h2>What Students Say</h2><span class="aside">Quotes kept in the original language</span></div>
+
+    <div class="rstats">
+      <div class="rstat"><div class="num">5.0<em>/5</em></div><div class="label">NTU CSIE Training · Statistics</div></div>
+      <div class="rstat"><div class="num">5.0<em>/5</em></div><div class="label">NTU CSIE Training · OOP (Java)</div></div>
+      <div class="rstat"><div class="num">4.89<em>/5</em></div><div class="label">National Summer College · C# TA</div></div>
+      <div class="rstat"><div class="num">1,000<em>+</em></div><div class="label">Online learners</div></div>
+    </div>
+
+    <figure class="quote-hero">
+      <blockquote>「麒仙是我教授台大通識及全國夏季學院《計算機程式設計》約三十餘年來，最優秀的助教。」</blockquote>
+      <figcaption>— Prof. Shyh-Kang Jeng (鄭士康), Professor Emeritus, NTU · <a href="https://drive.google.com/file/d/1xaIBW1-9n0sJkmzZfTYbbCt0eigbpZN9/view" target="_blank" rel="noopener">original letter</a></figcaption>
+    </figure>
+
+    <div class="rgroup">
+      <div class="rgroup-head">
+        <h3>NTU CSIE Training Program · 統計基礎與數據分析（專題班）</h3>
+        <div class="score">★★★★★ 5.0 <span>· 16 reviews</span></div>
+      </div>
+      <div class="reviews">
+        <figure class="review"><blockquote>老師把我統計學的任督二脈都打通了，而且非常有耐心、細心地回答了我許多問題。上完課後，我真的覺得腦袋被打開了，很多以前模糊的概念都變得清楚明白！老師在課堂中講解並釐清了許多統計學的概念，讓我更清楚如何將這些知識應用在工作上。這是我從小到大遇過最棒的一位老師。我相信，如果在學校能遇到這樣的老師，每位同學的統計學一定都能學得紮實、學得很好。</blockquote><figcaption><span>學習動機</span> 希望能更好地理解數據，並能在工作上更適切地運用，讓分析與決策更有依據。</figcaption></figure>
+        <figure class="review"><blockquote>麒仙老師教學扎實，非常專業溫柔，且對於非本科背景的同學也都非常有耐心，會仔細照顧每位同學的學習進度，確認大家都能跟上進度，是一位很優良的老師，期待未來能開更多統計和資料分析相關的課程。</blockquote><figcaption><span>學習動機</span> 瞭解自我對於資料分析與統計的性向，且希望學習相關技術來結合自身專業，增加未來工作的範圍和技能。</figcaption></figure>
+        <figure class="review"><blockquote>老師非常認真且有實力，更重要的是，會和學生做即時性的交流討論，非常尊重學生，也很給學生空間，上起課來不會有嚴肅沉悶的感覺。</blockquote><figcaption><span>學習動機</span> 因為有想要轉職成為數據分析師。</figcaption></figure>
+        <figure class="review"><blockquote>老師在統計的講解採用以理論搭配實際案例的方式來進行，在認識新知識的同時可以以常見的骰子、擲硬幣實驗等例子來加深理解並且在 Python 實作上，除了有說明基礎操作與程式語言的運作原理，也有與學到的統計理論互相呼應，作為遊戲數值設計師，日前常有一些在工作多繞的彎路在這堂課的理論中都有得到驗證，也更知道拿到一筆新數據應該要注意的事情、並抓到重點。在第二日的 Python 課程可以完整地感受到「以程式語言作為統計工具」的方便性及應用發想，課堂外的延伸問題也有很好的得到解答，特地從高雄北上不虛此行。</blockquote><figcaption><span>學習動機</span> 作為遊戲機率工程師自我進修用；希望以此為基礎加強統計能力、中長期 (一年內) 的明確目標為考取日本統計檢定3級。</figcaption></figure>
+        <figure class="review"><blockquote>老師相當重視核心觀念，只有懂得隨機變數、中央極限定理，以及 Python 套件結構和程式執行的原理，才能從容不迫地運用所有的統計工具，就算沒有學過，當有需要的時候只要稍加查詢即可快速上手。老師的專業和熱情同樣令人印象深刻。</blockquote><figcaption><span>學習動機</span> 工作需要。</figcaption></figure>
+        <figure class="review"><blockquote>老師在短時間內以淺顯易懂的方式說明統計分析的「最核心」原理與程式，讓我在了解統計學的底層邏輯後，寫統計分析的程式可以「言之有物」。</blockquote><figcaption><span>學習動機</span> 想用 Python 寫統計分析的程式。</figcaption></figure>
+      </div>
+      <details class="more-reviews"><summary>Show all 16 reviews</summary>
+      <div class="reviews">
+        <figure class="review"><blockquote>老師很認真，對學員不懂的地方會很有熱忱的說明到學員懂為止。</blockquote><figcaption><span>學習動機</span> 想對統計分析概念再加強。</figcaption></figure>
+        <figure class="review"><blockquote>講授清晰，條理分明，受益良多。</blockquote><figcaption><span>學習動機</span> 複習統計基礎觀念，並習得對應 python 語法。</figcaption></figure>
+        <figure class="review"><blockquote>老師非常有耐心。</blockquote><figcaption><span>學習動機</span> 對 AI 有興趣，但缺了統計這塊拼圖。</figcaption></figure>
+        <figure class="review"><blockquote>覺得很扎實的學會統計學基礎，相關概念常常聽到但經過這堂課才真的有學會的感覺。</blockquote><figcaption><span>學習動機</span> 想確實搞懂統計學重要的基礎觀念。</figcaption></figure>
+        <figure class="review"><blockquote>I really appreciate that the teacher is very passionate about teaching. I also love that the teacher is willing to explain the same concept two to three times. I find this extremely helpful because it can be difficult to fully understand something after hearing it only once. When the teacher explains it again, I’m able to understand it much better. I also like that the teacher starts from very simple concepts, which is especially helpful for people who don’t have much prior experience and need a clearer foundation to learn effectively.</blockquote><figcaption><span>學習動機</span> I tried to learn statistics by myself, but I find it difficult to know whether I fully understand the concepts through self-study. I also often struggle to connect everything together and organize the ideas in a clear structure the way the teacher does. That is one of the main reasons I wanted to attend this class in the first place. I have learned a lot from this course, and I really appreciate it. I would love it if Teacher Salima offered more in-depth classes in the future. I also noticed that there are many ML and algorithm courses available at the NTU 資訊訓練班, and I would be very interested in attending them if Teacher Salima is teaching.</figcaption></figure>
+        <figure class="review"><blockquote>新手也能輕鬆上手的課程。一開始遇到很多陌生的專有名詞，其實有點想放棄，但老師在課堂上一直用不同方式講解、還搭配很多例子，慢慢就跟上了。下課後更有種突然打通任督二脈的感覺，很多東西都記住了～整體體驗很棒，真的很謝謝老師的用心！</blockquote><figcaption><span>學習動機</span> 因為工作上越來越常接觸數據分析，也一直對這塊很有興趣，希望可以把原本零碎的概念補齊，打好統計基礎，讓自己在分析數據時更有方向也更有信心。</figcaption></figure>
+        <figure class="review"><blockquote>超級推薦所有不論是研究、工作上會接觸到統計的人都來上這門課。麒仙老師會從最基礎的觀念講解到統計理論，每一個觀念都會搭配一個例子來幫助大家理解，上完會有種終於融會貫通的感覺。過去可能只會背公式帶公式，經過這門課之後，會了解這些統計理論背後的脈絡，非常值得花兩天的時間跟著老師好好拆解這些統計理論，真的獲益良多！整體課程安排都很喜歡，內容也很有收穫。</blockquote><figcaption><span>學習動機</span> 1. 想真正理解論文 (paper) 中統計結果背後的意義，而不只是停留在表面解讀數字，希望能進一步判斷其方法合理性與結果可信度。2. 希望學會如何運用 Python 進行統計分析，將理論轉化為實際操作能力，提升資料處理與分析的效率。</figcaption></figure>
+        <figure class="review"><blockquote>原先以為程式為主統計為輔，沒想到完全相反！但也完全合理！程式以 AI 輔助真的是未來，非常認同。老師在定義部分非常在意，但想想也是有道理，有時候好像已經太習慣用數學式卻忘了最根本意義是什麼。老師又非常親切有耐心！</blockquote><figcaption><span>學習動機</span> 轉職，未來需要用到 Python、統計、分析等技能。</figcaption></figure>
+        <figure class="review"><blockquote>教學詳細且認真。</blockquote></figure>
+        <figure class="review"><blockquote>老師很盡心盡力教導。</blockquote><figcaption><span>學習動機</span> 很喜歡統計。</figcaption></figure>
+      </div>
+      </details>
+    </div>
+
+    <div class="rgroup">
+      <div class="rgroup-head">
+        <h3>NTU CSIE Training Program · 從零開始學會物件導向程式設計（專題班）</h3>
+        <div class="score">★★★★★ 5.0 <span>· 15 reviews</span></div>
+      </div>
+      <div class="reviews">
+        <figure class="review"><blockquote>這個課真的可以教會從 0 基礎開始的學生。我之前上過 coding 但是那些老師教的方式好像不適合我，導致我之後就忘記然後也不會應用。但是麒仙老師的教法真的教會了我。也很喜歡老師的教學方式！老師很有耐心，也很細心。</blockquote><figcaption><span>學習動機</span> 覺得以後讀 engineering 會用到。</figcaption></figure>
+        <figure class="review"><blockquote>課程內容符合教學綱要，語法概念以淺白的方式解釋清楚，內容點中程式學習的核心，不單只是寫出文字語法，以畫記憶體的方式去理解每一段語法的意義，能更深入了解其原理，有助於理解抽象的概念。作業評量方式需要口頭講解與教學，雖然要求嚴格，但有其必要性，與同學間互相講解的過程，能加以深化概念，對我未來的工作幫助極大，特別是小專題實作。</blockquote><figcaption><span>學習動機</span> 理解物件導向程式設計的要領，以及練習寫小專案。</figcaption></figure>
+        <figure class="review"><blockquote>感受到老師教學的熱忱，以及真的想讓你懂這個東西。每一張魔法小卡的觀念都是精煉過後，沒有冗餘說明的精華。在這堂課可以學到程式底層原理與觀念，對想打好基礎的人非常推薦。</blockquote><figcaption><span>學習動機</span> 有上過 javascript 程式入門，想更了解程式思考的方式而來。希望能運用到工作上與工程師的溝通。</figcaption></figure>
+        <figure class="review"><blockquote>麒仙老師上課很用心，教的很仔細，而且會非常有耐心的一步步指導，並且用魔法小卡片來加深同學對上課重點的記憶，很喜歡上老師的課，每次上完都覺得收獲很多，以前自己遇到不會的觀念都上網查詢，但查詢到的資訊都很單一很難理解，上麒仙老師的課，老師都可以很有系統的介紹，讓學生能很有效率地了解課程概念，非常開心能上到麒仙老師的課。</blockquote><figcaption><span>學習動機</span> 想了解基礎物件導向的觀念。</figcaption></figure>
+        <figure class="review"><blockquote>老師教導的方法讓初學者可以鞏固基礎，而且老師很細心，耐心解答問題。</blockquote><figcaption><span>學習動機</span> 對程式有興趣。</figcaption></figure>
+        <figure class="review"><blockquote>老師教得好，基礎打得很札實。</blockquote><figcaption><span>學習動機</span> 學習更多程式語言。</figcaption></figure>
+      </div>
+      <details class="more-reviews"><summary>Show all 15 reviews</summary>
+      <div class="reviews">
+        <figure class="review"><blockquote>老師的教學很有系統，可以幫助初學者從基礎奠定起。另外，老師在課堂中也很鼓勵大家有問題隨時提出、馬上解決，課後也很願意協助回答問題。從這堂課學習到很多，非常感謝老師的教學！</blockquote><figcaption><span>學習動機</span> 想要在學期開始前先學習 JAVA，才不至於開學後措手不及。</figcaption></figure>
+        <figure class="review"><blockquote>老師教的很仔細，也很有耐心，還會時常確認大家都有在線，並且有理解每一個觀念，即使沒有理解，老師也會講到我們都有懂為止，還會給時間自己畫圖重新複習一次，是我喜歡的教學方式所以一切都很好。以及老師人很親切，還是小班制的，所以有任何不懂的地方都可以直接提問，老師會不厭其煩的從頭到尾再解釋一次。課堂中間老師也會時常下來一一確認大家都有理解每個觀念，所以完全不用害怕跟不上或是有問題得不到解答的情況，因此非常推薦。</blockquote><figcaption><span>學習動機</span> 暑假過後會轉到資工系，因此想要先修，避免學期間壓力太大。</figcaption></figure>
+        <figure class="review"><blockquote>教師用心準備課程，利用口訣和魔法小卡幫助記憶，使得 Java 的學習變得有趣簡單。</blockquote><figcaption><span>學習動機</span> 想學。</figcaption></figure>
+        <figure class="review"><blockquote>任課教師基礎觀念講解清晰，代入後能夠更加理解程式的運作，課程很適合無程式基礎的初學者。</blockquote><figcaption><span>學習動機</span> 工作需求。</figcaption></figure>
+        <figure class="review"><blockquote>老師教學用心容易理解。以及老師與同學很有互動、能快速學會 Java。</blockquote><figcaption><span>學習動機</span> 想增加自己的程式技能。</figcaption></figure>
+        <figure class="review"><blockquote>老師很認真、有互動、作業很充實。</blockquote><figcaption><span>學習動機</span> 以後大學或者工作可以用到。</figcaption></figure>
+        <figure class="review"><blockquote>老師很用心。</blockquote><figcaption><span>學習動機</span> 因為對程式感興趣。</figcaption></figure>
+        <figure class="review"><blockquote>老師教學的十分認真，講解的很仔細，也會用很簡單的方式教學，用的記憶體圖讓我更了解 Java 的物件導向，老師下課也會教學，是個認真負責的好老師。如果有自學過可以來上更加深基本功。</blockquote><figcaption><span>學習動機</span> 當初有自學程式語言，但大多是背誦，今天有更了解程式的基礎。</figcaption></figure>
+        <figure class="review"><blockquote>老師教的很仔細，以系統化的方式幫各位學生整合基本觀念，並教我們寫程式的邏輯及如何生活方面應用。</blockquote><figcaption><span>學習動機</span> 正好想要學一個基礎的程式語言，前幾個月在網站上搜尋到這門課程，看起來很不錯，就選擇它。</figcaption></figure>
+      </div>
+      </details>
+    </div>
+
+    <div class="rgroup">
+      <div class="rgroup-head">
+        <h3>National Summer College · 計算機程式設計 (C#) — Teaching Assistant</h3>
+        <div class="score">4.89 / 5 <span>· 23 reviews · Excellent TA Award 2022</span></div>
+      </div>
+      <div class="reviews">
+        <figure class="review"><blockquote>我上這門課有一部分的動力來源是來自課程 TA，第一次遇到這麼具有教學熱忱，又認真負責的助教，常常覺得助教比我們任何一個學生都還要認真，也看見了她常常為了要讓線上教學的效果更好，很努力的想各種方法。我覺得這件事很難能可貴，也覺得自己很幸運可以遇到這樣的助教，在這門課我覺得壓力指數報表的課程，助教的存在大大地緩解了我的焦慮。而我聽說助教以後想要走教學的路線，希望她以後的路都順利。</blockquote><figcaption><span>填寫日期</span> 2022-08-21</figcaption></figure>
+        <figure class="review"><blockquote>助教超認真，感謝尼</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>TA 每個禮拜都有開 Google Meets 好幾次，在非上課時間讓同學提問問題，我從來都沒有遇過提供的學習資源這麼多的助教。</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>非常認真教學與協助同學的助教！謝謝妳為同學協助這麼多事，受益良多，感謝！</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>助教人超好的，很樂意幫助我們解決問題，也很樂意在課外時間約 office hour。謝謝助教在這堂課上的幫助。</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>助教很認真的教導我們，對於教學的筆記、重點都整理得非常有條理，對於學生的問題都很細心地回覆，也很願意投入時間在解答學生問題。講題很清楚，雖然第一次聽會覺得有點快，身為邏輯能力沒有很好的我可能不會馬上就聽懂，但是因為我會錄影下來重複觀看，所以我覺得助教講解的都非常淺顯易懂，也會用許多不同情境講同一個觀念。助教真的超棒的，有點後悔沒有空出完整的時間學習這堂課的東西，要不然就可以跟助教學更多東西了！</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+      </div>
+      <details class="more-reviews"><summary>Show all 23 reviews</summary>
+      <div class="reviews">
+        <figure class="review"><blockquote>助教除了在上課時的習題讓我們有非常充分的練習與清楚仔細地講解觀念及題目內容，也在課後與其餘沒有上課的時間給予 office hour 讓我們可以將所有問題馬上解決，此外若是傳 email 詢問問題，助教也非常快速的清楚回答我們的問題，非常感謝助教這段時間的幫助以及用心，辛苦了！</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>TA 非常的用心，上課聽不懂的會一直講到聽懂為止，若是課餘時間有問題也可以和 TA 約上課外的時間一起討論問題。</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>很讚的助教</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>助教人超好，不厭其煩的回答我們的問題，讓我學習上減少了許多困難！</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>謝謝超用心的麒仙助教！不僅在學生有困難的時候為我們解惑，還會主動提供協助～<br>建議：前 1、2 堂助教課進度超前太多，對沒學過程式的同學會有點吃力，可以簡單一點～</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>第一次接觸程式設計，很多觀念不像有些學生有基礎，但助教總是鼓勵我們問問題，也跟我們約很多課餘時間輔導不理解的部分，問到會為止，對於表現好的部分也會大力讚賞，讓我對於這門課有了很大的信心，很開心我第一次學程式設計遇到那麼好的助教！希望未來也能夠帶著麒仙助教的精神學習不同領域的知識！非常謝謝！</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>助教真的超級認真，花在我們身上的時間非常多，對我學習帶來的幫助更是非常非常大，謝謝助教、也希望助教要注意身體健康，適時放鬆不要拚過頭了。</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>超好</blockquote><figcaption><span>填寫日期</span> 2022-08-13</figcaption></figure>
+        <figure class="review"><blockquote>真的很少碰到那麼有耐心和熱忱的助教，希望之後有問題也可以繼續詢問助教</blockquote><figcaption><span>填寫日期</span> 2022-08-14</figcaption></figure>
+        <figure class="review"><blockquote>助教充滿熱誠，態度負責認真！</blockquote><figcaption><span>填寫日期</span> 2022-08-15</figcaption></figure>
+        <figure class="review"><blockquote>TA 非常有耐心幫助我解決問題，超過 100 分</blockquote><figcaption><span>填寫日期</span> 2022-08-16</figcaption></figure>
+        <figure class="review"><blockquote>助教真的很用心，講解非常清楚，課堂上超過一半的時間都是他在講解，有時候教授講我聽不太懂，助教講完就豁然開朗，而且助教還很樂意在 office hour 回答問題，態度也非常親切，讓人想一直上他的課</blockquote><figcaption><span>填寫日期</span> 2022-08-17</figcaption></figure>
+        <figure class="review"><blockquote>助教很負責任很認真教學～～</blockquote><figcaption><span>填寫日期</span> 2022-08-18</figcaption></figure>
+        <figure class="review"><blockquote>真的很認真在教學，也很用心在回答學生的問題</blockquote><figcaption><span>填寫日期</span> 2022-08-19</figcaption></figure>
+        <figure class="review"><blockquote>助教很用心在上課，也願意花課餘的時間與學生討論，是個教育界缺一不可的老師。</blockquote><figcaption><span>填寫日期</span> 2022-08-19</figcaption></figure>
+        <figure class="review"><blockquote>助教很認真</blockquote><figcaption><span>填寫日期</span> 2022-08-26</figcaption></figure>
+        <figure class="review"><blockquote>助教很用心且認真～</blockquote><figcaption><span>填寫日期</span> 2022-09-06</figcaption></figure>
+      </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="online" class="alt">
+  <div class="wrap">
+    <div class="sec-head"><h2>Online Courses</h2><span class="aside">On Hahow</span></div>
+    <div class="learners"><b>1,000+</b><span>learners have enrolled in my online courses on programming, statistics, and AI-assisted development.</span></div>
+    <div class="ocards">
+      <a class="ocard" href="https://hahow.in/cr/ai-java-python" target="_blank" rel="noopener">
+        <img src="images/courses/ai-java-python.jpg" alt="修改 AI 程式碼 course cover" loading="lazy" width="800" height="800">
+        <div class="in"><div class="k">Python × Java</div><h3>修改 AI 程式碼</h3><p>生成、理解、除錯到驗證的開發實戰</p><span class="go">View course →</span></div>
+      </a>
+      <a class="ocard" href="https://hahow.in/cr/python-statistics" target="_blank" rel="noopener">
+        <img src="images/courses/python-statistics.jpg" alt="Python × 統計 完整攻略 course cover" loading="lazy" width="800" height="800">
+        <div class="in"><div class="k">Python × Statistics</div><h3>Python × 統計 完整攻略</h3><p>從機率基礎到真實資料分析的全面掌握</p><span class="go">View course →</span></div>
+      </a>
+      <a class="ocard" href="https://hahow.in/cr/rust-python" target="_blank" rel="noopener">
+        <img src="images/courses/rust-python.jpg" alt="Python × Rust 高效實戰開發 course cover" loading="lazy" width="800" height="800">
+        <div class="in"><div class="k">Python × Rust</div><h3>Python × Rust 高效實戰開發</h3><p>效能 × 安全 一次到位！</p><span class="go">View course →</span></div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -429,7 +596,7 @@
     <div class="sec-head"><h2>Honors &amp; Funding</h2></div>
     <ul class="list">
       <li><div class="year">2026</div><div><div class="title">Reviewer, IEEE Transactions on Evolutionary Computation (TEVC)</div></div></li>
-      <li><div class="year">2025</div><div><div class="title">Outstanding Lecturer</div><div class="meta">NTU CSIE</div></div></li>
+      <li><div class="year">2025</div><div><div class="title"><a href="https://drive.google.com/file/d/1NgsBm5RzcSz-tjTsuiwRkEFTk9P_RlsR/view?usp=sharing">Outstanding Lecturer</a></div><div class="meta">NTU CSIE</div></div></li>
       <li><div class="year">2024</div><div><div class="title"><a href="doc/My name is in the first row.pdf">Graduate Students Study Abroad Program</a> — 30,000 USD</div><div class="meta">National Science and Technology Council</div></div></li>
       <li><div class="year">2024</div><div><div class="title"><a href="https://research.google/programs-and-events/phd-fellowship/">Google PhD Fellowship</a> nominee</div><div class="meta">Nominated by NTU</div></div></li>
       <li><div class="year">2024</div><div><div class="title">Reviewer, ACML</div><div class="meta">Asian Conference on Machine Learning</div></div></li>
@@ -440,7 +607,7 @@
       <li><div class="year">2023</div><div><div class="title">Student Travel Grants</div><div class="meta">NTUEE (1,300 USD) · GECCO (200 USD)</div></div></li>
       <li><div class="year">2022</div><div><div class="title"><a href="https://drive.google.com/file/d/1rTyeDsN-xbZwIuCVXJbvt-FnM5hej_aZ/view?usp=sharing">National Summer College Excellent TA Award</a></div><div class="meta">NTU</div></div></li>
       <li><div class="year">2018</div><div><div class="title"><a href="doc/Commencement Speaker.jpg">Commencement Speaker</a></div><div class="meta">M.S. in Statistics, NTU</div></div></li>
-      <li><div class="year">2018</div><div><div class="title">U-start Program Award</div><div class="meta">NTUST</div></div></li>
+      <li><div class="year">2018</div><div><div class="title">Selected for the U-start Innovation &amp; Entrepreneurship Program</div><div class="meta">NTUST</div></div></li>
       <li><div class="year">2017</div><div><div class="title"><a href="doc/Team Project Awarded 1st Place in the 2nd Yunus Prize.jpg">1st Place, 2nd Yunus Prize</a></div><div class="meta">Social Innovation and Entrepreneurship Competition</div></div></li>
       <li><div class="year">2016</div><div><div class="title"><a href="doc/Club Evaluation Excellence Award.jpg">Club Evaluation Excellence Award</a></div><div class="meta">As President of the Islamic Cultural Studies Club</div></div></li>
     </ul>
