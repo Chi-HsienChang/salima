@@ -881,16 +881,16 @@
     /* ---------- Ocean Breeze: a whale rushes at the screen when the style is picked ---------- */
     .whale-splash { display: none; }
     html[data-theme="ocean"] .whale-splash.go { display: grid; place-items: center; position: fixed; inset: 0; z-index: 9996; pointer-events: none; overflow: hidden; animation: splash-tint 2.4s ease forwards; }
-    .whale-splash .whale { width: min(86vmin, 820px); height: auto; overflow: visible; filter: drop-shadow(0 30px 40px rgba(14,80,120,.35)); transform-origin: 50% 70%; }
+    .whale-splash .whale { width: min(80vmin, 760px); height: auto; overflow: visible; filter: drop-shadow(0 30px 40px rgba(14,80,120,.35)); transform-origin: 50% 70%; }
     html[data-theme="ocean"] .whale-splash.go .whale { animation: whale-pop 2.8s cubic-bezier(.34,1.4,.64,1) forwards; }
     .whale-splash .spout { transform-origin: 150px 40px; transform: scale(0); }
     html[data-theme="ocean"] .whale-splash.go .spout { animation: whale-spout 2.8s ease-out forwards; }
-    .whale-splash .eyes { transform-origin: 150px 156px; }
+    .whale-splash .eyes { transform-origin: 150px 136px; }
     html[data-theme="ocean"] .whale-splash.go .eyes { animation: whale-blink 2.8s steps(1) forwards; }
     .whale-splash .ring { position: absolute; left: 50%; top: 50%; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 4px solid rgba(255,255,255,.9); opacity: 0; }
     html[data-theme="ocean"] .whale-splash.go .ring { animation: splash-ring 1.1s ease-out .9s forwards; }
     html[data-theme="ocean"] .whale-splash.go .ring:nth-of-type(3) { animation-delay: 1.1s; }
-    .whale-splash .drop { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 3px #ffb3d9, 0 0 14px #c9a8ff; opacity: 0; }
+    .whale-splash .drop { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; border-radius: 50% 0 50% 50%; background: #7fd18c; box-shadow: 0 0 0 2px #fff, 0 0 12px #c8f5a8; opacity: 0; }
     html[data-theme="ocean"] .whale-splash.go .drop { animation: splash-drop 1.2s ease-out 1.1s forwards; }
     @keyframes whale-pop {
       0% { transform: scale(.04) translateY(30%); opacity: 0; }
@@ -904,7 +904,7 @@
     @keyframes whale-blink { 0%, 66% { transform: scaleY(1); } 68% { transform: scaleY(.1); } 71%, 100% { transform: scaleY(1); } }
     @keyframes splash-ring { 0% { transform: scale(.2); opacity: 1; } 100% { transform: scale(9); opacity: 0; } }
     @keyframes splash-drop { 0% { transform: translate(0,0) scale(.6); opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)) scale(1.3); opacity: 0; } }
-    @keyframes splash-tint { 0% { background: rgba(255,220,240,0); } 30%, 80% { background: rgba(255,228,246,.45); } 100% { background: rgba(255,228,246,0); } }
+    @keyframes splash-tint { 0% { background: rgba(220,250,225,0); } 30%, 80% { background: rgba(225,250,230,.45); } 100% { background: rgba(225,250,230,0); } }
 
     /* ---------- Starry Explorer (探索星空): parallax stars, shooting stars, telescope spotlight ---------- */
     html[data-theme="stars"] {
@@ -1821,7 +1821,7 @@
   ws.className = 'whale-splash'; ws.setAttribute('aria-hidden', 'true');
   var drops = '';
   for (var k = 0; k < 14; k++) { var a = k / 14 * Math.PI * 2; drops += '<span class="drop" style="--dx:' + Math.round(Math.cos(a) * 46) + 'vmin;--dy:' + Math.round(Math.sin(a) * 40) + 'vmin"></span>'; }
-  ws.innerHTML = '<svg class="whale" viewBox="0 0 300 280" aria-hidden="true"><g class="spout"><path d="M96 20 Q99.08 30.92 110 34 Q99.08 37.08 96 48 Q92.92 37.08 82 34 Q92.92 30.92 96 20Z" fill="#ffd56b"/><path d="M206 17 Q208.42 25.58 217 28 Q208.42 30.42 206 39 Q203.58 30.42 195 28 Q203.58 25.58 206 17Z" fill="#ffb3d9"/><path d="M150 -2 Q151.76 4.24 158 6 Q151.76 7.76 150 14 Q148.24 7.76 142 6 Q148.24 4.24 150 -2Z" fill="#b9e3ff"/><path d="M236 62 Q237.76 68.24 244 70 Q237.76 71.76 236 78 Q234.24 71.76 228 70 Q234.24 68.24 236 62Z" fill="#ffd56b"/><path d="M62 67 Q63.54 72.46 69 74 Q63.54 75.54 62 81 Q60.46 75.54 55 74 Q60.46 72.46 62 67Z" fill="#c9a8ff"/></g><path d="M70 150 C40 120 50 70 92 64 C70 90 74 118 96 132 Z" fill="#c9a8ff"/><path d="M58 190 C26 160 34 118 66 104 C56 132 64 158 86 172 Z" fill="#9fd8ff"/><path d="M230 150 C262 122 254 74 212 66 C232 92 228 120 206 134 Z" fill="#ffb3d9"/><path d="M244 192 C276 162 268 120 236 106 C246 134 238 160 216 174 Z" fill="#b8f0c8"/><polygon points="96,104 84,52 132,86" fill="#fff" stroke="#e6dcff" stroke-width="4" stroke-linejoin="round"/><polygon points="204,104 216,52 168,86" fill="#fff" stroke="#e6dcff" stroke-width="4" stroke-linejoin="round"/><polygon points="100,96 92,64 122,86" fill="#ffc6de"/><polygon points="200,96 208,64 178,86" fill="#ffc6de"/><ellipse cx="150" cy="168" rx="108" ry="94" fill="#ffffff" stroke="#e6dcff" stroke-width="4"/><polygon points="150,14 134,86 166,86" fill="#ffd56b" stroke="#f0b93a" stroke-width="3" stroke-linejoin="round"/><path d="M140 64 L160 56 M137 76 L163 66" stroke="#f0b93a" stroke-width="3" stroke-linecap="round"/><circle cx="118" cy="92" r="16" fill="#ff9fd2"/><circle cx="146" cy="84" r="17" fill="#c9a8ff"/><circle cx="174" cy="90" r="16" fill="#9fd8ff"/><circle cx="196" cy="102" r="12" fill="#b8f0c8"/><ellipse cx="150" cy="212" rx="62" ry="38" fill="#ffe8f2"/><ellipse cx="132" cy="206" rx="5" ry="7" fill="#e9a7c4"/><ellipse cx="168" cy="206" rx="5" ry="7" fill="#e9a7c4"/><g class="eyes"><circle cx="110" cy="160" r="13" fill="#2a2350"/><circle cx="115" cy="155" r="5" fill="#fff"/><circle cx="106" cy="165" r="2.2" fill="#fff"/><circle cx="190" cy="160" r="13" fill="#2a2350"/><circle cx="195" cy="155" r="5" fill="#fff"/><circle cx="186" cy="165" r="2.2" fill="#fff"/></g><ellipse cx="84" cy="186" rx="14" ry="8" fill="#ff9fbf" opacity=".75"/><ellipse cx="216" cy="186" rx="14" ry="8" fill="#ff9fbf" opacity=".75"/><path d="M136 226 Q150 240 164 226" stroke="#2a2350" stroke-width="5" fill="none" stroke-linecap="round"/></svg><span class="ring"></span><span class="ring"></span>' + drops;
+  ws.innerHTML = '<svg class="whale" viewBox="0 0 300 300" aria-hidden="true"><g class="spout"><path d="M46 38 Q49.08 48.92 60 52 Q49.08 55.08 46 66 Q42.92 55.08 32 52 Q42.92 48.92 46 38Z" fill="#ffd56b"/><path d="M256 37 Q258.42 45.58 267 48 Q258.42 50.42 256 59 Q253.58 50.42 245 48 Q253.58 45.58 256 37Z" fill="#ffd56b"/><path d="M270 160 Q271.76 166.24 278 168 Q271.76 169.76 270 176 Q268.24 169.76 262 168 Q268.24 166.24 270 160Z" fill="#c8f5a8"/><path d="M28 170 Q29.76 176.24 36 178 Q29.76 179.76 28 186 Q26.24 179.76 20 178 Q26.24 176.24 28 170Z" fill="#fff3a8"/><path d="M150 -1 Q151.98 6.02 159 8 Q151.98 9.98 150 17 Q148.02 9.98 141 8 Q148.02 6.02 150 -1Z" fill="#ffe58a"/></g><path d="M150 150 C150 200 160 240 182 286" stroke="#3f9e52" stroke-width="11" fill="none" stroke-linecap="round"/><g transform="translate(150 140) rotate(0) scale(1.55)"><path d="M0 0 C-6 -10 -34 -18 -38 -40 C-42 -60 -18 -70 0 -50 C18 -70 42 -60 38 -40 C34 -18 6 -10 0 0Z" fill="#5cc26f" stroke="#2f8a45" stroke-width="2"/><path d="M0 -4 L0 -46" stroke="#bff0c7" stroke-width="2.4" stroke-linecap="round" opacity=".8"/></g><g transform="translate(150 140) rotate(90) scale(1.55)"><path d="M0 0 C-6 -10 -34 -18 -38 -40 C-42 -60 -18 -70 0 -50 C18 -70 42 -60 38 -40 C34 -18 6 -10 0 0Z" fill="#66cc78" stroke="#2f8a45" stroke-width="2"/><path d="M0 -4 L0 -46" stroke="#bff0c7" stroke-width="2.4" stroke-linecap="round" opacity=".8"/></g><g transform="translate(150 140) rotate(180) scale(1.55)"><path d="M0 0 C-6 -10 -34 -18 -38 -40 C-42 -60 -18 -70 0 -50 C18 -70 42 -60 38 -40 C34 -18 6 -10 0 0Z" fill="#5cc26f" stroke="#2f8a45" stroke-width="2"/><path d="M0 -4 L0 -46" stroke="#bff0c7" stroke-width="2.4" stroke-linecap="round" opacity=".8"/></g><g transform="translate(150 140) rotate(270) scale(1.55)"><path d="M0 0 C-6 -10 -34 -18 -38 -40 C-42 -60 -18 -70 0 -50 C18 -70 42 -60 38 -40 C34 -18 6 -10 0 0Z" fill="#66cc78" stroke="#2f8a45" stroke-width="2"/><path d="M0 -4 L0 -46" stroke="#bff0c7" stroke-width="2.4" stroke-linecap="round" opacity=".8"/></g><circle cx="150" cy="140" r="12" fill="#4fb463"/></svg><span class="ring"></span><span class="ring"></span>' + drops;
   document.body.appendChild(ws);
   function whale() {
     if (reduce) return;
@@ -1950,7 +1950,18 @@
   fit();
   window.addEventListener('resize', fit);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  new MutationObserver(function () { requestAnimationFrame(fit); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'lang'] });
+  if (document.fonts) {
+    if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', function () { requestAnimationFrame(fit); });
+  }
+  new MutationObserver(function () {
+    requestAnimationFrame(fit);
+    /* the new style's web font may still be downloading: fit again once it is ready */
+    if (document.fonts && document.fonts.load) {
+      var ff = getComputedStyle(h).fontFamily, fw = getComputedStyle(h).fontWeight;
+      document.fonts.load(fw + ' 40px ' + ff, h.textContent).then(function () { requestAnimationFrame(fit); }, function () {});
+    }
+    setTimeout(fit, 400); setTimeout(fit, 1200);
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'lang'] });
 })();
 </script>
 <script>
