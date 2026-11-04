@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&family=Source+Serif+4:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Cinzel:wght@500;700&family=Quicksand:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&family=Source+Serif+4:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Cinzel:wght@500;700&family=Quicksand:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange: #ff6600;
@@ -494,30 +494,83 @@
        Five more styles: cozy, magic, fantasy, fresh, arcade
        ===================================================================== */
 
-    /* ---------- Cozy Café (舒服) ---------- */
-    html[data-theme="cozy"] {
-      --orange: #b5651d; --orange-soft: #f6e6d4; --ink: #3b2a20; --muted: #7a6455; --line: #ecdcc8;
-      --bg: #fbf3ea; --bg-alt: #f5e8d9; --card: #fffaf3; --on-accent: #fffaf3; --radius: 22px;
-      --font-body: "Nunito", "Inter", sans-serif; --font-head: var(--font-body);
+    /* ---------- Level Up Quest (破關冒險): game UI, XP bar, achievements, stage clear ---------- */
+    html[data-theme="quest"] {
+      --orange: #f59e0b; --orange-soft: #fef3c7; --ink: #1e2a5a; --muted: #4b5a8a; --line: #1e2a5a;
+      --bg: #dff3ff; --bg-alt: #c9ebff; --card: #ffffff; --on-accent: #1e2a5a; --radius: 16px;
+      --font-body: "Fredoka", "Inter", sans-serif; --font-head: var(--font-body);
     }
-    html[data-theme="cozy"] body { line-height: 1.8; background-image: radial-gradient(rgba(181,101,29,.07) 1px, transparent 1px); background-size: 18px 18px; }
-    html[data-theme="cozy"] section { padding: 80px 0; }
-    html[data-theme="cozy"] h1 { font-weight: 800; letter-spacing: -0.01em; }
-    html[data-theme="cozy"] h2::before { content: "☕ "; }
-    html[data-theme="cozy"] .avatar { border: 8px solid #fffaf3; box-shadow: 0 14px 40px -10px rgba(122,74,30,.45); }
-    html[data-theme="cozy"] .card, html[data-theme="cozy"] .review, html[data-theme="cozy"] .talk, html[data-theme="cozy"] .ocard, html[data-theme="cozy"] .rstat,
-    html[data-theme="cozy"] .featured, html[data-theme="cozy"] .news, html[data-theme="cozy"] .learners, html[data-theme="cozy"] .org, html[data-theme="cozy"] .list li {
-      border: none; box-shadow: 0 8px 24px -10px rgba(122,74,30,.25); transition: transform .5s ease, box-shadow .5s ease;
+    html[data-theme="quest"] body { background: linear-gradient(180deg, #8fd8ff 0, #dff3ff 520px, #eaf8ff 100%); }
+    html[data-theme="quest"] section.alt { background: rgba(255,255,255,.35); }
+    html[data-theme="quest"] nav.top { background: #1e2a5a; border-bottom: 4px solid #f59e0b; }
+    html[data-theme="quest"] nav.top .links a { color: #cfe3ff; }
+    html[data-theme="quest"] nav.top .links a:hover { color: #fde047; }
+    html[data-theme="quest"] .brand { color: #fff; }
+    html[data-theme="quest"] .brand .logo { background: #fde047; border-radius: 10px; box-shadow: 0 3px 0 #b45309; }
+    html[data-theme="quest"] .theme-btn, html[data-theme="quest"] .lang-toggle { color: #fde047; border-color: #fde047; border-radius: 10px; }
+    html[data-theme="quest"] .theme-btn:hover, html[data-theme="quest"] .theme-btn[aria-expanded="true"] { background: #fde047; color: #1e2a5a; }
+    html[data-theme="quest"] h1 { font-weight: 700; color: #1e2a5a; letter-spacing: -0.01em; text-shadow: 0 4px 0 #fde047; }
+    html[data-theme="quest"] h1 span { color: #f59e0b; text-shadow: 0 4px 0 #1e2a5a; }
+    html[data-theme="quest"] .eyebrow { background: #1e2a5a; color: #fde047; padding: 6px 14px; border-radius: 999px; font-weight: 600; }
+    html[data-theme="quest"] .eyebrow::before { content: "🎮"; width: auto; height: auto; background: none; }
+    html[data-theme="quest"] .avatar { border: 6px solid #fde047; box-shadow: 0 0 0 6px #1e2a5a, 0 14px 0 6px rgba(30,42,90,.25); }
+    html[data-theme="quest"] .pic { position: relative; width: fit-content; }
+    html[data-theme="quest"] .pic::after { content: "LV. 99"; position: absolute; right: 6px; bottom: 10px; background: #22c55e; color: #fff; font-weight: 700; font-size: 15px; padding: 4px 10px; border-radius: 10px; border: 3px solid #1e2a5a; box-shadow: 0 3px 0 #1e2a5a; animation: bob 2.2s ease-in-out infinite; }
+    /* chunky cards with a 3D bottom edge */
+    html[data-theme="quest"] .card, html[data-theme="quest"] .review, html[data-theme="quest"] .talk, html[data-theme="quest"] .ocard, html[data-theme="quest"] .rstat,
+    html[data-theme="quest"] .featured, html[data-theme="quest"] .news, html[data-theme="quest"] .learners, html[data-theme="quest"] .org, html[data-theme="quest"] .list li, html[data-theme="quest"] .stat {
+      background: #fff; border: 3px solid #1e2a5a; box-shadow: 0 6px 0 #1e2a5a; transition: transform .15s ease, box-shadow .15s ease;
     }
-    html[data-theme="cozy"] .card:hover, html[data-theme="cozy"] .review:hover, html[data-theme="cozy"] .featured:hover, html[data-theme="cozy"] .talk:hover, html[data-theme="cozy"] .ocard:hover { transform: scale(1.015); box-shadow: 0 16px 36px -12px rgba(122,74,30,.35); }
-    html[data-theme="cozy"] .news { background: var(--card); }
-    html[data-theme="cozy"] .org { background: var(--card); border-radius: 18px; }
-    html[data-theme="cozy"] .list { border-top: none; display: grid; gap: 12px; }
-    html[data-theme="cozy"] .list li { background: var(--card); border-radius: 18px; padding: 18px 22px; }
-    html[data-theme="cozy"] .stats { border: none; gap: 14px; }
-    html[data-theme="cozy"] .stat { border: none; background: var(--card); border-radius: 50px; text-align: center; box-shadow: 0 8px 24px -10px rgba(122,74,30,.25); }
-    html[data-theme="cozy"] .news .tag, html[data-theme="cozy"] .venue, html[data-theme="cozy"] .featured .go, html[data-theme="cozy"] .theme-btn, html[data-theme="cozy"] .lang-toggle { border-radius: 999px; }
-    html[data-theme="cozy"] .quote-hero { border-left: none; background: var(--card); border-radius: var(--radius); padding: 28px 32px; box-shadow: 0 8px 24px -10px rgba(122,74,30,.25); }
+    html[data-theme="quest"] .card:hover, html[data-theme="quest"] .review:hover, html[data-theme="quest"] .talk:hover, html[data-theme="quest"] .ocard:hover,
+    html[data-theme="quest"] .featured:hover, html[data-theme="quest"] .org:hover, html[data-theme="quest"] .list li:hover {
+      transform: translateY(-4px); box-shadow: 0 10px 0 #1e2a5a; color: var(--ink);
+    }
+    html[data-theme="quest"] .card:active, html[data-theme="quest"] .featured:active, html[data-theme="quest"] .org:active { transform: translateY(4px); box-shadow: 0 2px 0 #1e2a5a; }
+    html[data-theme="quest"] .org { border-radius: 12px; }
+    html[data-theme="quest"] .orgs-label::before { content: "🎒 "; }
+    html[data-theme="quest"] .featured .go { background: #22c55e; color: #fff; border: 3px solid #1e2a5a; border-radius: 12px; box-shadow: 0 4px 0 #1e2a5a; }
+    html[data-theme="quest"] .featured .go::before { content: "▶ "; }
+    html[data-theme="quest"] .news { border-left-width: 3px; }
+    html[data-theme="quest"] .news .tag { background: #ef4444; color: #fff; border-radius: 8px; }
+    html[data-theme="quest"] .news .tag::before { content: "❗ "; }
+    html[data-theme="quest"] .stats { border: none; gap: 14px; }
+    html[data-theme="quest"] .stat { border-radius: 16px; }
+    html[data-theme="quest"] .stat .num::before { content: "⭐ "; font-size: .8em; }
+    html[data-theme="quest"] .stat .num em, html[data-theme="quest"] .rstat .num em { color: #f59e0b; }
+    /* levels */
+    html[data-theme="quest"] body { counter-reset: lv; }
+    html[data-theme="quest"] section { counter-increment: lv; }
+    html[data-theme="quest"] h2 { display: inline-flex; align-items: center; gap: 12px; }
+    html[data-theme="quest"] h2::before { content: "LV." counter(lv); font-size: 14px; font-weight: 700; color: #1e2a5a; background: #fde047; border: 3px solid #1e2a5a; border-radius: 10px; padding: 2px 10px; box-shadow: 0 3px 0 #1e2a5a; }
+    html[data-theme="quest"] .list { border-top: none; display: grid; gap: 14px; }
+    html[data-theme="quest"] .list li { border-radius: 14px; padding: 16px 20px; }
+    html[data-theme="quest"] .list .year { color: #1e2a5a; }
+    html[data-theme="quest"] #publications .title::before { content: "📜 "; }
+    html[data-theme="quest"] #teaching .title::before { content: "🎓 "; }
+    html[data-theme="quest"] #honors .list li { position: relative; }
+    html[data-theme="quest"] #honors .title::before { content: "🏆 "; }
+    html[data-theme="quest"] #honors .list li::after { content: "ACHIEVEMENT UNLOCKED"; position: absolute; top: -10px; right: 14px; font-size: 10px; font-weight: 700; letter-spacing: .06em; background: #22c55e; color: #fff; border: 2px solid #1e2a5a; border-radius: 6px; padding: 1px 6px; }
+    html[data-theme="quest"] .venue { background: #1e2a5a; color: #fde047; border-radius: 6px; }
+    html[data-theme="quest"] .talk img, html[data-theme="quest"] .ocard img { border-bottom: 3px solid #1e2a5a; }
+    html[data-theme="quest"] .quote-hero { border-left: none; background: #fff; border: 3px solid #1e2a5a; border-radius: 16px; padding: 22px 26px; box-shadow: 0 6px 0 #1e2a5a; }
+    html[data-theme="quest"] .more-reviews summary { border: 3px solid #1e2a5a; border-radius: 12px; box-shadow: 0 4px 0 #1e2a5a; background: #fde047; }
+    html[data-theme="quest"] footer { background: #1e2a5a; color: #cfe3ff; border-top: 4px solid #f59e0b; }
+    html[data-theme="quest"] footer a { color: #fff; }
+    html.rv-ready[data-theme="quest"] .rv { opacity: 0; transform: translateY(24px) scale(.9); transition: opacity .45s ease, transform .55s cubic-bezier(.34,1.8,.64,1); transition-delay: var(--d, 0s); }
+
+    /* XP bar + stage clear (only shown in Level Up Quest) */
+    .xpbar, .stage-clear { display: none; }
+    html[data-theme="quest"] .xpbar { display: flex; align-items: center; gap: 8px; position: fixed; left: 0; right: 0; top: 60px; z-index: 9; padding: 4px 12px; background: rgba(30,42,90,.92); color: #fde047; font: 700 11px/1 "Fredoka", sans-serif; letter-spacing: .08em; }
+    html[data-theme="quest"] .xpbar .track { flex: 1; height: 10px; border-radius: 999px; background: #0f1738; border: 2px solid #fde047; overflow: hidden; }
+    html[data-theme="quest"] .xpbar .fill { display: block; height: 100%; width: calc(var(--xp, 0) * 100%); background: repeating-linear-gradient(45deg, #22c55e 0 8px, #16a34a 8px 16px); transition: width .15s linear; }
+    html[data-theme="quest"] .stage-clear { display: grid; place-items: center; position: fixed; inset: 0; z-index: 9997; pointer-events: none; opacity: 0; }
+    html[data-theme="quest"] .stage-clear b { font: 700 clamp(34px, 8vw, 84px)/1 "Fredoka", sans-serif; color: #fde047; text-shadow: 0 6px 0 #1e2a5a, 0 0 30px rgba(253,224,71,.6); -webkit-text-stroke: 3px #1e2a5a; transform: scale(.3) rotate(-8deg); }
+    html[data-theme="quest"] .stage-clear.show { animation: clear-fade 2.6s ease forwards; }
+    html[data-theme="quest"] .stage-clear.show b { animation: clear-pop 2.6s cubic-bezier(.34,1.8,.64,1) forwards; }
+    @keyframes clear-fade { 0% { opacity: 0; } 10%, 75% { opacity: 1; } 100% { opacity: 0; } }
+    @keyframes clear-pop { 0% { transform: scale(.3) rotate(-8deg); } 20% { transform: scale(1.1) rotate(2deg); } 30%, 80% { transform: scale(1) rotate(0); } 100% { transform: scale(1.15) rotate(0); } }
+    .confetti { position: fixed; top: -12px; z-index: 9998; width: 10px; height: 14px; pointer-events: none; animation: confetti-fall linear forwards; }
+    @keyframes confetti-fall { to { transform: translate(var(--dx, 0), 105vh) rotate(720deg); } }
 
     /* ---------- Spellbook (魔法): stars, gold glow, sparkle cursor ---------- */
     html[data-theme="spell"] {
@@ -718,21 +771,23 @@
         <button type="button" class="theme-btn" id="themeBtn" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" data-zh="風格">Style</button>
         <div class="theme-menu" id="themeMenu" role="menu" hidden>
           <button type="button" role="menuitemradio" data-theme="yc" data-icon="🚀"><span class="ico" style="background:#fff1e6">🚀</span><span data-zh="YC 橘（預設）">YC Orange (default)</span></button>
-          <button type="button" role="menuitemradio" data-theme="midnight" data-img="images/yourwowai.png"><span class="ico" style="background:#060b2a"><img src="images/yourwowai.png" alt="" width="30" height="30"></span><span data-zh="Wow 星雲">Wow Nebula</span></button>
           <button type="button" role="menuitemradio" data-theme="dream" data-icon="🦄"><span class="ico" style="background:#f3e8ff">🦄</span><span data-zh="夢幻獨角獸">Dreamland</span></button>
+          <button type="button" role="menuitemradio" data-theme="midnight" data-img="images/yourwowai.png"><span class="ico" style="background:#060b2a"><img src="images/yourwowai.png" alt="" width="30" height="30"></span><span data-zh="Wow 星雲">Wow Nebula</span></button>
+          <button type="button" role="menuitemradio" data-theme="arcade" data-icon="👾"><span class="ico" style="background:#2c1b44">👾</span><span data-zh="復古街機">Retro Arcade</span></button>
           <button type="button" role="menuitemradio" data-theme="spell" data-icon="🪄"><span class="ico" style="background:#2c1850">🪄</span><span data-zh="魔法書">Spellbook</span></button>
           <button type="button" role="menuitemradio" data-theme="paper" data-icon="📚"><span class="ico" style="background:#f3ecdf">📚</span><span data-zh="老圖書館">Old Library</span></button>
           <button type="button" role="menuitemradio" data-theme="mono" data-icon="💻"><span class="ico" style="background:#eeeeee">💻</span><span data-zh="駭客終端機">Hacker Terminal</span></button>
           <button type="button" role="menuitemradio" data-theme="forest" data-icon="🍵"><span class="ico" style="background:#e3f3e9">🍵</span><span data-zh="抹茶森林">Matcha Forest</span></button>
-          <button type="button" role="menuitemradio" data-theme="cozy" data-icon="☕"><span class="ico" style="background:#f6e6d4">☕</span><span data-zh="暖暖咖啡館">Cozy Café</span></button>
+          <button type="button" role="menuitemradio" data-theme="quest" data-icon="🎮"><span class="ico" style="background:#fde68a">🎮</span><span data-zh="破關冒險">Level Up Quest</span></button>
           <button type="button" role="menuitemradio" data-theme="ocean" data-icon="🌊"><span class="ico" style="background:#e3f7fa">🌊</span><span data-zh="清爽海風">Ocean Breeze</span></button>
-          <button type="button" role="menuitemradio" data-theme="arcade" data-icon="👾"><span class="ico" style="background:#2c1b44">👾</span><span data-zh="復古街機">Retro Arcade</span></button>
         </div>
       </div>
       <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language">中文</button>
     </div>
   </div>
 </nav>
+<div class="xpbar" aria-hidden="true">XP <span class="track"><span class="fill"></span></span></div>
+<div class="stage-clear" aria-hidden="true"><b data-zh="破關成功！🎉">STAGE CLEAR! 🎉</b></div>
 
 <header class="hero" id="top">
   <div class="wrap">
@@ -1216,6 +1271,42 @@
     document.body.appendChild(sp);
     setTimeout(function () { sp.remove(); }, 900);
   });
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement, banner = document.querySelector('.stage-clear'), cleared = false;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var colors = ['#fde047', '#22c55e', '#ef4444', '#3b82f6', '#f59e0b', '#a855f7'];
+  function confetti() {
+    for (var k = 0; k < 60; k++) {
+      var c = document.createElement('span');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[k % colors.length];
+      c.style.setProperty('--dx', (Math.random() * 200 - 100) + 'px');
+      c.style.animationDuration = (1.8 + Math.random() * 1.6) + 's';
+      c.style.animationDelay = (Math.random() * 0.4) + 's';
+      c.style.borderRadius = Math.random() < 0.5 ? '50%' : '2px';
+      document.body.appendChild(c);
+      (function (el) { setTimeout(function () { el.remove(); }, 4000); })(c);
+    }
+  }
+  function onScroll() {
+    if (root.getAttribute('data-theme') !== 'quest') return;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    root.style.setProperty('--xp', p.toFixed(3));
+    if (p > 0.985 && !cleared && root.classList.contains('ready')) {
+      cleared = true;
+      if (!reduce) { banner.classList.remove('show'); void banner.offsetWidth; banner.classList.add('show'); confetti(); }
+    }
+    if (p < 0.9) cleared = false;
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('#themeMenu [data-theme]')) setTimeout(onScroll, 0); });
+  onScroll();
 })();
 </script>
 <script>
