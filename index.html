@@ -838,8 +838,9 @@
     html[data-theme="quest"] body { background: linear-gradient(180deg, #9fdcff 0, #d9f1ff 440px, #eef9f2 100%); }
     html[data-theme="quest"] nav.top { background: #23315e; border-bottom: 4px solid #ffcc33; }
     html[data-theme="quest"] .brand .logo { background: #ffcc33; }
-    html[data-theme="quest"] .hero { position: relative; padding-bottom: 110px; }
-    html[data-theme="quest"] .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; z-index: -1;
+    html[data-theme="quest"] .hero { position: relative; padding-top: 190px; }
+    @media (max-width: 760px) { html[data-theme="quest"] .hero { padding-top: 160px; } }
+    html[data-theme="quest"] .hero::after { content: ""; position: absolute; left: 0; right: 0; top: 40px; height: 90px; z-index: -1;
       background: radial-gradient(60px 22px at 10% 30%, #7fd18c 98%, transparent), radial-gradient(80px 26px at 34% 20%, #74c983 98%, transparent), radial-gradient(70px 24px at 62% 32%, #7fd18c 98%, transparent), radial-gradient(90px 28px at 88% 22%, #74c983 98%, transparent), linear-gradient(#8bd896, #6cc27c); border-radius: 50% 50% 0 0 / 40px 40px 0 0; }
     /* trainer card */
     html[data-theme="quest"] .hero-grid > div:first-child { padding-top: 62px; overflow: hidden; }
@@ -868,7 +869,7 @@
     html[data-theme="quest"] .venue { background: #23315e; color: #ffcc33; }
     /* companion creatures (original designs) */
     .critters { display: none; }
-    html[data-theme="quest"] .critters { display: block; position: absolute; left: 0; right: 0; bottom: 30px; height: 0; z-index: 2; }
+    html[data-theme="quest"] .critters { display: block; position: absolute; left: 0; right: 0; top: 104px; height: 0; z-index: 2; }
     .critter { position: absolute; bottom: 0; width: 84px; height: 84px; border: none; padding: 0; background: none; cursor: pointer; animation: critter-hop 2.6s ease-in-out infinite; }
     .critter svg { width: 100%; height: 100%; display: block; filter: drop-shadow(0 6px 0 rgba(35,49,94,.25)); }
     .critter:nth-child(1) { left: 12%; } .critter:nth-child(2) { left: 46%; animation-delay: -.9s; width: 70px; height: 70px; } .critter:nth-child(3) { right: 12%; animation-delay: -1.7s; }
@@ -1925,8 +1926,8 @@
     '<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 22 C46 8 30 6 26 14 C38 14 44 18 50 22Z" fill="#3fae5c"/><path d="M50 22 C54 6 72 6 76 16 C64 14 56 18 50 22Z" fill="#57c46f"/><ellipse cx="50" cy="62" rx="38" ry="32" fill="#7fd18c" stroke="#23315e" stroke-width="4"/><ellipse cx="50" cy="74" rx="22" ry="12" fill="#c8f0cf"/><circle cx="38" cy="58" r="6" fill="#23315e"/><circle cx="62" cy="58" r="6" fill="#23315e"/><circle cx="40" cy="56" r="2" fill="#fff"/><circle cx="64" cy="56" r="2" fill="#fff"/><ellipse cx="30" cy="68" rx="5" ry="3" fill="#ff9fbf"/><ellipse cx="70" cy="68" rx="5" ry="3" fill="#ff9fbf"/><path d="M44 68 Q50 74 56 68" stroke="#23315e" stroke-width="3" fill="none" stroke-linecap="round"/></svg>',
     /* Flamby: orange drop with a little flame */
     '<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 8 C44 18 40 22 44 30 C46 24 50 22 52 28 C56 20 54 14 50 8Z" fill="#ffcc33"/><path d="M50 24 C26 44 18 58 22 72 C26 88 74 88 78 72 C82 58 74 44 50 24Z" fill="#ff9a4a" stroke="#23315e" stroke-width="4"/><ellipse cx="50" cy="74" rx="18" ry="9" fill="#ffd7b0"/><circle cx="40" cy="60" r="5.5" fill="#23315e"/><circle cx="60" cy="60" r="5.5" fill="#23315e"/><circle cx="42" cy="58" r="2" fill="#fff"/><circle cx="62" cy="58" r="2" fill="#fff"/><path d="M45 69 Q50 73 55 69" stroke="#23315e" stroke-width="3" fill="none" stroke-linecap="round"/></svg>',
-    /* Bubbo: blue round with a bubble antenna */
-    '<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 30 C50 22 54 16 60 14" stroke="#23315e" stroke-width="3" fill="none"/><circle cx="62" cy="12" r="7" fill="#bfe9ff" stroke="#23315e" stroke-width="3"/><circle cx="50" cy="62" r="34" fill="#6cc4ff" stroke="#23315e" stroke-width="4"/><circle cx="50" cy="72" r="16" fill="#dff4ff"/><circle cx="38" cy="56" r="7" fill="#fff" stroke="#23315e" stroke-width="2"/><circle cx="62" cy="56" r="7" fill="#fff" stroke="#23315e" stroke-width="2"/><circle cx="39" cy="57" r="3.5" fill="#23315e"/><circle cx="63" cy="57" r="3.5" fill="#23315e"/><path d="M44 70 Q50 76 56 70" stroke="#23315e" stroke-width="3" fill="none" stroke-linecap="round"/></svg>'
+    /* Mochi: an orange cat */
+    '<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M80 74 C96 70 98 52 88 46" stroke="#23315e" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M80 74 C96 70 98 52 88 46" stroke="#ffb36b" stroke-width="5" fill="none" stroke-linecap="round"/><polygon points="22,40 26,10 46,30" fill="#ffb36b" stroke="#23315e" stroke-width="4" stroke-linejoin="round"/><polygon points="78,40 74,10 54,30" fill="#ffb36b" stroke="#23315e" stroke-width="4" stroke-linejoin="round"/><polygon points="27,33 29,19 39,29" fill="#ffc9dc"/><polygon points="73,33 71,19 61,29" fill="#ffc9dc"/><ellipse cx="50" cy="60" rx="36" ry="32" fill="#ffb36b" stroke="#23315e" stroke-width="4"/><path d="M42 32 L44 42 M50 30 L50 41 M58 32 L56 42" stroke="#e08a3c" stroke-width="3" stroke-linecap="round"/><ellipse cx="50" cy="72" rx="18" ry="12" fill="#fff1e0"/><circle cx="38" cy="58" r="5.5" fill="#23315e"/><circle cx="62" cy="58" r="5.5" fill="#23315e"/><circle cx="40" cy="56" r="2" fill="#fff"/><circle cx="64" cy="56" r="2" fill="#fff"/><path d="M47 66 L53 66 L50 69Z" fill="#ff8fb1"/><path d="M50 69 Q46 74 42 71 M50 69 Q54 74 58 71" stroke="#23315e" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M24 66 L12 63 M24 71 L12 73 M76 66 L88 63 M76 71 L88 73" stroke="#23315e" stroke-width="2" stroke-linecap="round"/><ellipse cx="30" cy="70" rx="5" ry="3" fill="#ff9fbf"/><ellipse cx="70" cy="70" rx="5" ry="3" fill="#ff9fbf"/></svg>'
   ];
   var lines = [
     ['Let’s build something!', '一起來做點東西吧！'],
