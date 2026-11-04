@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chi-Hsien (Salima) Chang</title>
   <meta name="description" content="Chi-Hsien (Salima) Chang builds AI products and teaches 1,000+ learners programming, statistics, and how to work with AI. Founder of YourWowAI, lecturer at NTU CSIE, and reviewer for IEEE Transactions on Evolutionary Computation.">
-  <script>try { var t = localStorage.getItem('theme'); if (t && t !== 'yc') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+  <script>document.documentElement.classList.add('preload'); setTimeout(function () { document.documentElement.classList.remove('preload'); }, 2000); try { var t = localStorage.getItem('theme'); if (t && t !== 'yc') document.documentElement.setAttribute('data-theme', t); if (localStorage.getItem('lang') === 'zh') document.documentElement.lang = 'zh-Hant'; } catch (e) {}</script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="icon" type="image/png" href="images/icon.png">
   <link rel="apple-touch-icon" href="images/icon.png">
@@ -40,7 +40,10 @@
       }
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    html { scroll-padding-top: 72px; }
+    html.ready { scroll-behavior: smooth; }
+    html.preload body { opacity: 0; }
+    html.preload *, html.preload *::before, html.preload *::after { transition: none !important; }
     body {
       margin: 0;
       font-family: var(--font-body);
@@ -1222,6 +1225,27 @@ bindCopy();
     apply(lang);
     try { localStorage.setItem('lang', lang); } catch (e) {}
   });
+})();
+</script>
+<script>
+(function () {
+  var root = document.documentElement;
+  try { history.scrollRestoration = 'manual'; } catch (e) {}
+  function savePos() { try { sessionStorage.setItem('sy', String(window.scrollY)); } catch (e) {} }
+  window.addEventListener('pagehide', savePos);
+  window.addEventListener('beforeunload', savePos);
+  function show() {
+    var y = null;
+    try { y = sessionStorage.getItem('sy'); } catch (e) {}
+    if (y !== null) window.scrollTo(0, +y);
+    document.querySelectorAll('.rv').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in');
+    });
+    requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.remove('preload'); root.classList.add('ready'); }); });
+  }
+  var wait = (document.fonts && document.fonts.ready) ? Promise.race([document.fonts.ready, new Promise(function (r) { setTimeout(r, 700); })]) : Promise.resolve();
+  wait.then(show, show);
 })();
 </script>
 </body>
