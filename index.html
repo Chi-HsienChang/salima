@@ -937,10 +937,8 @@
     html[data-theme="stars"] .eyebrow::before { background: #ffd56b; box-shadow: 0 0 12px #ffd56b; }
     html[data-theme="stars"] h2::before { content: "🪐 "; }
     html[data-theme="stars"] .pic { position: relative; }
-    html[data-theme="stars"] .pic::after { content: ""; position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px; border-radius: 50%; background: #ffd56b; box-shadow: 0 0 14px #ffd56b; animation: orbit 6s linear infinite; pointer-events: none; }
     @keyframes orbit { from { transform: rotate(-14deg) translateX(168px) rotate(0deg) scaleY(1); } to { transform: rotate(346deg) translateX(168px); } }
     html[data-theme="stars"] .avatar { position: relative; z-index: 1; border: 3px solid rgba(255,213,107,.8); box-shadow: 0 0 40px rgba(120,150,255,.45); }
-    html[data-theme="stars"] .pic::after { z-index: 0; }
     html[data-theme="stars"] .card, html[data-theme="stars"] .review, html[data-theme="stars"] .talk, html[data-theme="stars"] .ocard, html[data-theme="stars"] .rstat,
     html[data-theme="stars"] .featured, html[data-theme="stars"] .news, html[data-theme="stars"] .learners, html[data-theme="stars"] .org, html[data-theme="stars"] .quote-hero {
       background: var(--card); border: 1px solid var(--line); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .35s, box-shadow .35s, border-color .35s;
