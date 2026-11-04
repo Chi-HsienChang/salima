@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&family=Source+Serif+4:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;800&family=Source+Serif+4:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Cinzel:wght@500;700&family=Quicksand:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --orange: #ff6600;
@@ -468,6 +468,201 @@
       html[data-theme] *, html[data-theme] *::before, html[data-theme] *::after { animation: none !important; transition: none !important; }
       html.rv-ready[data-theme="midnight"] .rv { opacity: 1; transform: none; }
     }
+
+    /* =====================================================================
+       Five more styles: cozy, magic, fantasy, fresh, arcade
+       ===================================================================== */
+
+    /* ---------- Cozy Café (舒服) ---------- */
+    html[data-theme="cozy"] {
+      --orange: #b5651d; --orange-soft: #f6e6d4; --ink: #3b2a20; --muted: #7a6455; --line: #ecdcc8;
+      --bg: #fbf3ea; --bg-alt: #f5e8d9; --card: #fffaf3; --on-accent: #fffaf3; --radius: 22px;
+      --font-body: "Nunito", "Inter", sans-serif; --font-head: var(--font-body);
+    }
+    html[data-theme="cozy"] body { line-height: 1.8; background-image: radial-gradient(rgba(181,101,29,.07) 1px, transparent 1px); background-size: 18px 18px; }
+    html[data-theme="cozy"] section { padding: 80px 0; }
+    html[data-theme="cozy"] h1 { font-weight: 800; letter-spacing: -0.01em; }
+    html[data-theme="cozy"] h2::before { content: "☕ "; }
+    html[data-theme="cozy"] .avatar { border: 8px solid #fffaf3; box-shadow: 0 14px 40px -10px rgba(122,74,30,.45); }
+    html[data-theme="cozy"] .card, html[data-theme="cozy"] .review, html[data-theme="cozy"] .talk, html[data-theme="cozy"] .ocard, html[data-theme="cozy"] .rstat,
+    html[data-theme="cozy"] .featured, html[data-theme="cozy"] .news, html[data-theme="cozy"] .learners, html[data-theme="cozy"] .org, html[data-theme="cozy"] .list li {
+      border: none; box-shadow: 0 8px 24px -10px rgba(122,74,30,.25); transition: transform .5s ease, box-shadow .5s ease;
+    }
+    html[data-theme="cozy"] .card:hover, html[data-theme="cozy"] .review:hover, html[data-theme="cozy"] .featured:hover, html[data-theme="cozy"] .talk:hover, html[data-theme="cozy"] .ocard:hover { transform: scale(1.015); box-shadow: 0 16px 36px -12px rgba(122,74,30,.35); }
+    html[data-theme="cozy"] .news { background: var(--card); }
+    html[data-theme="cozy"] .org { background: var(--card); border-radius: 18px; }
+    html[data-theme="cozy"] .list { border-top: none; display: grid; gap: 12px; }
+    html[data-theme="cozy"] .list li { background: var(--card); border-radius: 18px; padding: 18px 22px; }
+    html[data-theme="cozy"] .stats { border: none; gap: 14px; }
+    html[data-theme="cozy"] .stat { border: none; background: var(--card); border-radius: 50px; text-align: center; box-shadow: 0 8px 24px -10px rgba(122,74,30,.25); }
+    html[data-theme="cozy"] .news .tag, html[data-theme="cozy"] .venue, html[data-theme="cozy"] .featured .go, html[data-theme="cozy"] .theme-btn, html[data-theme="cozy"] .lang-toggle { border-radius: 999px; }
+    html[data-theme="cozy"] .quote-hero { border-left: none; background: var(--card); border-radius: var(--radius); padding: 28px 32px; box-shadow: 0 8px 24px -10px rgba(122,74,30,.25); }
+
+    /* ---------- Spellbook (魔法): stars, gold glow, sparkle cursor ---------- */
+    html[data-theme="spell"] {
+      --orange: #f5c451; --orange-soft: #2c1850; --ink: #f4ebff; --muted: #c2abe3; --line: #4b2e75;
+      --bg: #140a2a; --bg-alt: #1a0e36; --card: rgba(37,20,68,.8); --on-accent: #140a2a; --radius: 12px;
+      --font-head: "Cinzel", Georgia, serif;
+    }
+    html[data-theme="spell"] { overflow-x: hidden; }
+    html[data-theme="spell"] body { background: radial-gradient(ellipse at top, #2a1458, #140a2a 60%); background-attachment: fixed; overflow-x: clip; }
+    html[data-theme="spell"] body::before, html[data-theme="spell"] body::after {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image: radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent), radial-gradient(1px 1px at 90px 120px, #f5c451, transparent),
+        radial-gradient(1.5px 1.5px at 160px 60px, #fff, transparent), radial-gradient(1px 1px at 230px 180px, #d9c2ff, transparent), radial-gradient(2px 2px at 300px 90px, #fff, transparent);
+      background-size: 320px 220px; animation: twinkle 4s ease-in-out infinite;
+    }
+    html[data-theme="spell"] body::after { background-size: 410px 290px; background-position: 120px 60px; animation-delay: 2s; }
+    @keyframes twinkle { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+    html[data-theme="spell"] nav.top { background: rgba(20,10,42,.75); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom-color: rgba(245,196,81,.3); }
+    html[data-theme="spell"] section, html[data-theme="spell"] section.alt { background: transparent; }
+    html[data-theme="spell"] h1 { color: #fff3d1; letter-spacing: .02em; animation: goldglow 3s ease-in-out infinite; }
+    @keyframes goldglow { 0%,100% { text-shadow: 0 0 10px rgba(245,196,81,.35), 0 0 30px rgba(245,196,81,.15); } 50% { text-shadow: 0 0 18px rgba(245,196,81,.8), 0 0 50px rgba(245,196,81,.4); } }
+    html[data-theme="spell"] h2 { letter-spacing: .04em; }
+    html[data-theme="spell"] h2::before { content: "✦"; display: inline-block; margin-right: 12px; color: #f5c451; animation: spin 6s linear infinite; }
+    html[data-theme="spell"] .pic { position: relative; }
+    html[data-theme="spell"] .pic::before, html[data-theme="spell"] .pic::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+    html[data-theme="spell"] .pic::before { inset: -18px; border: 2px dashed rgba(245,196,81,.7); animation: spin 20s linear infinite; }
+    html[data-theme="spell"] .pic::after { inset: -34px; border: 1px dotted rgba(217,194,255,.6); animation: spin 30s linear infinite reverse; }
+    html[data-theme="spell"] .avatar { border-color: #f5c451; box-shadow: 0 0 40px rgba(245,196,81,.45); }
+    html[data-theme="spell"] .card, html[data-theme="spell"] .review, html[data-theme="spell"] .talk, html[data-theme="spell"] .ocard, html[data-theme="spell"] .rstat,
+    html[data-theme="spell"] .featured, html[data-theme="spell"] .news, html[data-theme="spell"] .learners, html[data-theme="spell"] .org {
+      position: relative; overflow: hidden; border: 1px solid rgba(245,196,81,.35); box-shadow: inset 0 0 24px rgba(150,90,255,.15); transition: transform .4s, box-shadow .4s, border-color .4s;
+    }
+    html[data-theme="spell"] .card::after, html[data-theme="spell"] .featured::after, html[data-theme="spell"] .talk::after, html[data-theme="spell"] .ocard::after, html[data-theme="spell"] .review::after {
+      content: ""; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; pointer-events: none;
+      background: linear-gradient(100deg, transparent, rgba(255,236,170,.25), transparent); transform: skewX(-20deg); transition: left .8s ease;
+    }
+    html[data-theme="spell"] .card:hover::after, html[data-theme="spell"] .featured:hover::after, html[data-theme="spell"] .talk:hover::after, html[data-theme="spell"] .ocard:hover::after, html[data-theme="spell"] .review:hover::after { left: 130%; }
+    html[data-theme="spell"] .card:hover, html[data-theme="spell"] .featured:hover, html[data-theme="spell"] .talk:hover, html[data-theme="spell"] .ocard:hover, html[data-theme="spell"] .review:hover {
+      transform: translateY(-4px); border-color: #f5c451; box-shadow: 0 0 30px rgba(245,196,81,.35), inset 0 0 24px rgba(150,90,255,.2);
+    }
+    html[data-theme="spell"] .stats, html[data-theme="spell"] .stat { border-color: rgba(245,196,81,.3); }
+    html[data-theme="spell"] .stat .num { color: #f5c451; text-shadow: 0 0 16px rgba(245,196,81,.5); }
+    html[data-theme="spell"] .list { border-top-color: rgba(245,196,81,.3); }
+    html[data-theme="spell"] .list li { border-bottom-color: rgba(245,196,81,.18); }
+    .sparkle { position: fixed; z-index: 9999; pointer-events: none; font-size: 14px; color: #f5c451; text-shadow: 0 0 8px #f5c451; animation: sparkle-fade .9s ease-out forwards; }
+    @keyframes sparkle-fade { from { opacity: 1; transform: translate(-50%,-50%) scale(1) rotate(0); } to { opacity: 0; transform: translate(-50%, 10px) scale(.2) rotate(180deg); } }
+
+    /* ---------- Dreamland (魔幻): pastel holograms, floating bubbles ---------- */
+    html[data-theme="dream"] {
+      --orange: #a855f7; --orange-soft: #f3e8ff; --ink: #3b2a5e; --muted: #7b6b9c; --line: #eadfff;
+      --bg: #fdf7ff; --bg-alt: rgba(255,255,255,.35); --card: rgba(255,255,255,.82); --on-accent: #ffffff; --radius: 26px;
+      --font-body: "Quicksand", "Inter", sans-serif; --font-head: var(--font-body);
+    }
+    html[data-theme="dream"] { overflow-x: hidden; }
+    html[data-theme="dream"] body { overflow-x: clip; background: #fbefff; }
+    html[data-theme="dream"] body::before { content: ""; position: fixed; inset: -50%; z-index: -2; pointer-events: none; background: linear-gradient(120deg, #ffd6f5, #d9e4ff, #d6fff3, #fff4d6, #ffd6f5); will-change: transform; animation: dreamdrift 24s ease-in-out infinite alternate; }
+    @keyframes dreamdrift { from { transform: translate(-12%, -6%) rotate(0deg); } to { transform: translate(12%, 6%) rotate(25deg); } }
+    html[data-theme="dream"] nav.top { background: rgba(255,255,255,.55); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    html[data-theme="dream"] section { background: transparent; }
+    html[data-theme="dream"] .hero { position: relative; }
+    html[data-theme="dream"] .hero::before, html[data-theme="dream"] .hero::after { content: ""; position: absolute; border-radius: 50%; z-index: -1; pointer-events: none;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(255,182,240,.5) 40%, rgba(168,85,247,.25) 70%, transparent 72%); animation: bubble 9s ease-in-out infinite; }
+    html[data-theme="dream"] .hero::before { width: 180px; height: 180px; top: 40px; left: -40px; }
+    html[data-theme="dream"] .hero::after { width: 110px; height: 110px; bottom: 40px; right: 6%; animation-delay: -4s; animation-duration: 11s; }
+    @keyframes bubble { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(30px,-40px) scale(1.08); } 66% { transform: translate(-20px,20px) scale(.95); } }
+    html[data-theme="dream"] h1 { background: linear-gradient(90deg, #ff7ad9, #a855f7, #5b8cff, #2dd4bf, #ff7ad9); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 10s linear infinite; }
+    html[data-theme="dream"] h1 span { color: transparent; }
+    html[data-theme="dream"] h2::before { content: "🦄 "; display: inline-block; animation: bob 3s ease-in-out infinite; }
+    html[data-theme="dream"] .avatar { border: 6px solid transparent; background: linear-gradient(#fff,#fff) padding-box, conic-gradient(#ff7ad9,#a855f7,#5b8cff,#2dd4bf,#ff7ad9) border-box; animation: float 7s ease-in-out infinite, huey 8s linear infinite; }
+    @keyframes huey { to { filter: hue-rotate(0deg); } }
+    html[data-theme="dream"] .card, html[data-theme="dream"] .review, html[data-theme="dream"] .talk, html[data-theme="dream"] .ocard, html[data-theme="dream"] .rstat,
+    html[data-theme="dream"] .featured, html[data-theme="dream"] .news, html[data-theme="dream"] .learners, html[data-theme="dream"] .org, html[data-theme="dream"] .list li {
+      border: 1.5px solid rgba(255,255,255,.9); background: var(--card);
+      box-shadow: 0 10px 30px -10px rgba(168,85,247,.35); transition: transform .5s cubic-bezier(.34,1.56,.64,1), box-shadow .5s;
+    }
+    html[data-theme="dream"] .card:hover, html[data-theme="dream"] .review:hover, html[data-theme="dream"] .featured:hover, html[data-theme="dream"] .talk:hover, html[data-theme="dream"] .ocard:hover, html[data-theme="dream"] .org:hover {
+      transform: translateY(-6px) rotate(-.6deg); box-shadow: 0 20px 40px -12px rgba(168,85,247,.5), 0 0 0 3px rgba(255,122,217,.25);
+    }
+    html[data-theme="dream"] .list { border-top: none; display: grid; gap: 12px; }
+    html[data-theme="dream"] .list li { border-radius: 20px; padding: 16px 20px; }
+    html[data-theme="dream"] .stats { border: none; gap: 12px; }
+    html[data-theme="dream"] .stat { border: 1.5px solid rgba(255,255,255,.9); background: var(--card); border-radius: var(--radius); }
+    html[data-theme="dream"] .news .tag, html[data-theme="dream"] .venue, html[data-theme="dream"] .featured .go { border-radius: 999px; background: linear-gradient(90deg,#ff7ad9,#a855f7,#5b8cff); background-size: 200% 100%; animation: shine 5s linear infinite; }
+    html[data-theme="dream"] .theme-btn, html[data-theme="dream"] .lang-toggle { border-radius: 999px; }
+
+    /* ---------- Ocean Breeze (清爽): airy, aqua, waves ---------- */
+    html[data-theme="ocean"] {
+      --orange: #0ea5b7; --orange-soft: #e3f7fa; --ink: #0f2f3a; --muted: #557782; --line: #d5ecf0;
+      --bg: #ffffff; --bg-alt: #f2fbfc; --card: #ffffff; --on-accent: #ffffff; --radius: 14px;
+      --font-head: "DM Sans", "Inter", sans-serif;
+    }
+    html[data-theme="ocean"] .hero { position: relative; padding-bottom: 120px; background: linear-gradient(180deg, #ffffff, #e9f9fb); overflow: hidden; }
+    html[data-theme="ocean"] .hero::after, html[data-theme="ocean"] .hero::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background-repeat: repeat-x; pointer-events: none; }
+    html[data-theme="ocean"] .hero::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='90' viewBox='0 0 800 90'%3E%3Cpath d='M0 45 Q100 15 200 45 T400 45 T600 45 T800 45 V90 H0Z' fill='%230ea5b7' fill-opacity='.18'/%3E%3C/svg%3E"); background-size: 800px 90px; animation: waves 14s linear infinite; }
+    html[data-theme="ocean"] .hero::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='90' viewBox='0 0 600 90'%3E%3Cpath d='M0 55 Q75 30 150 55 T300 55 T450 55 T600 55 V90 H0Z' fill='%2338bdf8' fill-opacity='.15'/%3E%3C/svg%3E"); background-size: 600px 90px; animation: waves 9s linear infinite reverse; }
+    @keyframes waves { to { background-position-x: 800px; } }
+    html[data-theme="ocean"] .pic { position: relative; }
+    html[data-theme="ocean"] .pic::before, html[data-theme="ocean"] .pic::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid rgba(14,165,183,.5); animation: ripple 3.2s ease-out infinite; pointer-events: none; }
+    html[data-theme="ocean"] .pic::after { animation-delay: 1.6s; }
+    @keyframes ripple { from { transform: scale(1); opacity: .8; } to { transform: scale(1.35); opacity: 0; } }
+    html[data-theme="ocean"] .avatar { border: 4px solid #fff; box-shadow: 0 10px 30px -8px rgba(14,165,183,.45); }
+    html[data-theme="ocean"] h1 { font-weight: 700; letter-spacing: -0.035em; }
+    html[data-theme="ocean"] h2 { font-weight: 700; }
+    html[data-theme="ocean"] h2::before { content: ""; display: inline-block; width: 28px; height: 4px; border-radius: 4px; background: var(--orange); margin-right: 12px; vertical-align: middle; }
+    html[data-theme="ocean"] section { padding: 88px 0; }
+    html[data-theme="ocean"] .card, html[data-theme="ocean"] .talk, html[data-theme="ocean"] .ocard, html[data-theme="ocean"] .rstat, html[data-theme="ocean"] .review {
+      border: 1px solid var(--line); border-top: 3px solid var(--orange); transition: transform .3s, box-shadow .3s;
+    }
+    html[data-theme="ocean"] .card:hover, html[data-theme="ocean"] .talk:hover, html[data-theme="ocean"] .ocard:hover, html[data-theme="ocean"] .review:hover { transform: translateY(-3px); box-shadow: 0 12px 30px -12px rgba(14,165,183,.4); }
+    html[data-theme="ocean"] .featured { border-width: 1px; background: rgba(255,255,255,.8); }
+    html[data-theme="ocean"] .featured:hover { box-shadow: 0 6px 0 var(--orange); }
+    html[data-theme="ocean"] .news { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--orange); }
+    html[data-theme="ocean"] .org { border-color: var(--line); }
+
+    /* ---------- Retro Arcade (動畫): pixels, CRT, bouncy ---------- */
+    html[data-theme="arcade"] {
+      --orange: #ff2e88; --orange-soft: #2c1b44; --ink: #f8f8f2; --muted: #b9b2cf; --line: #4c3a6c;
+      --bg: #170e26; --bg-alt: #1d1231; --card: #261841; --on-accent: #170e26; --radius: 0px;
+      --font-head: "Press Start 2P", ui-monospace, monospace; --font-body: "Space Mono", ui-monospace, monospace;
+    }
+    html[data-theme="arcade"] body { font-size: 15px; }
+    html[data-theme="arcade"] body::after { content: ""; position: fixed; inset: 0; z-index: 9998; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 1px, transparent 1px 3px); animation: flicker 4s steps(2) infinite; }
+    @keyframes flicker { 0%,100% { opacity: .55; } 50% { opacity: .7; } }
+    html[data-theme="arcade"] h1 { font-size: clamp(22px, 4vw, 38px); line-height: 1.4; text-shadow: 4px 4px 0 #00e5ff, 8px 8px 0 rgba(255,46,136,.5); }
+    html[data-theme="arcade"] h1 span { color: #ffe14d; }
+    html[data-theme="arcade"] h2 { font-size: 18px; line-height: 1.5; }
+    html[data-theme="arcade"] h2::before { content: "▶ "; color: #ffe14d; animation: blink 1s steps(1) infinite; }
+    html[data-theme="arcade"] h3, html[data-theme="arcade"] .card h3, html[data-theme="arcade"] .featured h3, html[data-theme="arcade"] .talk h3, html[data-theme="arcade"] .ocard h3, html[data-theme="arcade"] .rgroup-head h3 { font-size: 13px; line-height: 1.7; }
+    html[data-theme="arcade"] .org b { font-size: 12px; line-height: 1.8; }
+    html[data-theme="arcade"] .stat .num, html[data-theme="arcade"] .rstat .num { font-size: 20px; color: #ffe14d; }
+    html[data-theme="arcade"] .brand .full { font-family: "Press Start 2P", monospace; font-size: 11px; }
+    html[data-theme="arcade"] .eyebrow { color: #00e5ff; }
+    html[data-theme="arcade"] .avatar { border-radius: 0; border: 4px solid #ffe14d; box-shadow: 6px 6px 0 #ff2e88, 12px 12px 0 #00e5ff; }
+    html[data-theme="arcade"] .card, html[data-theme="arcade"] .review, html[data-theme="arcade"] .talk, html[data-theme="arcade"] .ocard, html[data-theme="arcade"] .rstat,
+    html[data-theme="arcade"] .featured, html[data-theme="arcade"] .news, html[data-theme="arcade"] .learners, html[data-theme="arcade"] .org {
+      border: 3px solid #f8f8f2; box-shadow: 5px 5px 0 #ff2e88;
+    }
+    html[data-theme="arcade"] .card:hover, html[data-theme="arcade"] .review:hover, html[data-theme="arcade"] .talk:hover, html[data-theme="arcade"] .ocard:hover,
+    html[data-theme="arcade"] .featured:hover, html[data-theme="arcade"] .org:hover { animation: jump .45s steps(4) 1; box-shadow: 5px 5px 0 #00e5ff; }
+    @keyframes jump { 0% { transform: translateY(0); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0); } }
+    html[data-theme="arcade"] .stats { border: 3px solid #f8f8f2; }
+    html[data-theme="arcade"] .stat { border-right: 3px dashed #4c3a6c; }
+    html[data-theme="arcade"] .list li { border-bottom: 2px dashed var(--line); }
+    html[data-theme="arcade"] .list .year { color: #ffe14d; font-family: "Press Start 2P", monospace; font-size: 11px; }
+    html[data-theme="arcade"] .news .tag { background: #ffe14d; color: #170e26; }
+    html[data-theme="arcade"] .venue { background: #00e5ff; color: #170e26; }
+    html[data-theme="arcade"] .talk img, html[data-theme="arcade"] .ocard img { filter: saturate(1.4) contrast(1.1); }
+
+    /* ---------- Scroll reveal variants ---------- */
+    html.rv-ready[data-theme="spell"] .rv { opacity: 0; filter: blur(8px); transform: translateY(16px); transition: opacity 1s ease, filter 1s ease, transform 1s ease; transition-delay: var(--d, 0s); }
+    html.rv-ready[data-theme="dream"] .rv { opacity: 0; transform: scale(.85) rotate(-2deg); transition: opacity .8s ease, transform .9s cubic-bezier(.34,1.56,.64,1); transition-delay: var(--d, 0s); }
+    html.rv-ready[data-theme="ocean"] .rv { opacity: 0; transform: translateX(-28px); transition: opacity .7s ease, transform .7s ease; transition-delay: var(--d, 0s); }
+    html.rv-ready[data-theme="arcade"] .rv { opacity: 0; transform: scale(.6); transition: opacity .35s steps(4), transform .35s steps(4); transition-delay: var(--d, 0s); }
+    html.rv-ready[data-theme] .rv.in { opacity: 1; filter: none; transform: none; }
+
+    /* ---------- Menu: icons per style ---------- */
+    .theme-menu { min-width: 250px; max-height: 75vh; overflow-y: auto; }
+    .theme-menu .ico { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; font-size: 16px; flex: none; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+    .theme-menu .fx { font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--orange); border: 1px solid currentColor; border-radius: 999px; padding: 1px 6px; }
+    @media (min-width: 640px) { .theme-menu { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; min-width: 470px; } }
+    .brand .logo.pop { animation: logopop .45s cubic-bezier(.34,1.56,.64,1); }
+    @keyframes logopop { 0% { transform: scale(.4) rotate(-20deg); } 100% { transform: scale(1) rotate(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html.rv-ready[data-theme] .rv { opacity: 1 !important; filter: none !important; transform: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -489,11 +684,16 @@
       <div class="theme-wrap">
         <button type="button" class="theme-btn" id="themeBtn" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" data-zh="風格">Style</button>
         <div class="theme-menu" id="themeMenu" role="menu" hidden>
-          <button type="button" role="menuitemradio" data-theme="yc"><span class="swatch" style="background:linear-gradient(135deg,#ffffff 50%,#ff6600 50%)"></span><span data-zh="上線橘（預設）">Ship-It Orange (default)</span></button>
-          <button type="button" role="menuitemradio" data-theme="midnight"><span class="swatch" style="background:linear-gradient(135deg,#0b1020 50%,#8b7bff 50%)"></span><span data-zh="霓虹極光 ✨">Neon Aurora ✨</span></button>
-          <button type="button" role="menuitemradio" data-theme="paper"><span class="swatch" style="background:linear-gradient(135deg,#fbf7ef 50%,#1f4e79 50%)"></span><span data-zh="老圖書館">Old Library</span></button>
-          <button type="button" role="menuitemradio" data-theme="mono"><span class="swatch" style="background:linear-gradient(135deg,#fff 50%,#000 50%)"></span><span data-zh="駭客終端機">Hacker Terminal</span></button>
-          <button type="button" role="menuitemradio" data-theme="forest"><span class="swatch" style="background:linear-gradient(135deg,#f5f9f4 50%,#2f855a 50%)"></span><span data-zh="抹茶森林">Matcha Forest</span></button>
+          <button type="button" role="menuitemradio" data-theme="yc" data-icon="🚀"><span class="ico" style="background:#fff1e6">🚀</span><span data-zh="上線橘（預設）">Ship-It Orange (default)</span></button>
+          <button type="button" role="menuitemradio" data-theme="midnight" data-icon="🌌"><span class="ico" style="background:#1c1a3d">🌌</span><span data-zh="霓虹極光">Neon Aurora</span><span class="fx" data-zh="動畫">Motion</span></button>
+          <button type="button" role="menuitemradio" data-theme="paper" data-icon="📚"><span class="ico" style="background:#f3ecdf">📚</span><span data-zh="老圖書館">Old Library</span></button>
+          <button type="button" role="menuitemradio" data-theme="mono" data-icon="💻"><span class="ico" style="background:#eeeeee">💻</span><span data-zh="駭客終端機">Hacker Terminal</span></button>
+          <button type="button" role="menuitemradio" data-theme="forest" data-icon="🍵"><span class="ico" style="background:#e3f3e9">🍵</span><span data-zh="抹茶森林">Matcha Forest</span></button>
+          <button type="button" role="menuitemradio" data-theme="cozy" data-icon="☕"><span class="ico" style="background:#f6e6d4">☕</span><span data-zh="暖暖咖啡館">Cozy Café</span></button>
+          <button type="button" role="menuitemradio" data-theme="spell" data-icon="🪄"><span class="ico" style="background:#2c1850">🪄</span><span data-zh="魔法書">Spellbook</span><span class="fx" data-zh="動畫">Motion</span></button>
+          <button type="button" role="menuitemradio" data-theme="dream" data-icon="🦄"><span class="ico" style="background:#f3e8ff">🦄</span><span data-zh="夢幻獨角獸">Dreamland</span><span class="fx" data-zh="動畫">Motion</span></button>
+          <button type="button" role="menuitemradio" data-theme="ocean" data-icon="🌊"><span class="ico" style="background:#e3f7fa">🌊</span><span data-zh="清爽海風">Ocean Breeze</span><span class="fx" data-zh="動畫">Motion</span></button>
+          <button type="button" role="menuitemradio" data-theme="arcade" data-icon="👾"><span class="ico" style="background:#2c1b44">👾</span><span data-zh="復古街機">Retro Arcade</span><span class="fx" data-zh="動畫">Motion</span></button>
         </div>
       </div>
       <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language">中文</button>
@@ -939,16 +1139,20 @@
 (function () {
   var root = document.documentElement, btn = document.getElementById('themeBtn'), menu = document.getElementById('themeMenu');
   var items = menu.querySelectorAll('[data-theme]');
-  function apply(t) {
+  var logo = document.querySelector('.brand .logo');
+  function apply(t, animate) {
     if (t === 'yc') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', t);
     items.forEach(function (i) { i.setAttribute('aria-checked', i.dataset.theme === t ? 'true' : 'false'); });
+    var cur = menu.querySelector('[data-theme="' + t + '"]');
+    logo.textContent = t === 'yc' ? 'S' : cur.dataset.icon;
+    if (animate) { logo.classList.remove('pop'); void logo.offsetWidth; logo.classList.add('pop'); }
   }
   var t = 'yc';
   try { var saved = localStorage.getItem('theme'); if (saved && menu.querySelector('[data-theme="' + saved + '"]')) t = saved; } catch (e) {}
   apply(t);
   function close() { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
   btn.addEventListener('click', function (e) { e.stopPropagation(); var open = menu.hidden; menu.hidden = !open; btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
-  items.forEach(function (i) { i.addEventListener('click', function () { apply(i.dataset.theme); try { localStorage.setItem('theme', i.dataset.theme); } catch (e) {} close(); }); });
+  items.forEach(function (i) { i.addEventListener('click', function () { apply(i.dataset.theme, true); try { localStorage.setItem('theme', i.dataset.theme); } catch (e) {} close(); }); });
   document.addEventListener('click', function (e) { if (!menu.hidden && !menu.contains(e.target)) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
@@ -964,6 +1168,21 @@
   }, { rootMargin: '0px 0px -5% 0px', threshold: 0 });
   els.forEach(function (el) { io.observe(el); });
   document.documentElement.classList.add('rv-ready');
+})();
+</script>
+<script>
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var last = 0, glyphs = ['✦', '✧', '⋆', '✶'];
+  document.addEventListener('pointermove', function (e) {
+    if (document.documentElement.getAttribute('data-theme') !== 'spell') return;
+    var now = Date.now(); if (now - last < 45) return; last = now;
+    var sp = document.createElement('span');
+    sp.className = 'sparkle'; sp.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+    sp.style.left = e.clientX + 'px'; sp.style.top = e.clientY + 'px';
+    document.body.appendChild(sp);
+    setTimeout(function () { sp.remove(); }, 900);
+  });
 })();
 </script>
 <script>
