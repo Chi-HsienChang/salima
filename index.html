@@ -603,6 +603,18 @@
     html[data-theme="dream"] .news .tag, html[data-theme="dream"] .venue, html[data-theme="dream"] .featured .go { border-radius: 999px; background: linear-gradient(90deg,#ff7ad9,#a855f7,#5b8cff); background-size: 200% 100%; animation: shine 5s linear infinite; }
     html[data-theme="dream"] .theme-btn, html[data-theme="dream"] .lang-toggle { border-radius: 999px; }
 
+    /* Dreamland "Open" button: white bubble with a spinning rainbow rim */
+    @property --dream-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+    html[data-theme="dream"] .featured .go {
+      position: relative; padding: 9px 18px; border-radius: 999px; border: 2.5px solid transparent; color: #a855f7; font-weight: 800; letter-spacing: .01em;
+      background: linear-gradient(#ffffff, #fdf4ff) padding-box, conic-gradient(from var(--dream-a), #ff7ad9, #a855f7, #5b8cff, #2dd4bf, #ffd36e, #ff7ad9) border-box;
+      background-size: auto; box-shadow: 0 8px 20px -8px rgba(168,85,247,.55), inset 0 -3px 0 rgba(168,85,247,.10);
+      animation: dream-rim 4s linear infinite; transition: transform .45s cubic-bezier(.34,1.56,.64,1), box-shadow .3s;
+    }
+    html[data-theme="dream"] .featured .go::before { content: "✨"; margin-right: 6px; display: inline-block; animation: bob 2.4s ease-in-out infinite; }
+    html[data-theme="dream"] .featured:hover .go { transform: translateY(-3px) rotate(-3deg) scale(1.06); box-shadow: 0 14px 28px -10px rgba(255,122,217,.7), inset 0 -3px 0 rgba(168,85,247,.12); }
+    @keyframes dream-rim { to { --dream-a: 360deg; } }
+
     /* ---------- Ocean Breeze (清爽): airy, aqua, waves ---------- */
     html[data-theme="ocean"] {
       --orange: #0ea5b7; --orange-soft: #e3f7fa; --ink: #0f2f3a; --muted: #557782; --line: #d5ecf0;
@@ -707,12 +719,12 @@
         <div class="theme-menu" id="themeMenu" role="menu" hidden>
           <button type="button" role="menuitemradio" data-theme="yc" data-icon="🚀"><span class="ico" style="background:#fff1e6">🚀</span><span data-zh="YC 橘（預設）">YC Orange (default)</span></button>
           <button type="button" role="menuitemradio" data-theme="midnight" data-img="images/yourwowai.png"><span class="ico" style="background:#060b2a"><img src="images/yourwowai.png" alt="" width="30" height="30"></span><span data-zh="Wow 星雲">Wow Nebula</span></button>
+          <button type="button" role="menuitemradio" data-theme="spell" data-icon="🪄"><span class="ico" style="background:#2c1850">🪄</span><span data-zh="魔法書">Spellbook</span></button>
           <button type="button" role="menuitemradio" data-theme="dream" data-icon="🦄"><span class="ico" style="background:#f3e8ff">🦄</span><span data-zh="夢幻獨角獸">Dreamland</span></button>
           <button type="button" role="menuitemradio" data-theme="paper" data-icon="📚"><span class="ico" style="background:#f3ecdf">📚</span><span data-zh="老圖書館">Old Library</span></button>
           <button type="button" role="menuitemradio" data-theme="mono" data-icon="💻"><span class="ico" style="background:#eeeeee">💻</span><span data-zh="駭客終端機">Hacker Terminal</span></button>
           <button type="button" role="menuitemradio" data-theme="forest" data-icon="🍵"><span class="ico" style="background:#e3f3e9">🍵</span><span data-zh="抹茶森林">Matcha Forest</span></button>
           <button type="button" role="menuitemradio" data-theme="cozy" data-icon="☕"><span class="ico" style="background:#f6e6d4">☕</span><span data-zh="暖暖咖啡館">Cozy Café</span></button>
-          <button type="button" role="menuitemradio" data-theme="spell" data-icon="🪄"><span class="ico" style="background:#2c1850">🪄</span><span data-zh="魔法書">Spellbook</span></button>
           <button type="button" role="menuitemradio" data-theme="ocean" data-icon="🌊"><span class="ico" style="background:#e3f7fa">🌊</span><span data-zh="清爽海風">Ocean Breeze</span></button>
           <button type="button" role="menuitemradio" data-theme="arcade" data-icon="👾"><span class="ico" style="background:#2c1b44">👾</span><span data-zh="復古街機">Retro Arcade</span></button>
         </div>
