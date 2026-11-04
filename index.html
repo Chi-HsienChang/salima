@@ -984,7 +984,7 @@
 
     /* original magic cards (star / moon / sun) */
     .magic-cards { display: none; }
-    html[data-theme="magic"] .magic-cards { display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; max-width: var(--max); margin: 0 auto; padding: 40px 20px 0; }
+    html[data-theme="magic"] .magic-cards { display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; margin: 26px 0 10px; padding: 14px 0 0; }
     .mcard { width: 180px; height: 260px; perspective: 1000px; border: none; padding: 0; background: none; cursor: pointer; font: inherit; color: inherit; animation: mcard-float 6s ease-in-out infinite; }
     .mcard:nth-child(2) { animation-delay: -2s; } .mcard:nth-child(3) { animation-delay: -4s; }
     .mcard .inner { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.34,1.4,.64,1); }
@@ -1107,7 +1107,7 @@
     </div>
     <div class="news">
       <span class="tag">NEW · 2025</span>
-      <p data-zh="&lt;a href=&quot;https://train.csie.ntu.edu.tw/train/teacher.php?id=178&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;臺大資訊系統訓練班&lt;/a&gt;講師，教授 &lt;b&gt;Java、Python、統計與資料分析&lt;/b&gt; · &lt;b&gt;2025 優良講師&lt;/b&gt; · 統計與物件導向課程評分 &lt;b&gt;5.0/5&lt;/b&gt; · &lt;a href=&quot;#reviews&quot;&gt;學生評價&lt;/a&gt;">Lecturer of <b>Java, Python, Statistics &amp; Data Analysis</b> at <a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178" target="_blank" rel="noopener">NTU CSIE</a> · <b>2025 Outstanding Lecturer</b> · Statistics &amp; OOP courses rated <b>5.0/5</b> · <a href="#reviews">student reviews</a></p>
+      <p data-zh="&lt;a href=&quot;https://train.csie.ntu.edu.tw/train/teacher.php?id=178&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;臺大資訊系統訓練班&lt;/a&gt;講師，教授 &lt;b&gt;Java、Python、統計與資料分析&lt;/b&gt; · &lt;b&gt;2025 優良講師&lt;/b&gt; · 統計與物件導向課程評分 &lt;b&gt;5.0/5.0&lt;/b&gt; · &lt;a href=&quot;#reviews&quot;&gt;學生評價&lt;/a&gt;">Lecturer of <b>Java, Python, Statistics &amp; Data Analysis</b> at <a href="https://train.csie.ntu.edu.tw/train/teacher.php?id=178" target="_blank" rel="noopener">NTU CSIE</a> · <b>2025 Outstanding Lecturer</b> · Statistics &amp; OOP courses rated <b>5.0/5.0</b> · <a href="#reviews">student reviews</a></p>
     </div>
   </div>
 </header>
@@ -1246,7 +1246,7 @@
         <div class="year">2025–</div>
         <div>
           <div class="title" data-zh="Java、Python、統計與資料分析 — 講師">Java, Python, Statistics &amp; Data Analysis — Lecturer</div>
-          <div class="meta" data-zh="臺大資訊系統訓練班 · 2025 優良講師 · 統計與物件導向課程評分 &lt;b&gt;5.0/5&lt;/b&gt; · &lt;a href=&quot;#reviews&quot;&gt;學生評價&lt;/a&gt;">NTU, Computer Science and Information Engineering · 2025 Outstanding Lecturer · Statistics &amp; OOP courses rated <b>5.0/5</b> · <a href="#reviews">student reviews</a></div>
+          <div class="meta" data-zh="臺大資訊系統訓練班 · 2025 優良講師 · 統計與物件導向課程評分 &lt;b&gt;5.0/5.0&lt;/b&gt; · &lt;a href=&quot;#reviews&quot;&gt;學生評價&lt;/a&gt;">NTU, Computer Science and Information Engineering · 2025 Outstanding Lecturer · Statistics &amp; OOP courses rated <b>5.0/5.0</b> · <a href="#reviews">student reviews</a></div>
         </div>
       </li>
       <li>
@@ -1533,7 +1533,7 @@
     { i: '🚀', when: ['2026 – now', '2026 – 迄今'], what: ['YourWowAI', 'YourWowAI'], role: ['Founder', '創辦人'],
       desc: ['Building a home where anyone can share the tools they build with AI, and others can learn how they did it.', '打造一個讓任何人都能分享自己用 AI 做的工具、也讓其他人學到做法的地方。'] },
     { i: '👩‍🏫', when: ['Jun 2025 – now', '2025 年 6 月 – 迄今'], what: ['NTU CSIE Training Program', '臺大資訊系統訓練班'], role: ['Lecturer · 2025 Outstanding Lecturer', '講師 · 2025 優良講師'],
-      desc: ['Teaching Java, Python, statistics and data analysis. Statistics and OOP courses rated 5.0 / 5.', '教授 Java、Python、統計與資料分析，統計與物件導向課程評分 5.0 / 5。'] },
+      desc: ['Teaching Java, Python, statistics and data analysis. Statistics and OOP courses rated 5.0 / 5.0.', '教授 Java、Python、統計與資料分析，統計與物件導向課程評分 5.0 / 5.0。'] },
     { i: '📝', when: ['2026', '2026'], what: ['IEEE TEVC', 'IEEE TEVC'], role: ['Journal Reviewer', '期刊審稿人'],
       desc: ['Reviewer for the IEEE Transactions on Evolutionary Computation.', '擔任 IEEE Transactions on Evolutionary Computation 期刊審稿人。'] },
     { i: '🧬', when: ['Jun 2024 – May 2025', '2024 年 6 月 – 2025 年 5 月'], what: ['MIT, USA', '美國麻省理工學院 (MIT)'], role: ['Visiting Student', '訪問學生'],
@@ -1969,7 +1969,8 @@
   ];
   var row = document.createElement('div');
   row.className = 'magic-cards';
-  hero.parentNode.insertBefore(row, hero);
+  var feats = hero.querySelectorAll('.featured'), lastFeat = feats[feats.length - 1];
+  if (lastFeat) lastFeat.parentNode.insertBefore(row, lastFeat.nextSibling); else hero.parentNode.insertBefore(row, hero.nextSibling);
   function zh() { return root.lang === 'zh-Hant'; }
   function draw() {
     var L = function (p) { return zh() ? p[1] : p[0]; };
